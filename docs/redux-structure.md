@@ -71,15 +71,40 @@
   - GET /api/orgs is called with user's location info.
   - receiveHomeSuggestions is set as the success callback.
 
+- fetchSingleOrg
+  - invoked from OrgDetail didMount/willReceiveProps
+  - GET /api/orgs/:id is called.
+  - receiveSingleOrg is set as the success callback.
+
 - fetchFavorites
   - invoked from Favorites didMount/willReceiveProps.
   - GET /api/users/:id/favorites.
   - receiveFavorites is set as the success callback.
 
+- createFavorite
+  - invoked from favorite button onClick
+  - POST /api/favorites is called.
+  - receiveFavorites is set as the success callback.
+
+- destroyFavorite
+  - invoked from favorite button onClick
+  - DELETE /api/favorites/:id is called.
+  - removeFavorite is set as the success callback.
+
 - fetchFollowings
   - invoked from Following didMount/willReceiveProps.
   - GET /api/users/:id/followings.
-  - receiveFavorites is set as the success callback.
+  - receiveFollowings is set as the success callback.
+
+- createFollowing
+  - invoked from following button onClick
+  - POST /api/followings is called.
+  - receiveFollowings is set as the success callback.
+
+- destroyFollowing
+  - invoked from following button onClick
+  - DELETE /api/followings/:id is called.
+  - removeFollowing is set as the success callback.
 
 ### User Requesting Organizations Response Actions
 
@@ -87,67 +112,22 @@
   - invoked from an API callback
   - the OrgsReducer updates organizations in the application's state.
 
-- receiveFavorites
+- receiveSingleOrg
+  - invoked from an API callback
+  - the OrgsReducer updates orgs[id] in the application's state.
+
+- receiveFavorite
   - invoked from an API callback
   - the FavoritesReducer updates favorites[id] in the application's state.
 
-- removeNote
+- removeFavorite
   - invoked from an API callback
   - the FavoritesReducer removes favorites[id] from the application's state.
 
-- receiveFollowings
+- receiveFollowing
   - invoked from an API callback
   - the FollowingsReducer updates following[id] in the application's state.
 
-- removeNote
+- removeFollowing
   - invoked from an API callback
   - the FollowingsReducer removes following[id] from the application's state.
-
-
-
-
-
-Notebook Cycles
-
-Notebooks API Request Actions
-
-fetchAllNotebooks
-
-invoked from NotebooksIndex didMount/willReceiveProps
-GET /api/notebooks is called.
-receiveAllNotebooks is set as the success callback.
-createNotebook
-
-invoked from new notebook button onClick
-POST /api/notebooks is called.
-receiveSingleNotebook is set as the callback.
-fetchSingleNotebook
-
-invoked from NotebookDetail didMount/willReceiveProps
-GET /api/notebooks/:id is called.
-receiveSingleNotebook is set as the success callback.
-updateNotebook
-
-invoked from NotebookForm onSubmit
-POST /api/notebooks is called.
-receiveSingleNotebook is set as the success callback.
-destroyNotebook
-
-invoked from delete notebook button onClick
-DELETE /api/notebooks/:id is called.
-removeNotebook is set as the success callback.
-Notebooks API Response Actions
-
-receiveAllNotebooks
-
-invoked from an API callback.
-The Notebook reducer updates notebooks in the application's state.
-receiveSingleNotebook
-
-invoked from an API callback.
-The Notebook reducer updates notebooks[id] in the application's state.
-removeNotebook
-
-invoked from an API callback.
-The Notebook reducer removes notebooks[id] from the application's state.
-SearchSuggestion Cycles
