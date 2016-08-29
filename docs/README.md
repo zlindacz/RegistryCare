@@ -21,10 +21,10 @@ The application will enjoy smooth, bug-free navigation, sufficient CSS styling, 
 
 ### Design Docs
 
-- [View Wireframs](./wireframes)
-- [React Components](./components_hierarchy)
-- [API endpoints](./api_endpoints)
-- [DB Schema](./schema)
-- [Redux Structure](./redux-structure)
-- [Sample State](./sample-state)
-- [Implementation Timeline](./timeline)
+- [View Wireframs](docs/wireframes)
+- [React Components](docs/components_hierarchy.md)
+- [API endpoints](docs/api_endpoints)
+- [DB Schema](docs/schema)
+- [Redux Structure](docs/redux-structure)
+- [Sample State](docs/sample-state)
+- [Implementation Timeline](docs/timeline)
