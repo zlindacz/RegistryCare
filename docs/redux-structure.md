@@ -54,7 +54,7 @@
 ## Search Cycles
 
 -fetchSearchSuggestions
-  - invoked from Give or SearchBar onSubmit from the User HomeDisplay .
+  - invoked from Give or SearchBar onSubmit from the Find tab on User HomeDisplay.
   - GET /api/orgs is called with text params.
   - receiveSearchSuggestions is set as the success callback.
 
@@ -62,50 +62,51 @@
   - invoked from an API callback.
   - the SearchSuggestion reducer updates suggestions in the application's state.
 
+## User-Request-Organizations Cycles
+
+### User Requesting Organizations Request Response
+
+- fetchHomeDisplaySuggestions
+  - invoked from App in didMount.
+  - GET /api/orgs is called with user's location info.
+  - receiveHomeSuggestions is set as the success callback.
+
+- fetchFavorites
+  - invoked from Favorites didMount/willReceiveProps.
+  - GET /api/users/:id/favorites.
+  - receiveFavorites is set as the success callback.
+
+- fetchFollowings
+  - invoked from Following didMount/willReceiveProps.
+  - GET /api/users/:id/followings.
+  - receiveFavorites is set as the success callback.
+
+### User Requesting Organizations Response Actions
+
+- receiveHomeSuggestions
+  - invoked from an API callback
+  - the OrgsReducer updates organizations in the application's state.
+
+- receiveFavorites
+  - invoked from an API callback
+  - the FavoritesReducer updates favorites[id] in the application's state.
+
+- removeNote
+  - invoked from an API callback
+  - the FavoritesReducer removes favorites[id] from the application's state.
+
+- receiveFollowings
+  - invoked from an API callback
+  - the FollowingsReducer updates following[id] in the application's state.
+
+- removeNote
+  - invoked from an API callback
+  - the FollowingsReducer removes following[id] from the application's state.
 
 
 
-Notes API Request Actions
 
-fetchAllNotes
 
-invoked from NotesIndex didMount/willReceiveProps
-GET /api/notes is called.
-receiveAllNotes is set as the success callback.
-createNote
-
-invoked from new note button onClick
-POST /api/notes is called.
-receiveSingleNote is set as the success callback.
-fetchSingleNote
-
-invoked from NoteDetail didMount/willReceiveProps
-GET /api/notes/:id is called.
-receiveSingleNote is set as the success callback.
-updateNote
-
-invoked from NoteForm onSubmit
-POST /api/notes is called.
-receiveSingleNote is set as the success callback.
-destroyNote
-
-invoked from delete note button onClick
-DELETE /api/notes/:id is called.
-removeNote is set as the success callback.
-Notes API Response Actions
-
-receiveAllNotes
-
-invoked from an API callback
-the NoteReducer updates notes in the application's state.
-receiveSingleNote
-
-invoked from an API callback
-the NoteReducer updates notes[id] in the application's state.
-removeNote
-
-invoked from an API callback
-the NoteReducer removes notes[id] from the application's state.
 Notebook Cycles
 
 Notebooks API Request Actions
