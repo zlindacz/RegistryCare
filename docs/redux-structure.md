@@ -51,7 +51,19 @@
   - the ErrorReducer removes errors for a given form in the application's state.
 
 
-Search Cycles
+## Search Cycles
+
+-fetchSearchSuggestions
+  - invoked from Give or SearchBar onSubmit from the User HomeDisplay .
+  - GET /api/orgs is called with text params.
+  - receiveSearchSuggestions is set as the success callback.
+
+- receiveSearchSuggestions
+  - invoked from an API callback.
+  - the SearchSuggestion reducer updates suggestions in the application's state.
+
+
+
 
 Notes API Request Actions
 
@@ -138,17 +150,3 @@ removeNotebook
 invoked from an API callback.
 The Notebook reducer removes notebooks[id] from the application's state.
 SearchSuggestion Cycles
-
-fetchSearchSuggestions
-
-invoked from NoteSearchBar onChange when there is text
-GET /api/notes is called with text param.
-receiveSearchSuggestions is set as the success callback.
-receiveSearchSuggestions
-
-invoked from an API callback.
-The SearchSuggestion reducer updates suggestions in the application's state.
-removeSearchSuggestions
-
-invoked from NoteSearchBar onChange when empty
-The SearchSuggestion reducer resets suggestions in the application's state.
