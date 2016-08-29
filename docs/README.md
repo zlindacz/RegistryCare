@@ -17,3 +17,13 @@ The finished app will satisfy the following criteria with smooth, bug-free navig
  - Follows for users to get updates from organizations
  - Tags for items requested by organizations
  - A production README
+
+
+
+### Bonus Features (TBD)
+
+ - User has the choice to make their profile private
+ - Monetary donations (Credit Card/PayPal)
+ - User can get notifications from followed organizations
+ - User can makes note of what items they donated, and to which organizations, along with timestamps and estimated value for tax purposes
+ - User can log in with facebook or google accounts
