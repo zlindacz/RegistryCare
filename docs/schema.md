@@ -4,28 +4,43 @@
 | column name  | data type | details |
 |:-----:|:---------:|:---------:|
 | id | integer | not null, primary key |
-| fname | string | not null |
-| lname | string | not null |
-| username | string | not null, indexed, unique |
-| email | string | not null, indexed, unique |
+| name | string | not null, indexed, unique |
+| email | string | not null, unique |
+| address | string | not null |
+| photo | string | not null, default: "heart.png" |
 | description | text | not null |
-| password_digest | string | not null |
+| password_digest | string | not null, unique |
 | session_token | string | not null, indexed, unique |
 
-### tags (item)
+### item_tags
 
 | column name  | data type | details |
 |:-----:|:---------:|:---------:|
 | id | integer | not null, primary key |
-| name | string | not null |
+| name | string | not null, unique |
 
-### taggings
+### item_taggings
 
 | column name  | data type | details |
 |:-----:|:---------:|:---------:|
 | id | integer | not null, primary key |
-| user_id | integer | not null, foreign key (references users), indexed, unique(tag id) |
-| tag_id | integer | not null, foreign key (references users), indexed |
+| user_id | integer | not null, foreign key (references users), indexed, unique(item_tag_id) |
+| item_tag_id | integer | not null, foreign key (references users), indexed |
+
+### category_tags
+
+| column name  | data type | details |
+|:-----:|:---------:|:---------:|
+| id | integer | not null, primary key |
+| name | string | not null, unique |
+
+### category_taggings
+
+| column name  | data type | details |
+|:-----:|:---------:|:---------:|
+| id | integer | not null, primary key |
+| user_id | integer | not null, foreign key (references users), indexed, unique(item_tag_id) |
+| category_tag_id | integer | not null, foreign key (references users), indexed |
 
 ### pledges
 

@@ -53,7 +53,7 @@ __Objective__: Users make donations to other Users via pledges, and can browse o
 - Front end
 - Styling
 
-#### Phase V: Finish the dashboard, and touching up (w9d5, 1 day)
+#### Phase V: Finish the dashboard, and touch up (w9d5, 1 day)
 
 __Objective__: Dashboard's saved donations
 
