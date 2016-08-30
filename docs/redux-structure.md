@@ -131,3 +131,24 @@
 - removeFollowing
   - invoked from an API callback
   - the FollowingsReducer removes following[id] from the application's state.
+
+
+## Organization Request Cycles
+
+### Organization Items Request Response
+
+- fetchItems
+  - invoked from App in didMount.
+  - GET /api/orgs/:id/items is called.
+  - receiveItems is set as the success callback.
+
+- fetchSingleOrg
+  - invoked from OrgDetail didMount/willReceiveProps
+  - GET /api/orgs/:id is called.
+  - receiveSingleOrg is set as the success callback.
+
+### User Requesting Organizations Response Actions
+
+- receiveItems
+  - invoked from an API callback
+  - the ItemsReducer updates organizations in the application's state.
