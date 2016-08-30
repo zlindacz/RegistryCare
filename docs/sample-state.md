@@ -3,47 +3,24 @@
 {
   currentUser: {
     id: 1,
-    fname: "june",
-    lname: "johnson",
-    email: "jjohnson@email.com",
-    username: "junejohnson86"
+    name: "treehouse",
+    email: "contact@treehouse.org",
+    address: "1236 Arbor Court, Wheatland, MO 63146 ",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris."
   },
   forms: {
     signUp: {errors: []},
     logIn: {errors: []},
     search: {errors: []},
+  },
+  category: {
+    name: "Youth"
   },
   items: {
     1: {
-      name: "Shoes",
-    }
-  },
-  favortings: [1],
-  followings: [5, 9, 13],
-  taggings: [2, 3, 10]
-}
-
-<!-- organization -->
-{
-  currentUser: {
-    id: 4,
-    name: "happychildren",
-    email: "contact@happychildren.org",
-    address: "636 Charles Way, Lexington, MA, 02401"
-  },
-  forms: {
-    signUp: {errors: []},
-    logIn: {errors: []},
-    search: {errors: []},
-  },
-  items: {
-    6: {
-      name: "Swim"
-    },
-    7: {
       name: "Shoes"
     },
-    14: {
+    2: {
       name: "Toys"
     }
   }

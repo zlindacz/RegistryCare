@@ -10,28 +10,21 @@
 - POST /api/users
 - PATCH /api/users
 
-#### Org
-- GET /api/org
-- POST /api/org
-- PATCH /api/org
-
 #### Session
 - GET /api/session
 - POST /api/session
 - DELETE /api/session
 
 #### Tags
-Items tags will be nested under organizations and viewed on org's show page or mini displays of orgs in search results or users' favorites or follows page
+Items tags will be nested under users and viewed on the index or show page, and will be used to filter search results
+
 GET /api/tags (for search purposes)
 POST /api/user/:id/items_tags (from user sign up page)
 PATCH /api/tags
 
-#### Favorites
-GET /api/user/:id/favorites
-POST /api/user/:id/favorites
-DELETE /api/user/:id/favorites (un-star)
+#### Pledges
+Join table between user and other users
 
-#### Follows
-GET /api/user/:id/follows
-POST /api/user/:id/favorites
-DELETE /api/user/:id/follow
+GET /api/user/:id/pledges
+POST /api/user/:id/pledges
+DELETE /api/user/:id/pledges

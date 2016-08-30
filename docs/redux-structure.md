@@ -7,11 +7,6 @@
   - POST /api/users is called
   - receiveCurrentUser is set as the success callback
 
-- SignUpOrg
-  - invoked from SignupDisplay onSubmit
-  - POST /api/orgs is called
-  - receiveCurrentUser is set as the success callback
-
 - LogInForm
   - invoked from LogInForm onSubmit
   - POST /api/session is called.
@@ -64,91 +59,70 @@
 
 ## User-Request-Organizations Cycles
 
-### User Requesting Organizations Request Response
+### User Request Response
 
-- fetchHomeDisplaySuggestions
+- fetchSingleUser
+  - invoked from Profile onClick didMount/willReceiveProps
+  - GET /api/user/:id is called.
+  - receiveSingleUser is set as the success callback.
+
+- fetchOtherUser
+  - invoked from other_user onClick willReceiveProps
+  - GET /api/user/:id is called.
+  - receiveOtherUser is set as the success callback.
+
+- fetchRegistryDisplay
   - invoked from App in didMount.
-  - GET /api/orgs is called with user's location info.
-  - receiveHomeSuggestions is set as the success callback.
+  - GET /api/user/:id/registry is called with user info.
+  - receiveRegistryDisplay is set as the success callback.
 
-- fetchSingleOrg
-  - invoked from OrgDetail didMount/willReceiveProps
-  - GET /api/orgs/:id is called.
-  - receiveSingleOrg is set as the success callback.
-
-- fetchFavorites
-  - invoked from Favorites didMount/willReceiveProps.
+- fetchPledges
+  - invoked from Browse didMount/willReceiveProps.
   - GET /api/users/:id/favorites.
-  - receiveFavorites is set as the success callback.
+  - receivePledges is set as the success callback.
 
-- createFavorite
+- createPledge
   - invoked from favorite button onClick
-  - POST /api/favorites is called.
-  - receiveFavorites is set as the success callback.
+  - POST /api/pledges is called.
+  - receiveSinglePledge is set as the success callback.
 
-- destroyFavorite
+- destroyPledge
   - invoked from favorite button onClick
-  - DELETE /api/favorites/:id is called.
-  - removeFavorite is set as the success callback.
+  - DELETE /api/pledges/:id is called.
+  - removePledge is set as the success callback.
 
-- fetchFollowings
-  - invoked from Following didMount/willReceiveProps.
-  - GET /api/users/:id/followings.
-  - receiveFollowings is set as the success callback.
-
-- createFollowing
-  - invoked from following button onClick
-  - POST /api/followings is called.
-  - receiveFollowings is set as the success callback.
-
-- destroyFollowing
-  - invoked from following button onClick
-  - DELETE /api/followings/:id is called.
-  - removeFollowing is set as the success callback.
-
-### User Requesting Organizations Response Actions
-
-- receiveHomeSuggestions
-  - invoked from an API callback
-  - the OrgsReducer updates organizations in the application's state.
-
-- receiveSingleOrg
-  - invoked from an API callback
-  - the OrgsReducer updates orgs[id] in the application's state.
-
-- receiveFavorite
-  - invoked from an API callback
-  - the FavoritesReducer updates favorites[id] in the application's state.
-
-- removeFavorite
-  - invoked from an API callback
-  - the FavoritesReducer removes favorites[id] from the application's state.
-
-- receiveFollowing
-  - invoked from an API callback
-  - the FollowingsReducer updates following[id] in the application's state.
-
-- removeFollowing
-  - invoked from an API callback
-  - the FollowingsReducer removes following[id] from the application's state.
-
-
-## Organization Request Cycles
-
-### Organization Items Request Response
-
-- fetchItems
+- fetchDonationsDisplay
   - invoked from App in didMount.
-  - GET /api/orgs/:id/items is called.
-  - receiveItems is set as the success callback.
+  - GET /api/user/:id/registry is called with user info.
+  - receiveDonationsDisplay is set as the success callback.
 
-- fetchSingleOrg
-  - invoked from OrgDetail didMount/willReceiveProps
-  - GET /api/orgs/:id is called.
-  - receiveSingleOrg is set as the success callback.
 
 ### User Requesting Organizations Response Actions
 
-- receiveItems
+- receiveRegistryDisplay
   - invoked from an API callback
-  - the ItemsReducer updates organizations in the application's state.
+  - the RegistryReducer updates user[id] registry in the application's state.
+
+- receiveSingleUser
+  - invoked from an API callback
+  - the UserReducer updates user[id] in the application's state.
+
+- receiveOtherUser
+  - invoked from an API callback
+  - the OtherUserReducer updates other_user[id] in the application's state.
+
+- receiveSinglePledge
+  - invoked from an API callback
+  - the PledgesReducer updates pledge[id] in the application's state.
+
+- receivePledges
+  - invoked from an API callback
+  - the PledgesReducer updates pledges in the application's state.
+
+- removePledge
+  - invoked from an API callback
+  - the PledgesReducer removes pledges[id] from the application's state.
+
+- receiveDonationsDisplay
+  - invoked from an API callback
+  - the UserReducer updates user[id] donations in the application's state.
