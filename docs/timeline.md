@@ -13,64 +13,52 @@ __Objective__: Functioning rails project with front-end Authentication for User
 - Redux cycle for fontend authentication for User
 - User Log In components
 - User Sign Up components
+- Set up demo
 - Style components
-- Seed 3 users
+- Seed 5 users
 
 
-#### Phase II: Backend setup and Front End Organization Authentication (w8d4-5, 2 days)
+#### Phase II: Create registry and enable CRUD (w8d4-5, 2 days)
 
-__Objective__: Functioning rails project with front-end Authentication for Organization
+__Objective__: Users can edit their registry to update name, address, password, description, items needed, and photo
 
-- Organization model/migration
-- Back end authentication (session/password) for both
-- Errors
-- StaticPages controller and root views
-- Webpack & react/redux modules
-- APIUtil to interact with the API
-- Redux cycle for fontend authentication for Organization
-- Organization Log In components
-- Organization Sign Up components
+- Registry model
+- Seed database with test data
+- CRUD API for registries
+- jBuilder views for registries
+- Registry components and respective Redux loops
 - Style components
-- Seed 3-5 organizations
 
 
-#### Phase III: Set up favorites and followings (w8d7-1, 2 days)
+#### Phase III: Create join tables for pledges, and create the registry index (w9d1-2, 2 days)
 
-__Objective__: Users can add/remove organizations to/from their favorites/followings lists
+__Objective__: Users make donations to other Users via pledges, and can browse other Users through the index.
 
-- Favorites and Follows models and join models Favortings and Followings
-- Back end for both, user able to favorite/delete and remove those associations
-- Make the buttons and stars on the orgs cards work
-- Webpack & react/redux modules
-- APIUtils to interact with the APIs
-- Redux cycle for frontend
+- pledges model
+- seed database
+- ability to create and delete pledges
+- React components and Redux loops to make listings responsive to toggling pledging
+- RegistryIndex
+- RegistryIndexItem
 - Style components
-- Seed databases with more orgs, users, favoritings, and followings
 
+#### Phase IV: Finish the Index and start the Dashboard (w9d3-4, 2 days)
 
-#### Phase V: Search and incorporate Google Maps (w9d2-4, 3 days)
+__Objective__: Users make donations to other Users via pledges, and can browse other Users through the index.
 
-__Objective__: Users and Orgs can search for organizations by inputting organization's name, items of interest, or organization's focus, and limit the results to around the user's location by State, city, or zip code (and current location for homeDisplay)
+- Improve index with React Masonry
+- Make the necessary React components and Redux loops
+- Implement search function (filtering by issue or items on the backend)
+- Dashboard shows current pledges
+- Front end
+- Styling
 
-- Create OrgMap component
-- Create parent component Search (in all pages for "Give" & User "Find" tab)
-- Attach a Google map to OrgMap
-- Implement map markers for organizations
-- Create MarkerManager in util
-- Connect OrgMap with MarkerManager
-- Webpack & react/redux modules
-- APIUtils to interact with the APIs
-- Backend containers, actions, reducers, middleware
-- Redux cycle for frontend
-- Style components
-- Seed databases with more users and orgs in different locations
-- test functionality
+#### Phase V: Finish the dashboard, and touching up (w9d5, 1 day)
 
+__Objective__: Dashboard's saved donations
 
-#### Phase VI: Touching up (W9d5, 1 day)
-
-__Objective__:
-
+- Dashboard shows past donations
+- Front end and styling
 - Create tour buttons' functionality and routes
 - Add 'How it Works' page
 - Add more seeds for both User and Organization all over the country (scrape listings of non-profits)
@@ -79,10 +67,10 @@ __Objective__:
 ### Bonus Features (TBD)
 
 - User has the choice to make their profile private
-- Monetary donations (Credit Card/PayPal)
-- User can get notifications from followed organizations
+- Search with location data
+- Google Maps API
 - Implement filtering by Map Location, items, or organization's focus
-- User can makes note of what items they donated, and to which organizations, along with timestamps and estimated value for tax purposes
+- Monetary donations (Credit Card/PayPal)
 - User can sign up/log in with facebook and google accounts
 - Make profile page's categories collapsible/expandable
 - Improve UX
