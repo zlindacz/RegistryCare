@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-  validates :name, :email, :address, :photo, :description, :password_digest, :session_token, presence: true
-  validates :name, :email, :password_digest, :session_token, uniqueness: true
-  validates :password, length: {minimum: 6, allow_nil: true}
+  validates :username, :organization_name, :email, :address1, :address2, :city, :state, :zipcode, :photo, :description, :password_digest, :session_token, presence: true
+  validates :name, :organization_name, :email, :password_digest, :session_token, uniqueness: true
+  validates :zipcode, length: { is: 5 }
+  validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
 
