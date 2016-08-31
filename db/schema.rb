@@ -17,17 +17,22 @@ ActiveRecord::Schema.define(version: 20160830161205) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",                                  null: false
-    t.string   "email",                                 null: false
-    t.string   "address",                               null: false
-    t.string   "photo",           default: "heart.png", null: false
-    t.text     "description",                           null: false
-    t.string   "password_digest",                       null: false
-    t.string   "session_token",                         null: false
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "organization_name",                                 null: false
+    t.string   "username",                                          null: false
+    t.string   "email",                                             null: false
+    t.string   "address1",                                          null: false
+    t.string   "address2",                                          null: false
+    t.string   "city",                                              null: false
+    t.string   "state",                                             null: false
+    t.string   "zipcode",           limit: 5,                       null: false
+    t.string   "photo",                       default: "heart.png", null: false
+    t.text     "description",                                       null: false
+    t.string   "password_digest",   limit: 5,                       null: false
+    t.string   "session_token",                                     null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
-  add_index "users", ["name", "email"], name: "index_users_on_name_and_email", unique: true, using: :btree
+  add_index "users", ["username", "email"], name: "index_users_on_username_and_email", unique: true, using: :btree
 
 end
