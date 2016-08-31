@@ -7,10 +7,10 @@ __Objective__: Functioning rails project with front-end Authentication for User
 - New Rails project Registry Care
 - User model/migration
 - Back end User authentication (session/password)
+- Redux cycle for fontend authentication for User
 - StaticPages controller and root views
 - Webpack & react/redux modules
 - APIUtil to interact with the API
-- Redux cycle for fontend authentication for User
 - User Log In components
 - User Sign Up components
 - Set up demo

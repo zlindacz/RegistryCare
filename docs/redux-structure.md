@@ -17,7 +17,7 @@
   - DELETE /api/session is called.
   - removeCurrentUser is set as the success callback.
 
-- fetchCurrentUser
+- requestCurrentUser
   - invoked from App in didMount
   - GET /api/session is called.
   - receiveCurrentUser is set as the success callback.
@@ -48,7 +48,7 @@
 
 ## Search Cycles
 
--fetchSearchSuggestions
+-requestSearchSuggestions
   - invoked from Give or SearchBar onSubmit from the Find tab on User HomeDisplay.
   - GET /api/orgs is called with text params.
   - receiveSearchSuggestions is set as the success callback.
@@ -61,22 +61,27 @@
 
 ### User Request Response
 
-- fetchSingleUser
+- requestSingleUser
   - invoked from Profile onClick didMount/willReceiveProps
   - GET /api/user/:id is called.
   - receiveSingleUser is set as the success callback.
 
-- fetchOtherUser
+- requestOtherUser
   - invoked from other_user onClick willReceiveProps
   - GET /api/user/:id is called.
   - receiveOtherUser is set as the success callback.
 
-- fetchRegistryDisplay
+- requestUsers
+  - invoked from Browse onClick didMount/willReceiveProps
+  - GET /api/users is called.
+  - receiveUsers is set as the success callback.
+
+- requestRegistryDisplay
   - invoked from App in didMount.
   - GET /api/user/:id/registry is called with user info.
   - receiveRegistryDisplay is set as the success callback.
 
-- fetchPledges
+- requestPledges
   - invoked from Browse didMount/willReceiveProps.
   - GET /api/users/:id/favorites.
   - receivePledges is set as the success callback.
@@ -91,17 +96,13 @@
   - DELETE /api/pledges/:id is called.
   - removePledge is set as the success callback.
 
-- fetchDonationsDisplay
+- requestDonationsDisplay
   - invoked from App in didMount.
   - GET /api/user/:id/registry is called with user info.
   - receiveDonationsDisplay is set as the success callback.
 
 
-### User Requesting Organizations Response Actions
-
-- receiveRegistryDisplay
-  - invoked from an API callback
-  - the RegistryReducer updates user[id] registry in the application's state.
+### User Request Response Actions
 
 - receiveSingleUser
   - invoked from an API callback
@@ -109,19 +110,27 @@
 
 - receiveOtherUser
   - invoked from an API callback
-  - the OtherUserReducer updates other_user[id] in the application's state.
+  - the UserReducer updates user[id] in the application's state.
+
+- receiveUsers
+  - invoked from an API callback
+  - the UserReducer updates users in the application's state.
+
+- receiveRegistryDisplay
+  - invoked from an API callback
+  - the RegistryReducer updates user[id] registry in the application's state.
 
 - receiveSinglePledge
   - invoked from an API callback
-  - the PledgesReducer updates pledge[id] in the application's state.
+  - the PledgeReducer updates pledge[id] in the application's state.
 
 - receivePledges
   - invoked from an API callback
-  - the PledgesReducer updates pledges in the application's state.
+  - the PledgeReducer updates pledges in the application's state.
 
 - removePledge
   - invoked from an API callback
-  - the PledgesReducer removes pledges[id] from the application's state.
+  - the PledgeReducer removes pledges[id] from the application's state.
 
 - receiveDonationsDisplay
   - invoked from an API callback

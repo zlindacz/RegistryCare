@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   def password= password
     @password = password
-    self.password_digest = BCrypt::Password.cr eate(@password)
+    self.password_digest = BCrypt::Password.create(@password)
   end
 
   def is_password?(password)
@@ -30,6 +30,6 @@ class User < ActiveRecord::Base
   private
 
   def ensure_session_token
-    self.session_token || SecureRandom::urlsafe_base64(32)
+    self.session_token ||= SecureRandom::urlsafe_base64(32)
   end
 end
