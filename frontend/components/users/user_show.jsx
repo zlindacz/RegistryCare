@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class UserShow extends React.Component {
   componentDidMount(){
@@ -11,3 +12,5 @@ class UserShow extends React.Component {
     </div>
   }
 };
+
+export default withRouter(UserShow);

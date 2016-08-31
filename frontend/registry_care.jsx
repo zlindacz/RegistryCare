@@ -5,6 +5,7 @@ import {signup} from './util/session_api_util';
 import {login} from './util/session_api_util';
 import {logout} from './util/session_api_util';
 import {receiveCurrentUser} from './actions/session_actions';
+import Root from './components/root';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
@@ -13,6 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login;
   window.logout = logout;
   window.receiveCurrentUser = receiveCurrentUser;
-  const root = document.getElementById('root');
+  const root = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, root);
 });
