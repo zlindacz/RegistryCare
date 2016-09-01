@@ -1,5 +1,7 @@
 import React from 'react';
 import FileInput from 'react-file-input';
+import lodash from 'lodash';
+window.lodash = lodash
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -17,22 +19,42 @@ class SignupForm extends React.Component {
       state: "",
       zipcode: "",
       photo: "",
-      category: "",
-      items: []
+      category: ['AIDS', 'Animals', 'Arts & Culture', 'Breast Cancer',
+                 'Bullying', 'Cancer', 'Childhood Obesity', 'Children & Youth',
+                 'Civil Rights', 'Climate Change', 'Crime & Law', 'Cyber Security',
+                 'Disabilities', 'Disaster Aid', 'Domestic Violence', 'Education',
+                 'Environment', 'Food', 'Gun Control', 'Homeless & Housing',
+                 'Human Trafficking', 'Immigration', 'LGBTQ', 'Literacy', 'Mental Health',
+                 'Refugees', 'Religion', 'Reproductive Rights', 'Seniors', 'Veterans',
+                 'Voting Rights', 'Water', 'Women'],
+      items: {CLOTHES: ['Tops', 'Bottoms', 'Dresses', 'Outerwear', 'Sleepwear',
+                        'Swim', 'Shoes', 'Accessories'],
+              HOUSEHOLD: ['Electrical', 'Furniture', 'Computer', 'Kitchen',
+                          'Vehicle', 'Toys', 'Books', 'Miscellaneous'],
+              VOLUNTEER: ['No Preferences', 'Events', 'Mentor', 'Tutor']
+              }
     }
     this.update = this.update.bind(this);
-    this.addItem = this.addItem.bind(this);
+    this.addCategory = this.addCategory.bind(this);
+    this.updateItems = this.updateItems.bind(this);
+    this.submitCategoryForm = this.submitCategoryForm.bind(this);
+    this.renderCategories = this.renderCategories.bind(this);
+    this.renderItems = this.renderItems.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.componentDidUpdate = this.componentDidUpdate.bind(this);
-    this.readURL = this.readURL.bind(this);
+    this.uploadImg = this.uploadImg.bind(this);
   }
 
   update(field) {
     return e => { this.setState({[field]: e.currentTarget.value}); };
   }
 
-  addItem() {
-    return e => { this.setState({items: this.state.items.concat(e.currentTarget.value)}); };
+  addCategory() {
+    return e => { this.setState({category: this.state.category.concat(e.currentTarget.value)}); };
+  }
+
+  updateItems(itemType) {
+    return e => { this.setState({items: this.state.items.itemType.concat(e.currentTarget.value)}); };
   }
 
   componentDidUpdate() {
@@ -53,8 +75,8 @@ class SignupForm extends React.Component {
   //   }
   // }
 
-  readURL() {
-    return e => {console.log('Selected file:', e.target.files[0]); }
+  uploadImg() {
+    return e => { console.log('Selected file:', e.target.files[0]);};
   }
 
   goToForm2(e) {
@@ -67,11 +89,89 @@ class SignupForm extends React.Component {
     return e => { this.setState({showForm2: "none", showForm3: "inherit"}); };
   }
 
+  submitCategoryForm(e) {
+    e.preventDefault();
+    return e => { this.addCategory(e.currentTarget.value) };
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.setState({showForm3: false});
     const user = this.state;
     this.props.signup({user});
+  }
+
+  renderCategories() {
+    this.state.category.map((category) => {
+      return(
+        <div>
+          <option value={category} onChange={this.addCategory(category)} className="signup-select-box">
+            {category}
+          </option>
+        </div>
+      );
+    });
+  }
+
+  // renderItems() {
+  //   debugger
+  //   const itemType = Object.keys(this.state.items);
+  //
+  //   const categorizedItems = itemType.map((type) => {
+  //     return(
+  //       <div>
+  //         <h1 className="checkbox-title">{type}</h1>
+  //         {this.state.items[type].map((item) => {
+  //           const idNumber = this.state.items.values.indexOf(item);
+  //           return(
+  //             <div>
+  //               <input type="checkbox" onChange={this.updateItems(type)} className="signup-checkbox" id={`cbox${idNumber}`} value={item} />
+  //               <label for={`cbox${idNumber}`}>{item}</label>
+  //             </div>
+  //           )
+  //         })
+  //       }
+  //       </div>
+  //     );
+  //   })
+  //   return(
+  //     {categorizedItems}
+  //   );
+  // }
+
+  makeCheckboxes(type) {
+    const itemType = Object.keys(this.state.items);
+    const itemsArray = this.state.items[itemType[0]].concat(
+                       this.state.items[itemType[1]].concat(
+                       this.state.items[itemType[2]]
+                     )
+    )
+    return this.state.items[type].map((item) => {
+      const idNumber = itemsArray.indexOf(item);
+      return(
+        <div>
+          <input type="checkbox" onChange={this.updateItems(type)} className="signup-checkbox" id={`cbox${idNumber}`} value={item} />
+          <label for={`cbox${idNumber}`}>{item}</label>
+        </div>
+      )
+    })
+  }
+
+  renderItems() {
+    const itemType = Object.keys(this.state.items);
+
+    const allItems = itemType.map((type) => {
+      return(
+        <div>
+          <h1 className="checkbox-title">{type}</h1>
+          {this.makeCheckboxes.bind(this, type)()}
+        </div>
+      );
+    })
+
+    return(
+      {allItems}
+    );
   }
 
   render() {
@@ -80,6 +180,7 @@ class SignupForm extends React.Component {
         <h1>Sign Up</h1>
 
         <form onSubmit={ this.goToForm2 } className="showForm1">
+
           <input type="text" onChange={this.update("organization_name")} className="signup-input-field" placeholder="Organization Name" />
 
           <input type="text" onChange={this.update("username")} className="signup-input-field" placeholder="Username" />
@@ -102,88 +203,81 @@ class SignupForm extends React.Component {
 
         <form onSubmit={ this.goToForm3 } className="showForm2">
           <h1>Sign Up</h1>
-          <FileInput accept=".png,.gif,.jpeg" className="upload-profile-img" onChange={this.readURL()} placeholder="Profile Picture"/>
-          <input type="submit" value="Next" />
+          <FileInput accept=".png,.gif,.jpeg" className="upload-profile-img" onChange={this.uploadImg()} placeholder="Profile Picture" />
         </form>
 
         <form onSubmit={ this.handleSubmit } className="showForm3">
+          <h1>Sign Up</h1>
           <textarea onChange={this.update("description")} className="signup-input-field" value="Description" />
 
           <select value="Select Category" className="signup-select">
-            <option value="AIDS" onChange={this.update("category")} className="signup-select-box" className="signup-select-box">AIDS</option>
-            <option value="Animals" onChange={this.update("category")} className="signup-select-box">Animals</option>
-            <option value="Arts & Culture" onChange={this.update("category")} className="signup-select-box">Arts & Culture</option>
-            <option value="Breast Cancer" onChange={this.update("category")} className="signup-select-box">Breast Cancer</option>
-            <option value="Bullying" onChange={this.update("category")} className="signup-select-box">Bullying</option>
-            <option value="Cancer" onChange={this.update("category")} className="signup-select-box">Cancer</option>
-            <option value="Childhood Obesity" onChange={this.update("category")} className="signup-select-box">Childhood Obesity</option>
-            <option value="Children & Youth" onChange={this.update("category")} className="signup-select-box">Children & Youth</option>
-            <option value="Civil Rights" onChange={this.update("category")} className="signup-select-box">Civil Rights</option>
-            <option value="Climate Change" onChange={this.update("category")} className="signup-select-box">Climate Change</option>
-            <option value="Crime & Law" onChange={this.update("category")} className="signup-select-box">Crime & Law</option>
-            <option value="Cyber Security" onChange={this.update("category")} className="signup-select-box">Cyber Security</option>
-            <option value="Disabilities" onChange={this.update("category")} className="signup-select-box">Disabilities</option>
-            <option value="Disaster Aid" onChange={this.update("category")} className="signup-select-box">Disaster Aid</option>
-            <option value="Domestic Violence" onChange={this.update("category")} className="signup-select-box">Domestic Violence</option>
-            <option value="Education" onChange={this.update("category")} className="signup-select-box">Education</option>
-            <option value="Environment" onChange={this.update("category")} className="signup-select-box">Environment</option>
-            <option value="Food" onChange={this.update("category")} className="signup-select-box">Food</option>
-            <option value="Gun Control" onChange={this.update("category")} className="signup-select-box">Gun Control</option>
-            <option value="Homeless & Housing" onChange={this.update("category")} className="signup-select-box">Homeless & Housing</option>
-            <option value="Human Trafficking" onChange={this.update("category")} className="signup-select-box">Human Trafficking</option>
-            <option value="Immigration" onChange={this.update("category")} className="signup-select-box">Immigration</option>
-            <option value="LGBTQ" onChange={this.update("category")} className="signup-select-box">LGBTQ</option>
-            <option value="Literacy" onChange={this.update("category")} className="signup-select-box">Literacy</option>
-            <option value="Mental Health" onChange={this.update("category")} className="signup-select-box">Mental Health</option>
-            <option value="Refugees" onChange={this.update("category")} className="signup-select-box">Refugees</option>
-            <option value="Religion" onChange={this.update("category")} className="signup-select-box">Religion</option>
-            <option value="Reproductive Rights" onChange={this.update("category")} className="signup-select-box">Reproductive Rights</option>
-            <option value="Seniors" onChange={this.update("category")} className="signup-select-box">Seniors</option>
-            <option value="Veterans" onChange={this.update("category")} className="signup-select-box">Veterans</option>
-            <option value="Voting Rights" onChange={this.update("category")} className="signup-select-box">Voting Rights</option>
-            <option value="Water" onChange={this.update("category")} className="signup-select-box">Water</option>
-            <option value="Women" onChange={this.update("category")} className="signup-select-box">Women</option>
+            {this.renderCategories()}
           </select>
-          <button onClick={this.update("category")}>Create New Category</button>
+
+          <form onSubmit={ this.submitCategoryForm } className="add-category">
+            <input type="text" className="signup-input-field" placeholder="Category Name" />
+            <input type="submit" value="Create New Category" />
+          </form>
 
           <section className="checkboxes">
-            <div>
+            {this.renderItems()}
+            {/* <div>
               <h1 className="checkbox-title">CLOTHES</h1>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Tops"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Bottoms"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Dresses"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Outerwear"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Sleepwear"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Swim"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Shoes"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Accessories"/>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox1" value="Tops"/>
+              <label for="cbox1">Tops</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox2" value="Bottoms"/>
+              <label for="cbox2">Bottoms</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox3" value="Dresses"/>
+              <label for="cbox3">Dresses</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox4" value="Outerwear"/>
+              <label for="cbox4">Outerwear</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox5" value="Sleepwear"/>
+              <label for="cbox5">Sleepwear</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox6" value="Swim"/>
+              <label for="cbox6">Swim</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox7" value="Shoes"/>
+              <label for="cbox7">Shoes</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox8" value="Accessories"/>
+              <label for="cbox8">Accessories</label>
             </div>
 
             <div>
               <h1 className="checkbox-title">HOUSEHOLD</h1>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Electrical"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Furniture"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Computer"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Kitchen"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Vehicle"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Toys"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Books"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Miscellaneous"/>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox9" value="Electrical"/>
+              <label for="cbox9">Electrical</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox10" value="Furniture"/>
+              <label for="cbox10">Furniture</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox11" value="Computer"/>
+              <label for="cbox11">Computer</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox12" value="Kitchen"/>
+              <label for="cbox12">Kitchen</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox13" value="Vehicle"/>
+              <label for="cbox13">Vehicle</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox14" value="Toys"/>
+              <label for="cbox14">Toys</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox15" value="Books"/>
+              <label for="cbox15">Books</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox16" value="Miscellaneous"/>
+              <label for="cbox16">Miscellaneous</label>
             </div>
 
             <div>
               <h1 className="checkbox-title">VOLUNTEER</h1>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="No Preference"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Events"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Mentor"/>
-              <input type="checkbox" onChange={this.addItem()} className="signup-checkbox" value="Tutor"/>
-            </div>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox17" value="No Preference"/>
+              <label for="cbox17">No Preference</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox18" value="Events"/>
+              <label for="cbox18">Events</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox19" value="Mentor"/>
+              <label for="cbox19">Mentor</label>
+              <input type="checkbox" onChange={this.updateItems()} className="signup-checkbox" id="cbox20" value="Tutor"/>
+              <label for="cbox20">Tutor</label>
+            </div> */}
           </section>
 
           <input type="submit" value="Create Account" />
         </form>
       </div>
-    )
+    );
   }
 }
 
