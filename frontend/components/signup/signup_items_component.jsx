@@ -34,31 +34,26 @@ class SignupItems extends React.Component {
     return e => { this.setState({items: this.state.items.itemType.concat(e.currentTarget.value)}); };
   }
 
+  turnItemIntoCheckbox(item) {
+    return(
+      <div>
+        <input type="checkbox"
+               onChange={this.updateItems(item[name])}
+               className="signup-checkbox"
+               id={`cbox${item["id"]}`}
+               value={item[name]} />
+        <label for={`cbox${item["id"]}`}>{item[name]}</label>
+      </div>
+    );
+  }
+
   makeCheckboxes() {
+    let allBoxes = [];
     const itemType = Object.keys(this.state.items);
-    const itemsArray = this.state.items[itemType[0]].concat(
-                       this.state.items[itemType[1]].concat(
-                       this.state.items[itemType[2]]
-                     )
-    )
-
-    const allBoxes = [];
-
-    itemType.forEach((type ) => {
-      allBoxes.push(
-        this.state.items[type].map((item) => {
-          return(
-            <div>
-              <input type="checkbox"
-                     onChange={this.updateItems(item[name])}
-                     className="signup-checkbox"
-                     id={`cbox${item[id]}`}
-                     value={item[name]} />
-              <label for={`cbox${item[id]}`}>{item[name]}</label>
-            </div>
-          );
-        })
-      );
+    itemType.forEach((type) => {
+      this.state.items[type].map((item) => {
+        allBoxes.push(this.turnItemIntoCheckbox(item));
+      })
     })
     return allBoxes;
   }
@@ -66,6 +61,7 @@ class SignupItems extends React.Component {
   render(){
     return(
       <form onSubmit={this.props.submit} className="show-form3">
+      <h1 className="signup-title">Select Items {this.props.organization_name} Wants to Donate</h1>
         <div>{this.makeCheckboxes()}</div>
       </form>
     );

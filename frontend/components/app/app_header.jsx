@@ -54,11 +54,11 @@ class AppHeader extends React.Component {
   render() {
     return(
       <header className="header-nav">
-      <Modal
-        isOpen={ this.state.modalOpen }
-        onRequestClose={ this.closeModal }>
-        { this.state.formType === 'login' ? <LoginFormContainer formType={ this.state.formType } /> : <SignupFormContainer formType={ this.state.formType } /> }
-      </Modal>
+        <Modal
+          isOpen={ this.state.modalOpen }
+          onRequestClose={ this.closeModal }>
+          { this.state.formType === 'login' ? <LoginFormContainer formType={ this.state.formType } /> : <SignupFormContainer formType={ this.state.formType } /> }
+        </Modal>
         <img src="assets/heart.png" className="logo"/>
         { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
       </header>

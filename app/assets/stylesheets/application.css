@@ -51,9 +51,6 @@ body {
 .header-list:last-child {
   margin-right: 10px;
 }
-// Place all the styles related to the session controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
 .login-form-container {
 }
@@ -69,6 +66,10 @@ body {
 
 }
 
+.signup-title {
+  
+}
+
 .signup-input-field {
 
 }
@@ -76,7 +77,6 @@ body {
 .show-form1 {
 
 }
-
 
 .show-form2 {
 

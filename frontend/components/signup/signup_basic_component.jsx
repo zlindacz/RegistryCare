@@ -25,6 +25,8 @@ class SignupBasic extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleClick} className="show-form1">
+        <h1 className="signup-title">Basic Information</h1>
+
         <input type="text" onChange={this.props.update("organization_name")} className="signup-input-field" placeholder="Organization Name" />
         <input type="text" onChange={this.props.update("username")} className="signup-input-field" placeholder="Username" />
         <input type="text" onChange={this.props.update("email")} className="signup-input-field" placeholder="Email" />
