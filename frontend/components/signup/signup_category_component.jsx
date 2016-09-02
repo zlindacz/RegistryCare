@@ -34,7 +34,10 @@ class SignupCategory extends React.Component {
         <select>
           {this.state.category.map((category) => {
             return(
-              <option value={category} onChange={this.addCategory(category)} className="signup-select-box">
+              <option value={category}
+                      onChange={this.addCategory(category)}
+                      className="signup-select-box"
+                      key={category}>
                 {category}
               </option>
             );

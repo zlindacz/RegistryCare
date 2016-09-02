@@ -7,6 +7,11 @@ export const UserConstants = {
 // need other_user???
 }
 
+export const receiveInProgressUser = user => ({
+  type: UserConstants.RECEIVE_IN_PROGRESS_USER,
+  user
+});
+
 export const requestUsers = () => ({
   type: UserConstants.REQUEST_USERS
 });
@@ -21,13 +26,7 @@ export const requestSingleUser = id => ({
   id
 });
 
-
 export const receiveSingleUser = user => ({
   type: UserConstants.RECEIVE_SINGLE_USER,
-  user
-});
-
-export const receiveInProgressUser = user => ({
-  type: UserConstants.RECEIVE_IN_PROGRESS_USER,
   user
 });
