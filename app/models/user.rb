@@ -1,8 +1,13 @@
 class User < ActiveRecord::Base
-  validates :username, :organization_name, :email, :address1, :address2, :city, :state, :zipcode, :photo, :description, :password_digest, :session_token, presence: true
-  validates :name, :organization_name, :email, :password_digest, :session_token, uniqueness: true
+  validates :username, :organization_name, :email, :address1, :city, :state, :zipcode, :photo, :description, :password_digest, :session_token, presence: true
+  validates :username, :organization_name, :email, :password_digest, :session_token, uniqueness: true
   validates :zipcode, length: { is: 5 }
   validates :password, length: { minimum: 6, allow_nil: true }
+
+  has_many :user_categories, dependent: :destroy, inverse_of: :user
+  has_many :categories, through: :user_categories
+  has_many :user_items, dependent: :destroy, inverse_of: :user
+  has_many :items, through: :user_items
 
   after_initialize :ensure_session_token
 
@@ -17,8 +22,8 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(self.password_digest).is_password?(password)
   end
 
-  def self.find_by_credentials(name, password)
-    user = User.find_by(name: name)
+  def self.find_by_credentials(username, password)
+    user = User.find_by(username: username)
     user && user.is_password?(password) ? user : nil
   end
 

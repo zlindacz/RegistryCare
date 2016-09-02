@@ -11,23 +11,56 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830161205) do
+ActiveRecord::Schema.define(version: 20160902011412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "categories", ["name"], name: "index_categories_on_name", unique: true, using: :btree
+
+  create_table "items", force: :cascade do |t|
+    t.string   "item_type",  null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "category_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_categories", ["user_id", "category_id"], name: "index_user_categories_on_user_id_and_category_id", using: :btree
+
+  create_table "user_items", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "item_id",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "user_items", ["user_id", "item_id"], name: "index_user_items_on_user_id_and_item_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "organization_name",                                 null: false
     t.string   "username",                                          null: false
     t.string   "email",                                             null: false
     t.string   "address1",                                          null: false
-    t.string   "address2",                                          null: false
+    t.string   "address2"
     t.string   "city",                                              null: false
     t.string   "state",                                             null: false
     t.string   "zipcode",           limit: 5,                       null: false
     t.string   "photo",                       default: "heart.png", null: false
     t.text     "description",                                       null: false
-    t.string   "password_digest",   limit: 5,                       null: false
+    t.string   "password_digest",                                   null: false
     t.string   "session_token",                                     null: false
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false

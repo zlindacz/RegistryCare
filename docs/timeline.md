@@ -66,6 +66,7 @@ __Objective__: Dashboard's saved donations
 
 ### Bonus Features (TBD)
 
+- User can also indicate what items they can donate
 - User has the choice to make their profile private
 - Search with location data
 - Google Maps API
