@@ -6,7 +6,11 @@
 | id | integer | not null, primary key |
 | name | string | not null, indexed, unique |
 | email | string | not null, unique |
-| address | string | not null |
+| address1 | string | not null |
+| address2 | string | not null |
+| city | string | not null |
+| state | string | not null |
+| zipcode | integer | not null, limit: 5 |
 | photo | string | not null, default: "heart.png" |
 | description | text | not null |
 | password_digest | string | not null, unique |

@@ -97,3 +97,5 @@ UserItem.create!(user_id:2, item_id: 18)
 UserItem.create!(user_id:3, item_id: 4)
 UserItem.create!(user_id:3, item_id: 5)
 UserItem.create!(user_id:3, item_id: 12)
+
+Pledge.create!(user_id: 1, other_user_id: 3)
