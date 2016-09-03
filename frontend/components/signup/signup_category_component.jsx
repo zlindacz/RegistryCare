@@ -24,7 +24,6 @@ class SignupCategory extends React.Component {
   handleClick(e) {
     e.preventDefault();
     this.props.receiveInProgressUser(this.state);
-    debugger
     this.props.next();
   }
 

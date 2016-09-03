@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-modal';
+import ModalStyle from './modal_style';
 import LoginFormContainer from '../login/login_form_container';
 import SignupFormContainer from '../signup/signup_form_container';
 import { withRouter } from 'react-router';
@@ -17,15 +18,20 @@ class AppHeader extends React.Component {
   }
 
   navigateToSignup() {
-   this.props.router.push('signup')
+    this.props.router.push('signup')
   }
 
   openModal(type) {
-   this.setState({modalOpen: true, formType: type});
+    this.setState({modalOpen: true, formType: type});
   }
 
   closeModal() {
-   this.setState({modalOpen: false});
+    this.setState({modalOpen: false});
+    ModalStyle.content.opacity = 0;
+  }
+
+  onModalOpen() {
+    ModalStyle.content.opacity = 100;
   }
 
   notLoggedIn() {
@@ -56,8 +62,14 @@ class AppHeader extends React.Component {
       <header className="header-nav">
         <Modal
           isOpen={ this.state.modalOpen }
-          onRequestClose={ this.closeModal }>
-          { this.state.formType === 'login' ? <LoginFormContainer formType={ this.state.formType } /> : <SignupFormContainer formType={ this.state.formType } /> }
+          onRequestClose={ this.closeModal }
+          style={ ModalStyle }
+          onAfterOpen={this.onModalOpen}>
+          { this.state.formType === 'login' ?
+            <LoginFormContainer formType={ this.state.formType } /> :
+            <SignupFormContainer formType={ this.state.formType } /> }
+
+            <button onClick={this.closeModal} className="modal-close-link">Close</button>
         </Modal>
         <img src="assets/heart.png" className="logo"/>
         { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
