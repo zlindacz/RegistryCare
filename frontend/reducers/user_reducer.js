@@ -6,10 +6,10 @@ export default (state = {}, action) => {
     case (UserConstants.RECEIVE_IN_PROGRESS_USER ||
           UserConstants.RECEIVE_SINGLE_USER):
       const user = action.user;
-      return merge({}, user);
+      return merge({}, state, user);
     case UserConstants.RECEIVE_USERS:
       const users = action.users;
-      return merge({}, users);
+      return merge({}, state, users);
     default:
       return state;
   }

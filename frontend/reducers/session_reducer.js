@@ -15,8 +15,7 @@ export default (state = _nullUser, action) => {
       const errors = action.errors;
       return merge({}, _nullUser, {errors})
     case SessionConstants.LOGOUT:
-      return
-      merge({}, _nullUser)
+      return merge({}, _nullUser)
     default:
       return state;
   }

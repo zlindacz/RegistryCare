@@ -33,15 +33,11 @@ class SignupItems extends React.Component {
   }
 
   updateItems(item) {
-    
     const itemTypes = Object.keys(this.allItems); //["CLOTHES", "HOUSEHOLD", "VOLUNTEER"]
-    let id;
-    itemTypes.forEach((type) => {
-      if (this.allItems[type].includes(item)) {
-        id =
-      }
-    })
-    // return e => { this.setState({items: this.state.items.concat({id: item["id"], })}); };
+    const itemsArray = this.allItems[itemTypes[0]].concat(
+                       this.allItems[itemTypes[1]]).concat(
+                       this.allItems[itemTypes[2]])
+    return e => { this.setState({items: this.state.items.concat([item["id"]])}); };
   }
 
   turnItemIntoCheckbox(item) {
@@ -70,12 +66,13 @@ class SignupItems extends React.Component {
 
   submit(e){
     e.preventDefault();
-    this.props.submit(merge({}, this.state, this.props.user));
+    let user = merge({}, this.state, this.props.user);
+    this.props.submit(user);
   }
 
   render(){
     return(
-      <form onSubmit={this.props.submit} className="show-form3">
+      <form onSubmit={this.submit} className="show-form3">
         <h1 className="signup-title">Select Items {this.props.organization_name} Wants to Donate</h1>
         {this.makeCheckboxes()}
         <input type="submit" value="Create Account" />

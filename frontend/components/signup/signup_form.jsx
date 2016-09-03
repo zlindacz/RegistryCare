@@ -13,10 +13,6 @@ class SignupForm extends React.Component {
     this.nextStep = this.nextStep.bind(this);
   }
 
-  update(field) {
-    return e => { this.setState({[field]: e.currentTarget.value}); };
-  }
-
   nextStep(step) {
     this.setState({step: this.state.step+1});
   }
@@ -26,8 +22,7 @@ class SignupForm extends React.Component {
       if (this.state.step === 1) {
         return(<SignupBasic
                 next={() => this.nextStep(this.state.step)}
-                receiveInProgressUser={this.props.receiveInProgressUser}
-                update={this.update}/>);
+                receiveInProgressUser={this.props.receiveInProgressUser} />);
       } else if (this.state.step === 2) {
         return(<SignupCategory
                 next={() => this.nextStep(this.state.step)}
@@ -35,6 +30,7 @@ class SignupForm extends React.Component {
       } else if (this.state.step === 3) {
         return(<SignupItems
                 next={() => this.nextStep(this.state.step)}
+                user={this.props.user}
                 submit={this.props.signup}/>);
       }
   }

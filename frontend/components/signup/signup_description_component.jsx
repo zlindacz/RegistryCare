@@ -3,16 +3,8 @@ import React from 'react';
 class SignupBasic extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: "",
-      organization_name: "",
-      email: "",
-      address1: "",
-      address2: "",
-      city: "",
-      state: "",
-      zipcode: ""
-    }
+    this.state = {description: ""}
+    
     this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
   }
