@@ -28,6 +28,7 @@ class SignupItems extends React.Component {
     this.state = {items: []};
 
     this.updateItems = this.updateItems.bind(this);
+    this.turnItemIntoCheckbox = this.turnItemIntoCheckbox.bind(this);
     this.makeCheckboxes = this.makeCheckboxes.bind(this);
     this.submit = this.submit.bind(this);
   }
@@ -41,11 +42,23 @@ class SignupItems extends React.Component {
   }
 
   turnItemIntoCheckbox(item) {
+    let keys = Object.keys(this.allItems)
+    let itemKey;
+    let i=0;
+    while (i < keys.length) {
+      let key = keys[i];
+      if (this.allItems[key].includes(item)){
+        itemKey = key;
+        return;
+      }
+      i++;
+    }
+
     return(
       <div key={`cbox${item["id"]}`}>
         <input type="checkbox"
                onChange={this.updateItems(item)}
-               className="signup-checkbox"
+               className={`signup-checkbox ${itemKey}`}
                id={`cbox${item["id"]}`}
                value={item["name"]} />
         <label htmlFor={`cbox${item["id"]}`}>{item["name"]}</label>
@@ -68,6 +81,7 @@ class SignupItems extends React.Component {
     e.preventDefault();
     let user = merge({}, this.state, this.props.user);
     this.props.submit(user);
+    // redirect to index page
   }
 
   render(){
@@ -75,7 +89,7 @@ class SignupItems extends React.Component {
       <form onSubmit={this.submit} className="show-form3">
         <h1 className="signup-title">Select Items {this.props.organization_name} Wants to Donate</h1>
         {this.makeCheckboxes()}
-        <input type="submit" value="Create Account" />
+        <input type="submit" value="Create Account" className="next-button" />
       </form>
     );
   }

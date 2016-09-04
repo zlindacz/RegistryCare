@@ -9,8 +9,8 @@ class SignupDescription extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  update(field) {
-    return e => { this.setState({[field]: e.currentTarget.value}); };
+  update(e) {
+    this.setState({description: e.currentTarget.value});
   }
 
   handleClick(e) {
@@ -25,9 +25,10 @@ class SignupDescription extends React.Component {
         <h1 className="signup-title">Tell Us About {this.props.organization_name}'s Mission</h1>
         <textarea style={{height: 40, borderColor: 'gray', borderWidth: 1}}
                 className="signup-description-field"
-                placeholder="Description">
+                placeholder="Description"
+                onChange={this.update}>
         </textarea>
-        <input type="submit" value="Next" />
+        <input type="submit" value="Next" className="next-button" />
       </form>
     );
   }

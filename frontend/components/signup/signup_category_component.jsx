@@ -43,7 +43,7 @@ class SignupCategory extends React.Component {
           })};
         </select>
 
-        <input type="submit" value="Next"/>
+        <input type="submit" value="Next" className="next-button" />
       </form>
     )
   }

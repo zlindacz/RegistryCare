@@ -9,18 +9,18 @@ export default ({
   },
   content : {
     position                   : 'absolute',
-    top                        : '40px',
-    left                       : '40px',
-    right                      : '40px',
-    bottom                     : '40px',
+    top                        : '140px',
+    left                       : '440px',
+    right                      : '440px',
+    bottom                     : '140px',
     border                     : '1px solid #ccc',
-    background                 : '#fff',
+    background                 : 'rgba(244, 158, 57, 0.65)',
     overflow                   : 'auto',
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '4px',
     outline                    : 'none',
     padding                    : '20px',
-    opacity                    : 0,
+    opacity                    : '0',
     transition                 : 'opacity 1s'
 
   }

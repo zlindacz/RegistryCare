@@ -10,6 +10,9 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    # cloud_name = ENV['CLOUD_NAME']
+    # upload_preset = Figaro.env.UPLOAD_PRESET
+    # puts "API KEYS: #{cloud_name} #{upload_preset}"
     if @user.save
       login!(@user)
       render "api/users/show"
