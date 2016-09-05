@@ -97,6 +97,7 @@ body {
   font-size: 40px;
   text-align: center;
   margin: 50px 0 30px 0;
+  color: rgb(48, 8, 62);
 }
 
 .login-input-field {
@@ -119,34 +120,33 @@ body {
 }
 
 .login-submit-button {
-  background: #28f211;
-  background-image: -webkit-linear-gradient(top, #28f211, #1ead16);
-  background-image: -moz-linear-gradient(top, #28f211, #1ead16);
-  background-image: -ms-linear-gradient(top, #28f211, #1ead16);
-  background-image: -o-linear-gradient(top, #28f211, #1ead16);
-  background-image: linear-gradient(to bottom, #28f211, #1ead16);
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #4dd844, #0c5206);
+  background-image: -moz-linear-gradient(top, #4dd844, #0c5206);
+  background-image: -ms-linear-gradient(top, #4dd844, #0c5206);
+  background-image: -o-linear-gradient(top, #4dd844, #0c5206);
+  background-image: linear-gradient(to bottom, #4dd844, #0c5206);
   -webkit-border-radius: 7;
   -moz-border-radius: 7;
   border-radius: 7px;
   font-family: 'Libre Franklin', sans-serif;
   color: #ffffff;
   font-size: 18px;
-  padding: 8px;
+  padding: 10px;
   margin: 20px auto;
   display: block;
   width: 100%;
 }
 
 .login-submit-button:hover {
-  background: #94ed8b;
-  background-image: -webkit-linear-gradient(top, #94ed8b, #55d12c);
-  background-image: -moz-linear-gradient(top, #94ed8b, #55d12c);
-  background-image: -ms-linear-gradient(top, #94ed8b, #55d12c);
-  background-image: -o-linear-gradient(top, #94ed8b, #55d12c);
-  background-image: linear-gradient(to bottom, #94ed8b, #55d12c);
   cursor: pointer;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #83d468, #415f3c);
+  background-image: -moz-linear-gradient(top, #83d468, #415f3c);
+  background-image: -ms-linear-gradient(top, #83d468, #415f3c);
+  background-image: -o-linear-gradient(top, #83d468, #415f3c);
+  background-image: linear-gradient(to bottom, #83d468, #415f3c);
 }
-
 
 /*Sign up button*/
 
@@ -181,6 +181,7 @@ body {
 .show-form1 {
   height: 420px;
   border-radius: 3px;
+  margin: 50px auto;
   background-color: rgba(196, 178, 163, 0.8);
   box-shadow: 2px 2px 5px 3px rgba(89, 60, 32, 0.72);
 }
@@ -245,9 +246,10 @@ body {
 }
 
 .upload-image-form {
-  width: 500px;
-  height: 400px;
-  margin: 0 auto;
+  width: 440px;
+  height: 500px;
+  padding: 20px;
+  margin: 50px auto;
   background-color: rgba(196, 178, 163, 0.8);
   box-shadow: 2px 2px 5px 3px rgba(89, 60, 32, 0.72);
   display: flex;
@@ -256,9 +258,12 @@ body {
 
 .upload-button {
   padding: 10px;
+  margin: 20px auto;
   font-family: 'Libre Franklin', sans-serif;
   font-size: 20px;
   color: rgb(230, 189, 45);
+  width: 300px;
+  border-radius: 3px;
   background-image: -webkit-linear-gradient(top, #674437, #91522f);
   background-image: -moz-linear-gradient(top, #674437, #91522f);
   background-image: -ms-linear-gradient(top, #674437, #91522f);
@@ -277,12 +282,13 @@ body {
 }
 
 .image-container {
-  width: 400px;
-  height: 250px;
-  margin: auto;
-  border: 3px solid rgb(147, 62, 20);
+  width: 420px;
+  height: 320px;
+  margin: 20px auto;
+  border: 2px solid rgb(147, 62, 20);
   background-color: white;
   background-image: url('backgrounds/corkboard_texture.png');
+  box-sizing: border-box;
 }
 
 .upload-next-button {
@@ -313,9 +319,9 @@ body {
 }
 
 .show-form2 {
-  width: 620px;
+  width: 700px;
   height: 400px;
-  margin: 0 auto;
+  margin: 50px auto;
   border-radius: 3px;
   background-color: rgba(196, 178, 163, 0.8);
   box-shadow: 2px 2px 5px 3px rgba(89, 60, 32, 0.72);
@@ -372,26 +378,110 @@ body {
 }
 
 .show-form3 {
+  width: 500px;
+  height: 400px;
+  margin: 50px auto;
+  border-radius: 3px;
+  background-color: rgba(196, 178, 163, 0.8);
+  box-shadow: 2px 2px 5px 3px rgba(89, 60, 32, 0.72);
+}
+
+.form3-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 50px;
+}
+
+.signup-select-box-container {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px;
+  /*margin: 10px;*/
+  border: 1px solid rgb(147, 62, 20);
+  font-size: 18px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+
+  background-image:
+   linear-gradient(45deg, transparent 50%, gray 50%),
+   linear-gradient(135deg, gray 50%, transparent 50%),
+   linear-gradient(to right, #ccc, #ccc);
+  background-position:
+   calc(100% - 20px) calc(1em + 2px),
+   calc(100% - 15px) calc(1em + 2px),
+   calc(100% - 2.5em) 0.5em;
+  background-size:
+   5px 5px,
+   5px 5px,
+   1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+.signup-category-next-button {
+  padding: 6px 12px;
+  align-items: flex-end;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -moz-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -ms-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -o-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: linear-gradient(to bottom, #f79d25, #e87b0a);
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: 'Libre Franklin', sans-serif;
+  height: 40px;
+  width: 76px;
+}
+
+.signup-category-next-button:hover {
+  cursor: pointer;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -moz-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -ms-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -o-linear-gradient(top, #ecbb67, #db9834);
+  background-image: linear-gradient(to bottom, #ecbb67, #db9834);
+}
+
+.show-form4 {
+  width: 500px;
+  height: 400px;
+  margin: 50px auto;
+  border-radius: 3px;
+  background-color: rgba(196, 178, 163, 0.8);
+  box-shadow: 2px 2px 5px 3px rgba(89, 60, 32, 0.72);
+}
+
+.signup-checkbox-container {
 
 }
 
-
-.add-category {
-
+.signup-button {
+  padding: 6px 12px;
+  align-items: flex-end;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #16c431, #048e37);
+  background-image: -moz-linear-gradient(top, #16c431, #048e37);
+  background-image: -ms-linear-gradient(top, #16c431, #048e37);
+  background-image: -o-linear-gradient(top, #16c431, #048e37);
+  background-image: linear-gradient(to bottom, #16c431, #048e37);
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: 'Libre Franklin', sans-serif;
+  height: 40px;
+  width: 200px;
 }
 
-.signup-select {
-
-}
-
-.signup-select-box {
-
-}
-
-.checkbox-title {
-
-}
-
-.signup-checkbox {
-
+.signup-button:hover {
+  cursor: pointer;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #4ad073, #3e915a);
+  background-image: -moz-linear-gradient(top, #4ad073, #3e915a);
+  background-image: -ms-linear-gradient(top, #4ad073, #3e915a);
+  background-image: -o-linear-gradient(top, #4ad073, #3e915a);
+  background-image: linear-gradient(to bottom, #4ad073, #3e915a);
 }

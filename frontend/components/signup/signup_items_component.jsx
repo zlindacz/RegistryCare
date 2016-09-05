@@ -86,11 +86,11 @@ class SignupItems extends React.Component {
 
   render(){
     return(
-      <div className="show-form3">
+      <div className="show-form4">
         <h1 className="signup-title">Select Items to Donate</h1>
-        <form onSubmit={this.submit} >
+        <form onSubmit={this.submit} className="signup-checkbox-container">
           {this.makeCheckboxes()}
-          <input type="submit" value="Create Account" className="next-button" />
+          <input type="submit" value="Create Account" className="signup-button" />
         </form>
       </div>
     );
