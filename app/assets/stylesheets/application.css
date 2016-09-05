@@ -8,6 +8,15 @@ html, body, section, article, h1, h2 ,p, ul, li {
   text-decoration: inherit;
   color: inherit;
   background: transparent;
+  box-sizing: border-box;
+}
+
+html {
+  background: url('core/hands.jpg') fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 ul, li {
@@ -17,7 +26,6 @@ ul, li {
 body {
   width: 720px;
   margin: 0 auto;
-  /*background-color: rgba(247, 207, 195, 0.63);*/
   font-family: 'Oxygen', sans-serif;
 }
 
@@ -25,7 +33,7 @@ body {
 .header-nav {
   display: flex;
   justify-content: space-between;
-  border-bottom: 3px solid gray;
+  border-bottom: 3px solid rgba(240, 225, 171, 0.7);
   border-radius: 35%;
   margin-bottom: 20px;
 }
@@ -46,6 +54,13 @@ body {
   padding: 10px;
   margin-top: 10px;
   text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  color: white;
+}
+
+.header-list > li:hover {
+  box-shadow: 0 -2px rgb(244, 21, 21);
 }
 
 .header-list:last-child {
@@ -53,33 +68,250 @@ body {
 }
 
 .login-form-container {
+  margin-top: 20px;
+  display: flex;
 }
 
 .login-form {
-}
-
-.login-input-field {
-
-}
-
-.signup-form-container {
-
-}
-
-.signup-title {
-
-}
-
-.signup-input-field {
-
-}
-
-.show-form1 {
-
+  width: 300px;
+  min-width: calc(100%-22px);
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .modal-close-link {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
 
+.modal-close-link:hover {
+  cursor: pointer;
+}
+
+.login-heading {
+  font-family: 'Palanquin Dark', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  margin: 50px 0 30px 0;
+}
+
+.login-input-field {
+  padding: 10px;
+  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Libre Franklin', sans-serif;*/
+  font-size: 18px;
+  border-radius: 7px;
+  border: 1px solid #cccccc;
+  display: inline-block;
+  margin: 4px auto;
+  width: calc(100% - 60px);
+  float: right;
+}
+
+.fa {
+  float: left;
+  padding: 10px;
+  /*border: 1px solid #cccccc;*/
+  margin-top: 4px;
+  height: 20px;
+}
+
+.login-submit-button {
+  background: #28f211;
+  background-image: -webkit-linear-gradient(top, #28f211, #1ead16);
+  background-image: -moz-linear-gradient(top, #28f211, #1ead16);
+  background-image: -ms-linear-gradient(top, #28f211, #1ead16);
+  background-image: -o-linear-gradient(top, #28f211, #1ead16);
+  background-image: linear-gradient(to bottom, #28f211, #1ead16);
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  font-family: 'Libre Franklin', sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 8px;
+  margin: 20px auto;
+  display: block;
+  width: 100%;
+}
+
+.login-submit-button:hover {
+  background: #94ed8b;
+  background-image: -webkit-linear-gradient(top, #94ed8b, #55d12c);
+  background-image: -moz-linear-gradient(top, #94ed8b, #55d12c);
+  background-image: -ms-linear-gradient(top, #94ed8b, #55d12c);
+  background-image: -o-linear-gradient(top, #94ed8b, #55d12c);
+  background-image: linear-gradient(to bottom, #94ed8b, #55d12c);
+  cursor: pointer;
+}
+
+
+/*Sign up button*/
+
+.btn {
+  background: #ffec15;
+  background-image: -webkit-linear-gradient(top, #ffec15, #f0b41d);
+  background-image: -moz-linear-gradient(top, #ffec15, #f0b41d);
+  background-image: -ms-linear-gradient(top, #ffec15, #f0b41d);
+  background-image: -o-linear-gradient(top, #ffec15, #f0b41d);
+  background-image: linear-gradient(to bottom, #ffec15, #f0b41d);
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  font-family: 'Libre Franklin', sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px;
+  display: inline-block;
+  float: left;
+}
+
+.btn:hover {
+  background: #fff869;
+  background-image: -webkit-linear-gradient(top, #fff869, #f2d274);
+  background-image: -moz-linear-gradient(top, #fff869, #f2d274);
+  background-image: -ms-linear-gradient(top, #fff869, #f2d274);
+  background-image: -o-linear-gradient(top, #fff869, #f2d274);
+  background-image: linear-gradient(to bottom, #fff869, #f2d274);
+  cursor: pointer;
+}
+
+.show-form1 {
+  height: 420px;
+  border-radius: 3px;
+  background-color: rgba(196, 178, 163, 0.8);
+  box-shadow: 2px 2px 5px 3px rgba(89, 60, 32, 0.72);
+}
+
+.form1-container {
+  height: 280px;
+  width: 700px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 20px 35px;
+}
+
+.signup-title {
+  font-family: font-family: 'Libre Franklin', sans-serif;
+  font-size: 40px;
+  padding-top: 20px;
+  margin: 0 0 18px 22px;
+  color: rgb(74, 63, 47);
+}
+
+.signup-input-field {
+  padding: 10px;
+  font-size: 16px;
+  margin: 4px 20px;
+  width: 240px;
+  color: rgb(59, 42, 33);
+  background-color rgba(241, 241, 217);
+  border: 1px solid rgb(147, 62, 20);
+  opacity: 0.85;
+}
+
+.signup-next-button {
+  padding: 6px 12px;
+  align-items: flex-end;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -moz-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -ms-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -o-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: linear-gradient(to bottom, #f79d25, #e87b0a);
+  border-radius: 7px;
+  color: #ffffff;
+  font-size: 20px;
+  font-family: 'Libre Franklin', sans-serif;
+  float: right;
+  position: absolute;
+  top: -63px;
+  right: 35px;
+}
+
+.signup-next-button:hover {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -moz-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -ms-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -o-linear-gradient(top, #ecbb67, #db9834);
+  background-image: linear-gradient(to bottom, #ecbb67, #db9834);
+  cursor: pointer;
+}
+
+.upload-image-form {
+  width: 500px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: rgba(196, 178, 163, 0.8);
+  box-shadow: 2px 2px 5px 3px rgba(89, 60, 32, 0.72);
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-button {
+  padding: 10px;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 20px;
+  color: rgb(230, 189, 45);
+  background-image: -webkit-linear-gradient(top, #674437, #91522f);
+  background-image: -moz-linear-gradient(top, #674437, #91522f);
+  background-image: -ms-linear-gradient(top, #674437, #91522f);
+  background-image: -o-linear-gradient(top, #674437, #91522f);
+  background-image: linear-gradient(to bottom, #674437, #91522f);
+}
+/*#baa395, #6b5c54
+#e3cfc3, #96867e*/
+.upload-button:hover {
+  cursor: pointer;
+  color: rgb(51, 35, 44);
+  background-image: -webkit-linear-gradient(top, #c3903a, #624a20);
+  background-image: -moz-linear-gradient(top, #c3903a, #624a20);
+  background-image: -ms-linear-gradient(top, #c3903a, #624a20);
+  background-image: -o-linear-gradient(top, #c3903a, #624a20);
+  background-image: linear-gradient(to bottom, #c3903a, #624a20);
+}
+
+.image-container {
+  width: 400px;
+  height: 250px;
+  margin: auto;
+  background-color: white;
+  background-image: url('backgrounds/corkboard_texture.png');
+}
+
+.upload-next-button {
+  padding: 6px 12px;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -moz-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -ms-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: -o-linear-gradient(top, #f79d25, #e87b0a);
+  background-image: linear-gradient(to bottom, #f79d25, #e87b0a);
+  border-radius: 7px;
+  color: #ffffff;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 20px;
+  height: 40px;
+  width: 76px;
+  margin: 10px auto;
+}
+
+.upload-next-button:hover {
+  cursor: pointer;
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -moz-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -ms-linear-gradient(top, #ecbb67, #db9834);
+  background-image: -o-linear-gradient(top, #ecbb67, #db9834);
+  background-image: linear-gradient(to bottom, #ecbb67, #db9834);
 }
 
 .show-form2 {
@@ -90,13 +322,6 @@ body {
 
 }
 
-.upload-image-form {
-  
-}
-
-.upload-button {
-
-}
 
 .signup-description-field {
 
@@ -119,9 +344,5 @@ body {
 }
 
 .signup-checkbox {
-
-}
-
-.next-button {
 
 }

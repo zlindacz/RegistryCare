@@ -9,8 +9,7 @@ class AppHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false,
-      formType: "login"
+      modalOpen: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -21,8 +20,8 @@ class AppHeader extends React.Component {
     this.props.router.push('signup')
   }
 
-  openModal(type) {
-    this.setState({modalOpen: true, formType: type});
+  openModal() {
+    this.setState({modalOpen: true});
   }
 
   closeModal() {
@@ -31,7 +30,7 @@ class AppHeader extends React.Component {
   }
 
   onModalOpen() {
-    ModalStyle.content.opacity = 100;
+    ModalStyle.content.opacity = 20;
   }
 
   notLoggedIn() {
@@ -40,7 +39,7 @@ class AppHeader extends React.Component {
        <ul className="header-list group">
          <li><a>About</a></li>
            <li><a onClick={this.navigateToSignup}>Sign Up</a></li>
-           <li><a onClick={() => this.openModal("login")}>Log In</a></li>
+           <li><a onClick={() => this.openModal()}>Log In</a></li>
          </ul>
        </div>
      );
@@ -65,11 +64,8 @@ class AppHeader extends React.Component {
           onRequestClose={ this.closeModal }
           style={ ModalStyle }
           onAfterOpen={this.onModalOpen}>
-          { this.state.formType === 'login' ?
-            <LoginFormContainer formType={ this.state.formType } /> :
-            <SignupFormContainer formType={ this.state.formType } /> }
-
-            <button onClick={this.closeModal} className="modal-close-link">Close</button>
+            <LoginFormContainer formType={ this.state.formType } />
+            <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
         <img src="assets/heart.png" className="logo"/>
         { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
