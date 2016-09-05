@@ -49,7 +49,7 @@ class SignupItems extends React.Component {
       let key = keys[i];
       if (this.allItems[key].includes(item)){
         itemKey = key;
-        return;
+        break;
       }
       i++;
     }
@@ -68,10 +68,11 @@ class SignupItems extends React.Component {
 
   makeCheckboxes() {
     let allBoxes = [];
+    let scope = this;
     const itemType = Object.keys(this.allItems);
     itemType.forEach((type) => {
       this.allItems[type].map((item) => {
-        allBoxes.push(this.turnItemIntoCheckbox(item));
+        allBoxes.push(scope.turnItemIntoCheckbox(item));
       })
     })
     return allBoxes;
@@ -85,11 +86,12 @@ class SignupItems extends React.Component {
   }
 
   render(){
+    const checkboxes = this.makeCheckboxes();
     return(
       <div className="show-form4">
         <h1 className="signup-title">Select Items to Donate</h1>
         <form onSubmit={this.submit} className="signup-checkbox-container">
-          {this.makeCheckboxes()}
+          {checkboxes}
           <input type="submit" value="Create Account" className="signup-button" />
         </form>
       </div>
