@@ -210,7 +210,7 @@ body {
   margin: 4px 20px;
   width: 240px;
   color: rgb(59, 42, 33);
-  background-color: rgba(241, 241, 217);
+  background-color: rgb(241, 241, 217);
   border: 1px solid rgb(147, 62, 20);
   opacity: 0.85;
 }
@@ -334,7 +334,7 @@ body {
   margin: 5px auto;
   padding: 10px;
   color: rgb(59, 42, 33);
-  background-color: rgba(241, 241, 217);
+  background-color: rgb(241, 241, 217);
   border: 3px solid rgb(147, 62, 20);
   opacity: 0.85;
   font-family: 'Open Sans', sans-serif;
