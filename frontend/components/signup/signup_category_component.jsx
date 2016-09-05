@@ -29,22 +29,24 @@ class SignupCategory extends React.Component {
 
   render(){
     return(
-      <form onSubmit={this.handleClick} className="show-form2">
-        <h1>Select {this.props.organization_name}'s Category</h1>
-        <select onChange={this.addCategory}>
-          {this.categories.map((category) => {
-            return(
-              <option value={category}
-                      className="signup-select-box"
-                      key={category}>
-                {category}
-              </option>
-            );
-          })};
-        </select>
+      <div className="show-form3">
+        <form onSubmit={this.handleClick} className="form3-container">
+          <h1>Select {this.props.organization_name}'s Category</h1>
+          <select onChange={this.addCategory}>
+            {this.categories.map((category) => {
+              return(
+                <option value={category}
+                        className="signup-select-box"
+                        key={category}>
+                  {category}
+                </option>
+              );
+            })};
+          </select>
 
-        <input type="submit" value="Next" className="next-button" />
-      </form>
+          <input type="submit" value="Next" className="signup-next-button" />
+        </form>
+      </div>
     )
   }
 

@@ -44,7 +44,7 @@ class SignupBasic extends React.Component {
               <input type="text" onChange={this.update("zipcode")} className="signup-input-field" placeholder="Zip Code" />
               <input type="text" className="signup-input-field" placeholder="Country" />
 
-              <input type="submit" value="Next" className="signup-next-button"/>
+              <input type="submit" value="Next" className="signup-basic-next-button"/>
           </form>
         </div>
       </div>
