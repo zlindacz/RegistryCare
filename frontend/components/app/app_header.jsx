@@ -13,20 +13,30 @@ class AppHeader extends React.Component {
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.navigateToHome = this.navigateToHome.bind(this);
     this.navigateToSignup = this.navigateToSignup.bind(this);
+    this.navigateToEditUser = this.navigateToEditUser.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (!this.props.currentUser && nextProps.currentUser) {
       this.closeModal();
       this.props.router.push("/registry");
-    } else if (this.props.currentUser && ! nextProps.currentUser) {
+    } else if (this.props.currentUser && !nextProps.currentUser) {
       this.props.router.push("/");
     }
   }
 
+  navigateToHome() {
+    this.props.router.push('/')
+  }
+
   navigateToSignup() {
     this.props.router.push('signup')
+  }
+
+  navigateToEditUser() {
+    this.props.router.push('profile')
   }
 
   openModal() {
@@ -59,13 +69,12 @@ class AppHeader extends React.Component {
       <div>
         <ul className="header-list group">
           <li><a>About</a></li>
+          <li><a onClick={this.navigateToEditUser}>Profile</a></li>
           <li><a onClick={() => this.props.logout()}>Log Out</a></li>
         </ul>
       </div>
     );
   }
-
-
 
   render() {
     return(
@@ -78,7 +87,7 @@ class AppHeader extends React.Component {
             <LoginFormContainer />
             <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
-        <img src="assets/heart.png" className="logo"/>
+        <img src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png" onClick={ this.navigateToHome } className="logo"/>
         { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
       </header>
     );

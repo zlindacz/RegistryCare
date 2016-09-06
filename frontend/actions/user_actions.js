@@ -4,6 +4,7 @@ export const UserConstants = {
   RECEIVE_USERS: "RECEIVE_USERS",
   REQUEST_SINGLE_USER: "REQUEST_SINGLE_USER",
   RECEIVE_SINGLE_USER: "RECEIVE_SINGLE_USER",
+  EDIT_USER: "EDIT_USER",
   UPDATE_USER: "UPDATE_USER",
   RECEIVE_USER_ERRORS: "RECEIVE_USER_ERRORS"
 }
@@ -29,6 +30,11 @@ export const requestSingleUser = id => ({
 
 export const receiveSingleUser = user => ({
   type: UserConstants.RECEIVE_SINGLE_USER,
+  user
+});
+
+export const editUser = user => ({
+  type: UserConstants.EDIT_USER,
   user
 });
 

@@ -24,3 +24,12 @@ export const receivePledge = pledge => ({
   type: PledgeConstants.RECEIVE_PLEDGE,
   pledge_id
 });
+
+export const createPledge = () => ({
+  type: PledgeConstants.CREATE_PLEDGE
+})
+
+export const removePledge = pledge => ({
+  type: PledgeConstants.REMOVE_PLEDGE,
+  pledge
+})

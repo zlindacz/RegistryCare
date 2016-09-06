@@ -32,7 +32,7 @@ export default ({
     maxWidth                   : '500px',
     width                      : '350px',
     minWidth                   : '300px',
-    height                     : '400px',
+    height                     : '410px',
     zIndex                     : '2000',
     display                    : 'flex',
     boxSizing                  : 'border-box'
