@@ -12,7 +12,7 @@ html, body, section, article, h1, h2 ,p, ul, li {
 }
 
 html {
-  background-image: url('http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg') fixed;
+  background: url('http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg') fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
