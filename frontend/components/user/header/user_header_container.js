@@ -5,11 +5,11 @@ import UserIndex from './user_index_component';
 
 const mapStateToProps = state => ({
   users: state.users,
-  currentUser: this.session.currentUser
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestUsers: () => dispatch(requestUsers()),
+  requestUsers: (users) => dispatch(requestUsers(users)),
   requestSingleUser: (user) => dispatch(requestSingleUser(user)),
   requestPledges: () => dispatch(requestPledges()
 });

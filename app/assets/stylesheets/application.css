@@ -12,7 +12,7 @@ html, body, section, article, h1, h2 ,p, ul, li {
 }
 
 html {
-  background-image: url('http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg') fixed;
+  background: url('http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg') fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -32,8 +32,7 @@ body {
 
 .header-nav {
   display: flex;
-  justify-content: space-between;
-  border-bottom: 3px solid rgba(240, 225, 171, 0.7);
+  border-bottom: 2px solid rgb(246, 237, 151);
   border-radius: 35%;
   margin-bottom: 20px;
 }
@@ -45,7 +44,7 @@ body {
   padding: 5px;
 }
 
-.logo:hover {
+.logo:hover {;Out
   cursor: pointer;
 }
 

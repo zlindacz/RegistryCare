@@ -6,10 +6,10 @@ import MiniProfile from './user_mini_profile_component';
 class UserIndex extends React.Component {
   componentDidMount(){
     this.props.requestUsers();
-    debugger
   }
 
   render(){
+
     const { users, currentUser } = this.props;
     return(
       <div>
@@ -19,7 +19,7 @@ class UserIndex extends React.Component {
             if (user.id === currentUser.id) {
               return;
             } else {
-              <MiniProfile key={user.id} className="mini-profile" />
+              return <MiniProfile key={user.id} user={user} className="mini-profile" />;
             }
           })}
         </ul>
