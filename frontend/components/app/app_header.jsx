@@ -25,16 +25,6 @@ class AppHeader extends React.Component {
     }
   }
 
-  // componentDidUpdate() {
-  //   this.redirectIfLoggedIn();
-  // }
-  //
-  // redirectIfLoggedIn() {
-  //   console.log(this.props.loggedIn);
-  //   if (this.props.loggedIn){
-  //     debugger
-  //   }
-  // }
   navigateToSignup() {
     this.props.router.push('signup')
   }

@@ -19,9 +19,6 @@ class Api::UsersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def update
     @user = User.find_by(id: params[:id])
     if @user.update(user_params)
