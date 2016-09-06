@@ -9,12 +9,19 @@ import {logout} from './util/session_api_util';
 import {receiveCurrentUser} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  let store = configureStore();
   window.store = store;
   window.signup = signup;
   window.login = login;
   window.logout = logout;
   window.receiveCurrentUser = receiveCurrentUser;
+  if (window.currentUser) {
+    const preloadedState = {session: {currentUser: window.currentUser}};
+    store = configureStore(preloadedState);
+  } else {
+    store = configureStore();
+  }
+
   const root = document.getElementById('content');
   Modal.setAppElement(root);
   ReactDOM.render(<Root store={store} />, root);

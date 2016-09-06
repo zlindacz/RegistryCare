@@ -66,21 +66,16 @@
   - GET /api/user/:id is called.
   - receiveSingleUser is set as the success callback.
 
-- requestOtherUser
-  - invoked from other_user onClick willReceiveProps
-  - GET /api/user/:id is called.
-  - receiveOtherUser is set as the success callback.
-
 - requestUsers
   - invoked from Browse onClick didMount/willReceiveProps
   - GET /api/users is called.
   - receiveUsers is set as the success callback.
 
-- requestRegistryDisplay
+<!-- - requestRegistryDisplay
   - invoked from App in didMount.
   - GET /api/user/:id/registry is called with user info.
   - receiveRegistryDisplay is set as the success callback.
-
+ -->
 - requestPledges
   - invoked from Browse didMount/willReceiveProps.
   - GET /api/users/:id/favorites.
@@ -96,11 +91,11 @@
   - DELETE /api/pledges/:id is called.
   - removePledge is set as the success callback.
 
-- requestDonationsDisplay
+<!-- - requestDonationsDisplay
   - invoked from App in didMount.
   - GET /api/user/:id/registry is called with user info.
   - receiveDonationsDisplay is set as the success callback.
-
+ -->
 
 ### User Request Response Actions
 
@@ -108,17 +103,13 @@
   - invoked from an API callback
   - the UserReducer updates user[id] in the application's state.
 
-- receiveOtherUser
-  - invoked from an API callback
-  - the UserReducer updates user[id] in the application's state.
-
 - receiveUsers
   - invoked from an API callback
   - the UserReducer updates users in the application's state.
 
-- receiveRegistryDisplay
+<!-- - receiveRegistryDisplay
   - invoked from an API callback
-  - the RegistryReducer updates user[id] registry in the application's state.
+  - the RegistryReducer updates user[id] registry in the application's state. -->
 
 - receiveSinglePledge
   - invoked from an API callback
@@ -132,6 +123,6 @@
   - invoked from an API callback
   - the PledgeReducer removes pledges[id] from the application's state.
 
-- receiveDonationsDisplay
+<!-- - receiveDonationsDisplay
   - invoked from an API callback
-  - the UserReducer updates user[id] donations in the application's state.
+  - the UserReducer updates user[id] donations in the application's state. -->

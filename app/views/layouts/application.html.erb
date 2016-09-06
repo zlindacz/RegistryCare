@@ -18,6 +18,12 @@
       upload_preset: '<%= ENV['UPLOAD_PRESET'] %>'
     };
   </script>
+  <script type="text/javascript">
+    <% if is_logged_in? %>
+      window.currentUser = <%= render("api/users/user.json.jbuilder",
+          user: current_user).html_safe %>
+    <% end %>
+  </script>
 
 </head>
 <body>

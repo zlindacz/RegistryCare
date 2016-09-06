@@ -66,6 +66,10 @@ __Objective__: Dashboard's saved donations
 
 ### Bonus Features (TBD)
 
+- back button in sign up forms
+- display error messages (sign up / log in)
+- state dropdown has 50 states, number field for zipcode
+
 - User can also indicate what items they can donate
 - User has the choice to make their profile private
 - Search with location data

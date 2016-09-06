@@ -1,5 +1,6 @@
 import React from 'react';
 import merge from 'lodash/merge';
+import { withRouter } from 'react-router';
 
 class SignupItems extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class SignupItems extends React.Component {
                                 {name: 'Mentor', id: 19},
                                 {name: 'Tutor', id: 20}]
                               };
-    this.state = {items: []};
+    this.state = {item_ids: []};
 
     this.updateItems = this.updateItems.bind(this);
     this.turnItemIntoCheckbox = this.turnItemIntoCheckbox.bind(this);
@@ -38,7 +39,7 @@ class SignupItems extends React.Component {
     const itemsArray = this.allItems[itemTypes[0]].concat(
                        this.allItems[itemTypes[1]]).concat(
                        this.allItems[itemTypes[2]])
-    return e => { this.setState({items: this.state.items.concat([item["id"]])}); };
+    return e => { this.setState({item_ids: this.state.item_ids.concat([item["id"]])}); };
   }
 
   turnItemIntoCheckbox(item) {
@@ -55,13 +56,18 @@ class SignupItems extends React.Component {
     }
 
     return(
-      <div key={`cbox${item["id"]}`}>
+      <div key={`cbox${item["id"]}`}
+           className="signup-checkbox">
         <input type="checkbox"
                onChange={this.updateItems(item)}
-               className={`signup-checkbox ${itemKey}`}
+               className={`${itemKey}`}
                id={`cbox${item["id"]}`}
-               value={item["name"]} />
-        <label htmlFor={`cbox${item["id"]}`}>{item["name"]}</label>
+               value={item["name"]}/>
+
+        <label htmlFor={`cbox${item["id"]}`}
+               className="signup-checkbox-label">
+                <span>{item["name"]}</span>
+        </label>
       </div>
     );
   }
@@ -82,7 +88,6 @@ class SignupItems extends React.Component {
     e.preventDefault();
     let user = merge({}, this.state, this.props.user);
     this.props.submit(user);
-    // redirect to index page
   }
 
   render(){
@@ -90,8 +95,8 @@ class SignupItems extends React.Component {
     return(
       <div className="show-form4">
         <h1 className="signup-title">Select Items to Donate</h1>
-        <form onSubmit={this.submit} className="signup-checkbox-container">
-          {checkboxes}
+        <form onSubmit={this.submit}>
+          <div className="box">{checkboxes}</div>
           <input type="submit" value="Create Account" className="signup-button" />
         </form>
       </div>
@@ -100,4 +105,4 @@ class SignupItems extends React.Component {
 
 }
 
-export default SignupItems;
+export default withRouter(SignupItems);

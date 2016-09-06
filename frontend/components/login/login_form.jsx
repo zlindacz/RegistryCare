@@ -1,37 +1,28 @@
 import React from 'react';
+import { withRouter } from 'react-router';
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
+      username: "",
       password: ""
     };
     this.update = this.update.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  update() {
-    return e => { this.setState({"login": e.currentTarget.value}); };
+  update(field) {
+    return e => { this.setState({[field]: e.currentTarget.value}); };
   }
 
   handleSubmit(e) {
     e.preventDefault();
     const user = this.state;
-    this.props.login({user});
+    this.props.login(user);
   }
 
-  componentDidUpdate() {
-    this.redirectIfLoggedIn();
-  }
-
-  redirectIfLoggedIn() {
-    if (this.props.loggedIn){
-      // hashHistory.push("/");
-      console.log("logged in!");
-    }
-  }
-
+  
   render() {
     return (
       <div className="login-form-container">
@@ -40,7 +31,7 @@ class LoginForm extends React.Component {
 
           <span className="login-input">
             <i className="fa fa-user icon-4x" aria-hidden="true"></i>
-            <input onChange={this.update("name")} type="text" className="login-input-field" placeholder="Name" />
+            <input onChange={this.update("username")} type="text" className="login-input-field" placeholder="Name" />
           </span>
 
 
@@ -57,4 +48,4 @@ class LoginForm extends React.Component {
 
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);

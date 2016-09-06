@@ -1,18 +1,16 @@
 class Api::UsersController < ApplicationController
+  before_action :require_logged_in, except: :create
+
   def index
+    @users = User.all
   end
 
   def show
-  end
-
-  def new
+    @user = User.find_by(id: params[:id])
   end
 
   def create
     @user = User.new(user_params)
-    # cloud_name = ENV['CLOUD_NAME']
-    # upload_preset = Figaro.env.UPLOAD_PRESET
-    # puts "API KEYS: #{cloud_name} #{upload_preset}"
     if @user.save
       login!(@user)
       render "api/users/show"
@@ -25,10 +23,16 @@ class Api::UsersController < ApplicationController
   end
 
   def update
+    @user = User.find_by(id: params[:id])
+    if @user.update(user_params)
+      render `api/users/${params[:id]}/show`
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
   end
 
   private
   def user_params
-    params.require(:user).permit(:username, :organization_name, :email, :address1, :address2, :city, :state, :zipcode, :photo, :description, :password)
+    params.require(:user).permit(:username, :organization_name, :email, :address1, :address2, :city, :state, :zipcode, :photo, :description, :password, item_ids: [], category_ids: [])
   end
 end

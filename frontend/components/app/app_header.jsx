@@ -16,6 +16,25 @@ class AppHeader extends React.Component {
     this.navigateToSignup = this.navigateToSignup.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.currentUser && nextProps.currentUser) {
+      this.closeModal();
+      this.props.router.push("/registry");
+    } else if (this.props.currentUser && ! nextProps.currentUser) {
+      this.props.router.push("/");
+    }
+  }
+
+  // componentDidUpdate() {
+  //   this.redirectIfLoggedIn();
+  // }
+  //
+  // redirectIfLoggedIn() {
+  //   console.log(this.props.loggedIn);
+  //   if (this.props.loggedIn){
+  //     debugger
+  //   }
+  // }
   navigateToSignup() {
     this.props.router.push('signup')
   }
@@ -50,11 +69,13 @@ class AppHeader extends React.Component {
       <div>
         <ul className="header-list group">
           <li><a>About</a></li>
-          <li><a>Log Out</a></li>
+          <li><a onClick={() => this.props.logout()}>Log Out</a></li>
         </ul>
       </div>
     );
   }
+
+
 
   render() {
     return(
@@ -64,7 +85,7 @@ class AppHeader extends React.Component {
           onRequestClose={ this.closeModal }
           style={ ModalStyle }
           onAfterOpen={this.onModalOpen}>
-            <LoginFormContainer formType={ this.state.formType } />
+            <LoginFormContainer />
             <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
         <img src="assets/heart.png" className="logo"/>
