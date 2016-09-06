@@ -4,10 +4,15 @@ import { withRouter } from 'react-router';
 class MiniProfile extends React.Component {
 
   render() {
-    debugger
+    let user = this.props.user;
+
     return(
       <div>
-        Mini-profile here!
+        <figure>
+          <img src={this.props.user.photo} className="mini-photo"/>
+        </figure>
+
+        {this.props.user.username}
       </div>
     )
   }
