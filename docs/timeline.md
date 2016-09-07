@@ -68,6 +68,8 @@ __Objective__: Dashboard's saved donations
 
 - back button in sign up forms
 - display error messages (sign up / log in)
+- category and items tags on mini-profiles
+
 - state dropdown has 50 states, number field for zipcode
 
 - User can also indicate what items they can donate
