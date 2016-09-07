@@ -9,20 +9,21 @@ class UserIndex extends React.Component {
   }
 
   render(){
-
     const { users, currentUser } = this.props;
+    const miniProfiles = users.map(user => {
+      if (currentUser && (user.id === currentUser.id)) {
+        return;
+      } else {
+        return <MiniProfile key={user.id} user={user} />;
+      }
+    });
+
     return(
       <div>
         <h1 className="index-title">All Organizations</h1>
-        <ul className="organizations">
-          {users.map(user => {
-            if (user.id === currentUser.id) {
-              return;
-            } else {
-              return <MiniProfile key={user.id} user={user} className="mini-profile" />;
-            }
-          })}
-        </ul>
+        <div className="organizations">
+          {miniProfiles}
+        </div>
       </div>
     )
   }

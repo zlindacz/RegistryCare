@@ -50,7 +50,7 @@ User.create!(organization_name: "The Tree House",
              city: "San Antonio",
              state: "Texas",
              zipcode: "78225",
-             photo: "assets/img",
+             photo: "assets/heart.png",
              description: "after school program for children in k-9"
              )
 
@@ -64,7 +64,7 @@ User.create!(organization_name: "Creativity Explored",
             city: "San Francisco",
             state: "California",
             zipcode: "94103",
-            photo: "assets/img",
+            photo: "assets/heart.png",
             description: "Artists with developmental disabilities are given the opportunity to create art at Creativity Explored. The artwork is sold through CE’s studios and galleries, as well as around the world, in an effort to enable these artists to become self-employed."
             )
 
@@ -78,7 +78,7 @@ User.create!(organization_name: "Raphael House",
              city: "San Francisco",
              state: "California",
              zipcode: "94109",
-             photo: "assets/img",
+             photo: "assets/heart.png",
              description: "Raphael House is the first homeless shelter for families in Northern California. Through a variety of supportive and nurturing programs that provide shelter, academic enrichment, career building, children’s services, and more, it hopes to reach an additional 200 families over the next three years."
              )
 

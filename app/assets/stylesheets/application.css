@@ -12,7 +12,7 @@ html, body, section, article, h1, h2 ,p, ul, li {
 }
 
 html {
-  background: url('http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg') fixed;
+  background: url('http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg') no-repeat center center fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -45,7 +45,7 @@ body {
   padding: 5px;
 }
 
-.logo:hover {;Out
+.logo:hover {
   cursor: pointer;
 }
 
@@ -579,4 +579,63 @@ body {
   background-image: -ms-linear-gradient(top, #4ad073, #3e915a);
   background-image: -o-linear-gradient(top, #4ad073, #3e915a);
   background-image: linear-gradient(to bottom, #4ad073, #3e915a);
+}
+
+
+
+/* users related css */
+
+.index-title {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 26px;
+  border: 5px solid white;
+}
+
+.organizations {
+  border: 5px solid red;
+}
+
+.mini-organization {
+  border: 5px solid blue;
+}
+
+.mini-words {
+  border: 5px solid green;
+}
+
+
+.mini-photo {
+  border: 5px solid yellow;
+}
+
+.mini-heading {
+  border: 5px solid aqua;
+}
+
+.mini-description {
+  border: 5px solid lime;
+}
+
+.mini-subheading {
+  border: 5px solid fuchsia;
+}
+
+.mini-contact-info {
+  border: 5px solid maroon;
+}
+
+.mini-categories-tags {
+  border: 5px solid silver;
+}
+
+.mini-category {
+  border: 5px solid orange;
+}
+
+.mini-items-list {
+  border: 5px solid gray;
+}
+
+.mini-item {
+  border: 5px solid purple;
 }
