@@ -5,6 +5,7 @@ import SignupFormContainer from '../signup/signup_form_container';
 import UserIndexContainer from '../user/index/user_index_container';
 import UserPledgesContainer from '../user/pledge/user_pledges_container';
 import UserRegistryContainer from '../user/registry/user_registry_container';
+import HomeContainer from '../home/home_container';
 
 class AppRouter extends React.Component{
   constructor(props) {
@@ -16,15 +17,15 @@ class AppRouter extends React.Component{
 
   _redirectIfLoggedIn(nextState, replace) {
     const currentUser = this.props.currentUser;
-    if (currentUser) {
-      replace('/');
+    if (nextState.currentUser && !currentUser) {
+      replace('/index');
     }
   }
 
   _ensureLoggedIn(nextState, replace) {
     const currentUser = this.props.currentUser
-    if (!currentUser) {
-      replace('/signup');
+    if (!nextState.currentUser || !currentUser) {
+      replace('/');
     }
   }
 
@@ -32,7 +33,8 @@ class AppRouter extends React.Component{
     return(
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
-          <IndexRoute component={ UserIndexContainer } onEnter={ this._ensureLoggedIn } />
+          <IndexRoute component={ HomeContainer } onEnter={ this._redirectIfLoggedIn } />
+          <Route path="/index" component={ UserIndexContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="/signup" component={ SignupFormContainer } onEnter={ this._redirectIfLoggedIn }/>
           <Route path="/registry/:userId" component={ UserRegistryContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="/pledges" component={ UserPledgesContainer} onEnter={ this._ensureLoggedIn } />

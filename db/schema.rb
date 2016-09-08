@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902160203) do
+ActiveRecord::Schema.define(version: 20160908004333) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,20 +57,20 @@ ActiveRecord::Schema.define(version: 20160902160203) do
   add_index "user_items", ["user_id", "item_id"], name: "index_user_items_on_user_id_and_item_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "organization_name",                                 null: false
-    t.string   "username",                                          null: false
-    t.string   "email",                                             null: false
-    t.string   "address1",                                          null: false
+    t.string   "organization_name",                                        null: false
+    t.string   "username",                                                 null: false
+    t.string   "email",                                                    null: false
+    t.string   "address1",                                                 null: false
     t.string   "address2"
-    t.string   "city",                                              null: false
-    t.string   "state",                                             null: false
-    t.string   "zipcode",           limit: 5,                       null: false
-    t.string   "photo",                       default: "heart.png", null: false
-    t.text     "description",                                       null: false
-    t.string   "password_digest",                                   null: false
-    t.string   "session_token",                                     null: false
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
+    t.string   "city",                                                     null: false
+    t.string   "state",                                                    null: false
+    t.string   "zipcode",           limit: 5,                              null: false
+    t.string   "photo",                       default: "assets/heart.png", null: false
+    t.text     "description",                                              null: false
+    t.string   "password_digest",                                          null: false
+    t.string   "session_token",                                            null: false
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
   end
 
   add_index "users", ["username", "email"], name: "index_users_on_username_and_email", unique: true, using: :btree
