@@ -34,8 +34,8 @@ class AppRouter extends React.Component{
         <Route path="/" component={ App }>
           <IndexRoute component={ UserIndexContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="/signup" component={ SignupFormContainer } onEnter={ this._redirectIfLoggedIn }/>
+          <Route path="/registry/:userId" component={ UserRegistryContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="/pledges" component={ UserPledgesContainer} onEnter={ this._ensureLoggedIn } />
-          <Route path="/registry" component={ UserRegistryContainer } onEnter={ this._ensureLoggedIn } />
         </Route>
       </Router>
     );

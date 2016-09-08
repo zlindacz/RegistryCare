@@ -9,3 +9,7 @@ end
 json.categories do
   json.array! user.categories
 end
+
+json.pledges do
+  json.array! user.pledges
+end

@@ -15,9 +15,6 @@ export default (state = defaultState, action) => {
     case UserConstants.RECEIVE_USERS:
       let users = action.users;
       return merge({}, state, {users: users});
-    case UserConstants.UPDATE_USER:
-      user = action.user;
-      return merge({}, state, user);
     default:
       return state;
   }

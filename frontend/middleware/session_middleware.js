@@ -18,6 +18,7 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
       logger
     case SessionConstants.SIGNUP:
+      console.log(action);
       signup(action.user, successCallback, errorCallback);
       return next(action);
     case SessionConstants.LOGOUT:
