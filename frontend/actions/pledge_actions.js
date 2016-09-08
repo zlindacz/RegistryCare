@@ -20,16 +20,17 @@ export const requestPledge = () => ({
   type: PledgeConstants.REQUEST_PLEDGE
 });
 
-export const receivePledge = pledge => ({
+export const receivePledge = pledge_id => ({
   type: PledgeConstants.RECEIVE_PLEDGE,
   pledge_id
 });
 
-export const createPledge = () => ({
-  type: PledgeConstants.CREATE_PLEDGE
+export const createPledge = (other_user_id) => ({
+  type: PledgeConstants.CREATE_PLEDGE,
+  other_user_id
 })
 
-export const removePledge = pledge => ({
+export const removePledge = other_user_id => ({
   type: PledgeConstants.REMOVE_PLEDGE,
-  pledge
+  other_user_id
 })

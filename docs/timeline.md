@@ -69,6 +69,8 @@ __Objective__: Dashboard's saved donations
 - back button in sign up forms
 - display error messages (sign up / log in)
 - category and items tags on mini-profiles
+- react masonry to make index cards flip over and reveal description
+- make background cover only top half of page
 
 - state dropdown has 50 states, number field for zipcode
 

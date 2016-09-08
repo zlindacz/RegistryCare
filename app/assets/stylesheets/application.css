@@ -12,22 +12,35 @@ html, body, section, figure, article, h1, h2, h3, h4, p, ul, li {
 }
 
 html {
-  background: url('http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg') no-repeat center center fixed;
-  background-size: cover;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+
 }
 
 ul, li {
   list-style: none;
 }
 
+.background-image-top {
+  background: url("http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  width: 100vw;
+  height: 90vh;
+}
+
 body {
-  width: 720px;
-  margin: 0 auto;
   font-family: 'Oxygen', sans-serif;
 }
+
+/*.background-image {
+  /*background: no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  height: 800px;
+}*/
 
 
 .header-nav {
@@ -36,6 +49,7 @@ body {
   border-bottom: 2px solid rgba(232, 212, 139, 0.84);
   border-radius: 35%;
   margin-bottom: 20px;
+  /*z-index: 10;*/
 }
 
 .logo {
@@ -584,57 +598,66 @@ body {
 
 
 /* users related css */
+/* mini profile component */
 
 .index-title {
-  border: 5px solid white;
+  /*border: 5px solid white;*/
   font-family: 'Archivo Black', sans-serif;
   font-size: 40px;
   color: white;
 }
 
 .organizations {
-  border: 5px solid red;
-  background-color: rgba(25, 19, 11, 0.77);
+  /*border: 5px solid red;*/
   display: flex;
   box-sizing: border-box;
-  justify-content: space-around;
+  justify-content: flex-start;
   flex-wrap: wrap;
+  margin: 25px;
 }
 
 .mini-organization {
-  border: 5px solid blue;
-  height: 350px;
-  width: 350px;
+  /*border: 5px solid blue;*/
+  background-color: rgba(223, 206, 183, 0.9);
+  margin: 10px 30px;
+  padding: 10px;
+  border: 1px solid rgb(87, 57, 23);
+  height: 250px;
+  width: 200px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  /*justify-content: space-around;*/
+}
+
+.mini-organization {
+  cursor: pointer;
 }
 
 .mini-words {
-  border: 5px solid green;
+  /*border: 5px solid green;*/
 }
 
 .mini-photo-container {
-  border: 5px solid olive;
+  /*border: 5px solid olive;*/
   box-sizing: border-box;
 }
 
 .mini-photo {
-  border: 5px solid yellow;
-  height: 100px;
-  width: 320px;
-
+  /*border: 5px solid yellow;*/
+  height: 60px;
+  width: 180px;
+  margin-bottom: 10px;
 }
 
 .mini-heading {
-  border: 5px solid aqua;
-  font-size: 20px;
-  color: white;
+  /*border: 5px solid aqua;*/
+  font-size: 16px;
+  color: rgb(136, 26, 91);
+  margin-bottom: 10px;
 }
 
 .mini-description {
-  border: 5px solid lime;
+  /*border: 5px solid lime;*/
 }
 
 .mini-contact-items {
@@ -643,21 +666,20 @@ body {
 }
 
 .mini-subheading {
-  border: 5px solid fuchsia;
-  font-size: 18px;
-  color: white;
-}
-
-.mini-contact-info {
-  border: 5px solid maroon;
+  /*border: 5px solid fuchsia;*/
+  font-size: 14px;
 }
 
 .mini-categories-tags {
-  border: 5px solid silver;
+  /*border: 5px solid silver;*/
+  margin: 5px 10px;
 }
 
 .mini-category {
-  border: 5px solid orange;
+  /*border: 5px solid orange;*/
+  font-size: 13px;
+  color: rgb(73, 60, 45);
+  margin: 5px 10px;
 }
 
 .mini-category-block {
@@ -665,17 +687,90 @@ body {
   justify-content: flex-start;
 }
 
-.contact-block {
-  display: flex;
-  flex-direction: column;
-}
-
 .mini-items-list {
-  border: 5px solid gray;
+  /*border: 5px solid gray;*/
   display: flex;
   flex-direction: column;
+  margin: 5px;
 }
 
 .mini-item {
-  border: 5px solid purple;
+  /*border: 5px solid purple;*/
+  font-size: 13px;
+  color: rgb(73, 60, 45)
+}
+
+.items-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;;
+}
+
+
+/* registry component */
+
+.registry-logo-title {
+  border: 5px solid white;
+}
+
+.registry-body {
+  border: 5px solid fuchsia;
+}
+
+.registry-body-left {
+  border: 5px solid blue;
+}
+
+.registry-body-right {
+  border: 5px solid green;
+}
+
+.registry-description {
+  border: 5px solid olive;
+}
+
+.registry-contact {
+
+}
+
+.logo-photo {
+  border: 5px solid black;
+  height: 100px;
+}
+
+.registry-title {
+  border: 5px solid gray;
+}
+
+.registry-subtitle {
+  border: 5px solid silver;
+}
+
+.description {
+
+}
+
+.contact-info {
+
+}
+
+.no-show {
+  display: none;
+}
+
+.pledge-button {
+  width: 50px;
+  height: 150px;
+  border-radius: 5px;
+}
+
+.pledge-count {
+  font-family: 'Oxygen', sans-serif;
+}
+
+
+
+.contact-info {
+  border: 5px solid maroon;
 }

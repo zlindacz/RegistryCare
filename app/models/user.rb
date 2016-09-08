@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :categories, through: :user_categories
   has_many :user_items, dependent: :destroy, inverse_of: :user
   has_many :items, through: :user_items
+  has_many :pledges, dependent: :destroy, inverse_of: :user
+  has_many :other_users, through: :pledges
 
   after_initialize :ensure_session_token
 

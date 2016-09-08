@@ -9,7 +9,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestSingleUser: (user) => dispatch(requestSingleUser(user)),
   createPledge: () => dispatch(createPledge()),
   removePledge: (pledge) => dispatch(removePledge())
 });
