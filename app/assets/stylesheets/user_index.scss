@@ -1,0 +1,136 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.masonry {
+  padding-left: 100px;
+}
+
+.index-title {
+  /*border: 5px solid white;*/
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 40px;
+  color: rgb(46, 41, 43);
+}
+
+.organizations {
+  /*border: 5px solid red;*/
+  display: flex;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin: 30px 50px;
+}
+
+.mini-organization {
+  /*border: 5px solid blue;*/
+  background-color: rgba(222, 213, 213, 0.79);
+  margin: 10px 30px;
+  padding: 10px;
+  border: 1px solid rgb(208, 204, 200);
+  height: auto;
+  width: 350px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.mini-organization:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.mini-words {
+  /*border: 5px solid green;*/
+}
+
+.mini-photo-container {
+  /*border: 5px solid olive;*/
+  box-sizing: border-box;
+  width: 250px;
+  /*margin: 0 auto;*/
+}
+
+.mini-photo {
+  /*border: 5px solid yellow;*/
+  width: 300px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.mini-heading {
+  /*border: 5px solid aqua;*/
+  font-size: 22px;
+  color: rgb(136, 26, 91);
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .mini-description {
+//   /*border: 5px solid lime;*/
+// }
+//
+// .mini-contact-items {
+//   display: flex;
+//   justify-content: space-around;
+// }
+//
+// .mini-subheading {
+//   /*border: 5px solid fuchsia;*/
+//   font-size: 14px;
+// }
+//
+// .mini-categories-tags {
+//   /*border: 5px solid silver;*/
+//   margin: 5px 10px;
+// }
+//
+// .mini-category {
+//   /*border: 5px solid orange;*/
+//   font-size: 13px;
+//   color: rgb(73, 60, 45);
+//   margin: 5px 10px;
+// }
+//
+// .mini-category-block {
+//   display: flex;
+//   justify-content: flex-start;
+// }
+//
+// .mini-items-list {
+//   /*border: 5px solid gray;*/
+//   display: flex;
+//   flex-direction: column;
+//   margin: 5px;
+// }
+//
+// .mini-item {
+//   /*border: 5px solid purple;*/
+//   font-size: 13px;
+//   color: rgb(73, 60, 45)
+// }
+//
+// .items-box {
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: space-between;;
+// }

@@ -21,9 +21,9 @@ class AppHeader extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (!this.props.currentUser && nextProps.currentUser) {
       this.closeModal();
-      this.props.router.push("/");
+      this.props.router.push(`/index`);
     } else if (this.props.currentUser && !nextProps.currentUser) {
-      this.props.router.push("/signup");
+      this.props.router.push("/");
     }
   }
 

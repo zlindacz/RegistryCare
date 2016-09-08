@@ -1,0 +1,72 @@
+.registry-show {
+  // position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.registry-logo-title {
+  // border: 5px solid white;
+  position: relative;
+
+}
+
+.logo-photo {
+  // border: 5px solid black;
+  height: 300px;
+}
+
+.registry-body {
+  // border: 5px solid fuchsia;
+}
+
+.registry-body-left {
+  // border: 5px solid blue;
+}
+
+.registry-body-right {
+  // border: 5px solid green;
+}
+
+.registry-description {
+  // border: 5px solid olive;
+}
+
+.registry-contact {
+
+}
+
+
+
+.registry-title {
+  // border: 5px solid gray;
+}
+
+.registry-subtitle {
+  // border: 5px solid silver;
+}
+
+.description {
+
+}
+
+.contact-info {
+
+}
+
+.no-show {
+  display: none;
+}
+
+.pledge-button {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+.pledge-count {
+  font-family: 'Oxygen', sans-serif;
+}
+
+.contact-info {
+  // border: 5px solid maroon;
+}

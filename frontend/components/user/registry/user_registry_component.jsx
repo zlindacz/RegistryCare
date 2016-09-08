@@ -11,25 +11,9 @@ class UserRegistry extends React.Component {
     this.pluralizePledge = this.pluralizePledge.bind(this);
   };
 
-
   componentDidMount(){
     this.props.requestSingleUser(this.props.params.userId);
   };
-
-  // determineIfPledged() {
-  //   let pledges = [];
-  //   this.props.user.pledges.forEach(pledge => {
-  //     if (pledge.other_user_id !== this.props.currentUser.id) {
-  //       pledges.push(pledge.other_user_id);
-  //     }
-  //   });
-  //
-  //   if (pledges.includes(this.props.currentUser.id)) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
 
   determineIfPledged() {
     let pledged = false;
@@ -83,10 +67,10 @@ class UserRegistry extends React.Component {
     let showAddress2;
     showAddress2 = (user.address2 === "" ? "no-show" : "contact-info");
     return(
-      <div>
+      <div className="registry-show">
         <section className="registry-logo-title">
+          <h1 className="tagline">{user.organization_name}</h1>
           <img className="logo-photo" src={user.photo} />
-          <h1 className="registry-title">{user.organization_name}</h1>
         </section>
 
         <div className="registry-body">

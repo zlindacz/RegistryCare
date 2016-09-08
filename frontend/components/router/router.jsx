@@ -16,15 +16,15 @@ class AppRouter extends React.Component{
   }
 
   _redirectIfLoggedIn(nextState, replace) {
-    const currentUser = this.props.currentUser;
-    if (nextState.currentUser && !currentUser) {
-      replace('/index');
+    const currentUser = this.context.store.getState().session.currentUser;
+    if (currentUser) {
+      replace(`/index`);
     }
   }
 
   _ensureLoggedIn(nextState, replace) {
-    const currentUser = this.props.currentUser
-    if (!nextState.currentUser || !currentUser) {
+    const currentUser = this.context.store.getState().session.currentUser;
+    if (!currentUser) {
       replace('/');
     }
   }
@@ -44,5 +44,7 @@ class AppRouter extends React.Component{
   }
 }
 
-
+AppRouter.contextTypes = {
+  store: React.PropTypes.object
+}
 export default AppRouter;
