@@ -1,3 +1,56 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// from mini-profile
+.mini-description {
+  /*border: 5px solid lime;*/
+}
+
+.mini-contact-items {
+  display: flex;
+  justify-content: space-around;
+}
+
+.mini-subheading {
+  /*border: 5px solid fuchsia;*/
+  font-size: 14px;
+}
+
+.mini-categories-tags {
+  /*border: 5px solid silver;*/
+  margin: 5px 10px;
+}
+
+.mini-category {
+  /*border: 5px solid orange;*/
+  font-size: 13px;
+  color: rgb(73, 60, 45);
+  margin: 5px 10px;
+}
+
+.mini-category-block {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.mini-items-list {
+  /*border: 5px solid gray;*/
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.mini-item {
+  /*border: 5px solid purple;*/
+  font-size: 13px;
+  color: rgb(73, 60, 45)
+}
+
+.items-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;;
+}

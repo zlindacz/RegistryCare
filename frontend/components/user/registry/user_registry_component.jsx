@@ -46,7 +46,6 @@ class UserRegistry extends React.Component {
 
   togglePledgeButton() {
     if (this.determineIfPledged()) {
-      debugger
       this.props.removePledge(this.props.user.id)
     } else {
       this.props.createPledge(this.props.user.id)
@@ -83,7 +82,6 @@ class UserRegistry extends React.Component {
 
     let showAddress2;
     showAddress2 = (user.address2 === "" ? "no-show" : "contact-info");
-    // debugger
     return(
       <div>
         <section className="registry-logo-title">

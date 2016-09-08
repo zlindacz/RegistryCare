@@ -77,6 +77,9 @@ class AppHeader extends React.Component {
   }
 
   render() {
+    // let source = this.props.currentUser ?
+    //                this.props.currentUser.photo :
+    //                "http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png";
     return(
       <header className="header-nav">
         <Modal
@@ -87,7 +90,7 @@ class AppHeader extends React.Component {
             <LoginFormContainer />
             <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
-        <img src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png" onClick={ this.navigateToHome } className="logo"/>
+        <img src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png" onClick={ this.navigateToHome } className="logo" />
         { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
       </header>
     );
