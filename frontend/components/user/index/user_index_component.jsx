@@ -24,18 +24,14 @@ class UserIndex extends React.Component {
 
 
     return(
-      <Masonry className="masonry"
-               style={style}
-               onClick={this.handleClick}
-               >
-        <h1 className="tagline">{this.props.currentUser.organization_name}</h1>
-        <div>
-          <h1 className="index-title">All Organizations</h1>
-          <div className="organizations">
-            {miniProfiles}
-          </div>
+      <div className="index-parent">
+        <h1 className="tagline">All Organizations</h1>
+        <div className="organizations">
+        <Masonry className="masonry">
+          {miniProfiles}
+        </Masonry>
         </div>
-      </Masonry>
+      </div>
     );
   }
 };

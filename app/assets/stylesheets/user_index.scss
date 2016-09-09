@@ -4,7 +4,9 @@
 
 
 .masonry {
-  padding-left: 100px;
+  padding: 0 100px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .index-title {
@@ -25,24 +27,28 @@
 
 .mini-organization {
   /*border: 5px solid blue;*/
-  background-color: rgba(222, 213, 213, 0.79);
+  // background-color: rgba(222, 213, 213, 0.79);
   margin: 10px 30px;
-  padding: 10px;
-  border: 1px solid rgb(208, 204, 200);
-  height: auto;
-  width: 350px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  opacity: 1;
-  transition: opacity .25s ease-in-out;
-  -moz-transition: opacity .25s ease-in-out;
-  -webkit-transition: opacity .25s ease-in-out;
+  // padding: 10px;
+  // border: 1px solid rgb(208, 204, 200);
+  // height: auto;
+  // width: 350px;
+  // box-sizing: border-box;
+  // display: flex;
+  // flex-direction: column;
+  // opacity: 1;
+  // transition: opacity .25s ease-in-out;
+  // -moz-transition: opacity .25s ease-in-out;
+  // -webkit-transition: opacity .25s ease-in-out;
+}
+
+.index-parent {
+  position: relative;
 }
 
 .mini-organization:hover {
   cursor: pointer;
-  opacity: 0.5;
+  // opacity: 0.5;
 }
 
 .mini-words {
@@ -52,13 +58,12 @@
 .mini-photo-container {
   /*border: 5px solid olive;*/
   // box-sizing: border-box;
-  // width: 250px;
-  /*margin: 0 auto;*/
+  width: 250px;
 }
 
 .mini-photo {
   /*border: 5px solid yellow;*/
-  width: 300px;
+  width: 250px;
   height: auto;
   margin: 0 auto;
 }
