@@ -32,7 +32,7 @@ class SearchBar extends React.Component {
 
   handleChange(e) {
     e.preventDefault();
-    // this.props.router.push(`/index/?query=${ e.currentTarget.value }`)
+    this.props.router.push(`/index/?query=${ e.currentTarget.value }`)
     this.props.submitQuery(e.currentTarget.value);
   }
 

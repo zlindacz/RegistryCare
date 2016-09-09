@@ -1,6 +1,30 @@
-### RegistryCare ###
+## RegistryCare ##
 
 [RegistryCare](https://registry-care.herokuapp.com/#/?_k=m0qytc)
 
-Registry Care is a web application inspired by Thankful Registry, built using Ruby on Rails and React/Redux.
-It provides an interface for not-for-profit organizations to create registries for needed resources, to find other organizations, and to pledge to donate to them.
+Registry Care is a web application inspired by Thankful Registry. It is built using Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework ont he front-end.
+
+### Features and Implementation
+
+Registry Care is an interface for not-for-profit organizations to create registries for needed resources.
+
+#### User Authentication ####
+The App features user authentication in the form of Login and Signup functionalities. Sensitive information is kept out of the front end of the app. The app makes API calls to the SessionController to fetch or create users. There are also "tour" buttons on the homepage to log the guest in as if they have an account. Signing up involves traversing throught several information-gathering forms, including a form for uploading profile pictures, using the Cloudinary image API.
+
+#### Index ####
+Once the user is logged in, they can do several things. By clicking on the heart logo or the "Profile" in the top right of the header, the user will be redirected to the Index page that shows all the organizations. From there, the user can click on a picture with the logo of the organization and be directed to that organization's "registry".
+
+#### Registry and Pledges ####
+The registry shows the organization's purpose, category, and gives a list of items that they need. There is also a "Pledge" button on the top right corner, for the logged in user to commit to making a donation to them. Beneath there is also a count of pledges that the organization currently has.
+
+#### Search ####
+In the center of the header there is a search bar which responds to user typing to search for organizations by organization name, category, or items needed. It rerenders the index page on change in the input field.
+
+### Future Directions for the Project ###
+
+Future improvements will include:
+- adding a user interface for individual donors to create an account
+- adding a map API to show locations of the organizations so the user could also search by location and filter by distance
+- adding a direct payment API so users can donate money directly to organizations
+- adding ability for user to log in through their Facebook or Google accounts
+- adding a header for the registry profile to help with app navigation
