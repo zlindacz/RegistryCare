@@ -4,6 +4,8 @@
 
 Registry Care is a web application inspired by Thankful Registry. It is built using Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework ont he front-end.
 
+![splash](docs/readme/splash.png)
+
 ### Features and Implementation
 
 Registry Care is an interface for not-for-profit organizations to create registries for needed resources.
@@ -11,14 +13,34 @@ Registry Care is an interface for not-for-profit organizations to create registr
 #### User Authentication ####
 The App features user authentication in the form of Login and Signup functionalities. Sensitive information is kept out of the front end of the app. The app makes API calls to the SessionController to fetch or create users. There are also "tour" buttons on the homepage to log the guest in as if they have an account. Signing up involves traversing throught several information-gathering forms, including a form for uploading profile pictures, using the Cloudinary image API.
 
+ ![Signup Form 1](docs/readme/signup1.png)
+
+ ![Signup Form 2](docs/readme/signup2.png)
+
+ ![Signup Form 3](docs/readme/signup3.png)
+
+ ![Signup Form 4](docs/readme/signup4.png)
+
+ ![Signup Form 5](docs/readme/signup5.png)
+
+On the back-end, user information (contact info, photo url, and description) are stored in one table. User is linked to the categories by establishing a user-category join model, and similarly with items via user-items join model.
+
 #### Index ####
-Once the user is logged in, they can do several things. By clicking on the heart logo or the "Profile" in the top right of the header, the user will be redirected to the Index page that shows all the organizations. From there, the user can click on a picture with the logo of the organization and be directed to that organization's "registry".
+Once the user is logged in, they can do several things. By clicking on the heart logo or the "Profile" in the top right of the header, the user will be redirected to the Index page that shows all the organizations. From there, the user can click on a picture with the logo of the organization and be directed to that organization's "registry". The index is styled using the React Masonry library which animates the entrance of the organization profiles and randomizes their order at each rendering.
+
+![Index](docs/readme/index.png)
 
 #### Registry and Pledges ####
 The registry shows the organization's purpose, category, and gives a list of items that they need. There is also a "Pledge" button on the top right corner, for the logged in user to commit to making a donation to them. Beneath there is also a count of pledges that the organization currently has.
 
+![registry-pledged](docs/readme/registry-pledged.png)
+
+![registry-unpledged](docs/readme/registry-unpledged.png)
+
 #### Search ####
-In the center of the header there is a search bar which responds to user typing to search for organizations by organization name, category, or items needed. It rerenders the index page on change in the input field.
+In the center of the header there is a search bar which fades in upon cursor hovering and responds to user typing to search for organizations by organization name, category, or items needed. It re-renders the index page on change in the input field.
+
+![search-bar](docs/readme/search-bar.png)
 
 ### Future Directions for the Project ###
 
