@@ -13,9 +13,11 @@ export default (state = _nullUser, action) => {
       return merge({}, _nullUser, {currentUser});
     case SessionConstants.RECEIVE_ERRORS:
       const errors = action.errors;
-      return merge({}, _nullUser, {errors})
+      return merge({}, state, {errors});
     case SessionConstants.LOGOUT:
-      return merge({}, _nullUser)
+      return merge({}, _nullUser);
+    case SessionConstants.CLEAR_ERRORS:
+      return merge({}, {currentUser: state.currentUser}, {errors: []});
     default:
       return state;
   }

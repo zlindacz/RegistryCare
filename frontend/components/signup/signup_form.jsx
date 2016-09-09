@@ -14,8 +14,15 @@ class SignupForm extends React.Component {
     this.nextStep = this.nextStep.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors.length >= 1) {
+      this.setState({step: 1});
+    }
+  }
+
   nextStep(step) {
     this.setState({step: this.state.step+1});
+    this.props.clearErrors();
   }
 
   render() {
@@ -23,17 +30,22 @@ class SignupForm extends React.Component {
       if (this.state.step === 1) {
         return(<SignupBasic
                 next={() => this.nextStep(this.state.step)}
+                errors={this.props.errors}
+                user={this.props.user}
                 receiveInProgressUser={this.props.receiveInProgressUser} />);
       } else if (this.state.step === 2) {
         return(<CloudinaryImage
+          user={this.props.user}
           next={() => this.nextStep(this.state.step)}
           receiveInProgressUser={this.props.receiveInProgressUser}/>);
       } else if (this.state.step === 3) {
         return(<SignupDescription
+          user={this.props.user}
           next={() => this.nextStep(this.state.step)}
           receiveInProgressUser={this.props.receiveInProgressUser}/>);
       } else if (this.state.step === 4) {
         return(<SignupCategory
+                user={this.props.user}
                 next={() => this.nextStep(this.state.step)}
                 receiveInProgressUser={this.props.receiveInProgressUser}/>);
       } else if (this.state.step === 5) {

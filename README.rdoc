@@ -3,3 +3,4 @@
 [RegistryCare](https://registry-care.herokuapp.com/#/?_k=m0qytc)
 
 Registry Care is a web application inspired by Thankful Registry, built using Ruby on Rails and React/Redux.
+It provides an interface for not-for-profit organizations to create registries for needed resources, to find other organizations, and to pledge to donate to them.
