@@ -50,7 +50,7 @@ User.create!(organization_name: "The Tree House",
              city: "San Antonio",
              state: "Texas",
              zipcode: "78225",
-             photo: "assets/core/logos/treehouse.jpg",
+             photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287528/u6g90inzw5toyhgsnamn.jpg",
              description: "after school program for children in k-9"
              )
 
@@ -64,7 +64,7 @@ User.create!(organization_name: "Creativity Explored",
             city: "San Francisco",
             state: "California",
             zipcode: "94103",
-            photo: "assets/core/logos/creativity.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473265403/creativity_ontfcb.jpg",
             description: "Artists with developmental disabilities are given the opportunity to create art at Creativity Explored. The artwork is sold through CE’s studios and galleries, as well as around the world, in an effort to enable these artists to become self-employed."
             )
 
@@ -78,7 +78,7 @@ User.create!(organization_name: "Raphael House",
              city: "San Francisco",
              state: "California",
              zipcode: "94109",
-             photo: "assets/core/logos/raphael.jpeg",
+             photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287591/ekr4z5lldvsz3glmfkmg.jpg",
              description: "Raphael House is the first homeless shelter for families in Northern California. Through a variety of supportive and nurturing programs that provide shelter, academic enrichment, career building, children’s services, and more, it hopes to reach an additional 200 families over the next three years."
              )
 
@@ -91,7 +91,7 @@ User.create!(organization_name: "Mickaboo Companion Bird Rescue",
             city: "San Jose",
             state: "California",
             zipcode: "95106",
-            photo: "assets/core/logos/mickaboo.png",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287479/am8tmy6qef8pohpmewqb.jpg",
             description: "Mickaboo was founded in 1996. Our mission is very simple: To provide protection for those who, by no fault or choice of their own cannot help themselves, and depend on humans for their care. To educate the bird owning public on the most current diet, health and general care information."
             )
 
@@ -104,7 +104,7 @@ User.create!(organization_name: "Cars Emancipating Moms with Children",
             city: "Huntington Beach",
             state: "California",
             zipcode: "92648",
-            photo: "assets/core/logos/mother-children.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287859/nd2dtivaalciio3444qh.jpg",
             description: "The CEMFA- Cars Emancipating Mothers From Abuse program is designed for Domestic Abused Women and Children, To provide safety and opportunities for healing, growth and self-determination."
             )
 
@@ -118,7 +118,7 @@ User.create!(organization_name: "Wounded Warrior Support Network",
             city: "San Diego",
             state: "California",
             zipcode: "92129",
-            photo: "assets/core/logos/wwsn2.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473288075/tgvsxbtphgqwpsbfr9ba.jpg",
             description: "Our mission is to help our wounded, ill and injured r through the long journey back to new lives. Each of our programs are designed to get to develop a connection so they can get to know people who can help them transition to wellness."
             )
 
@@ -131,7 +131,7 @@ User.create!(organization_name: "American Red Cross Silicon Valley Chapter",
             city: "San Jose",
             state: "California",
             zipcode: "95134",
-            photo: "assets/core/logos/svredcross.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473290783/exmswhnosu3apnaobfxi.jpg",
             description: "The American Red Cross Silicon Valley Chapter helps the citizens of Santa Clara County prevent, prepare for and respond to emergencies through educational health, safety and preparedness classes, youth education programs, and trained volunteer forces that are prepared to respond to any size emergency within minutes."
             )
 
