@@ -68,7 +68,7 @@ class AppHeader extends React.Component {
     return(
       <div>
         <ul className="header-list group">
-          <li><a onClick={this.navigateToHome}>Profile</a></li>
+          <li><a onClick={this.navigateToHome}>Index</a></li>
           <li><a onClick={() => this.props.logout()}>Log Out</a></li>
         </ul>
       </div>

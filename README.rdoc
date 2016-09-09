@@ -26,7 +26,7 @@ The App features user authentication in the form of Login and Signup functionali
 On the back-end, user information (contact info, photo url, and description) are stored in one table. User is linked to the categories by establishing a user-category join model, and similarly with items via user-items join model.
 
 #### Index ####
-Once the user is logged in, they can do several things. By clicking on the heart logo or the "Profile" in the top right of the header, the user will be redirected to the Index page that shows all the organizations. From there, the user can click on a picture with the logo of the organization and be directed to that organization's "registry". The index is styled using the React Masonry library which animates the entrance of the organization profiles and randomizes their order at each rendering.
+Once the user is logged in, they can do several things. By clicking on the heart logo or the "Index" in the top right of the header, the user will be redirected to the Index page that shows all the organizations. From there, the user can click on a picture with the logo of the organization and be directed to that organization's "registry". The index is styled using the React Masonry library which animates the entrance of the organization profiles and randomizes their order at each rendering.
 
 ![Index](docs/readme/index.png)
 
