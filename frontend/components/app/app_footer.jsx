@@ -10,10 +10,8 @@ class AppFooter extends React.Component {
   render() {
     return(
       <footer className="footer-nav">
-        
+
         <div className="footer-cap">
-          <a>Github</a>
-          <a>LinkedIn</a>
         </div>
       </footer>
     );
