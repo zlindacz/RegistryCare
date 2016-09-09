@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
-//import { takeTour } from '../../actions/tour_actions';
 import Home from './home_component';
+import { login } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
-
+  guestUser: state.users.first
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  guestLogin: () => dispatch(login(guestUser))
 });
 
 export default connect(

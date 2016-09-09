@@ -9,8 +9,7 @@ import {logout} from './util/session_api_util';
 import {receiveCurrentUser} from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  let store = configureStore();
-  window.store = store;
+  let store;
   window.signup = signup;
   window.login = login;
   window.logout = logout;
@@ -21,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
-
+  window.store = store;
   const root = document.getElementById('content');
   Modal.setAppElement(root);
   ReactDOM.render(<Root store={store} />, root);

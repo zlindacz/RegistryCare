@@ -9,7 +9,19 @@ class LoginForm extends React.Component {
       password: ""
     };
     this.update = this.update.bind(this);
+    this.showErrors = this.showErrors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  showErrors() {
+    let loginErrors = this.props.errors;
+    // console.log(loginErrors);
+    if (loginErrors.length >= 1) {
+      return loginErrors.map((error,i) => {
+        return(<li key={i}>{error}</li>);
+        // console.log(error);
+      });
+    };
   }
 
   update(field) {
@@ -22,12 +34,16 @@ class LoginForm extends React.Component {
     this.props.login(user);
   }
 
-  
+
   render() {
     return (
       <div className="login-form-container">
         <form onSubmit={this.handleSubmit} className="login-form">
           <h1 className="login-heading">Log In</h1>
+
+          <div className="login-error-messages">
+            <ul>{this.showErrors()}</ul>
+          </div>
 
           <span className="login-input">
             <i className="fa fa-user icon-4x" aria-hidden="true"></i>

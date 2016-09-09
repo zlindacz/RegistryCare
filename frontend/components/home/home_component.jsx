@@ -15,7 +15,7 @@ class Home extends React.Component {
           <h1 className="home-tagline2">just got a little easier</h1>
           <h2 className="home-quote">No act of kindness, no matter how small, is ever wasted</h2>
           <h3 className="home-quote-source">- Aesop</h3>
-          <button className="home-tour-button">Take A Tour</button>
+          <button className="home-tour-button">Take a tour</button>
         </section>
 
         <section className="home-content-block">

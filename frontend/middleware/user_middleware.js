@@ -10,14 +10,14 @@ export default ({getState, dispatch}) => next => action => {
     console.log(errors);
   }
 
-  const receiveUsersSuccessCallback = (users) => dispatch(receiveUsers(users));
+  const receiveUsersSuccessCallback = users => dispatch(receiveUsers(users));
   const receiveSingleUserSuccessCallback = user => dispatch(receiveSingleUser(user));
   const updateUserSuccessCallback = user => dispatch(updateUser(user));
 
 
   switch(action.type) {
     case UserConstants.REQUEST_USERS:
-      fetchAllUsers(receiveUsersSuccessCallback, errorCallback);
+      fetchAllUsers(receiveUsersSuccessCallback, errorCallback, action.query);
       return next(action);
     case UserConstants.REQUEST_SINGLE_USER:
       fetchSingleUser(action.id, receiveSingleUserSuccessCallback, errorCallback);

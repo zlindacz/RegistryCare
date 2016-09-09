@@ -10,21 +10,20 @@ import HomeContainer from '../home/home_container';
 class AppRouter extends React.Component{
   constructor(props) {
     super(props);
-
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
   }
 
   _redirectIfLoggedIn(nextState, replace) {
-    const currentUser = this.props.currentUser;
-    if (nextState.currentUser && !currentUser) {
-      replace('/index');
+    const currentUser = this.context.store.getState().session.currentUser;
+    if (currentUser) {
+      replace(`/index`);
     }
   }
 
   _ensureLoggedIn(nextState, replace) {
-    const currentUser = this.props.currentUser
-    if (!nextState.currentUser || !currentUser) {
+    const currentUser = this.context.store.getState().session.currentUser;
+    if (!currentUser) {
       replace('/');
     }
   }
@@ -44,5 +43,7 @@ class AppRouter extends React.Component{
   }
 }
 
-
+AppRouter.contextTypes = {
+  store: React.PropTypes.object
+}
 export default AppRouter;

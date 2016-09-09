@@ -4,6 +4,7 @@ import ModalStyle from './modal_style';
 import LoginFormContainer from '../login/login_form_container';
 import SignupFormContainer from '../signup/signup_form_container';
 import { withRouter } from 'react-router';
+import SearchBar from './search_container';
 
 class AppHeader extends React.Component {
   constructor(props) {
@@ -21,9 +22,9 @@ class AppHeader extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (!this.props.currentUser && nextProps.currentUser) {
       this.closeModal();
-      this.props.router.push("/");
+      this.props.router.push(`/index`);
     } else if (this.props.currentUser && !nextProps.currentUser) {
-      this.props.router.push("/signup");
+      this.props.router.push("/");
     }
   }
 
@@ -56,7 +57,6 @@ class AppHeader extends React.Component {
    return(
      <div>
        <ul className="header-list group">
-         <li><a>About</a></li>
            <li><a onClick={this.navigateToSignup}>Sign Up</a></li>
            <li><a onClick={() => this.openModal()}>Log In</a></li>
          </ul>
@@ -68,8 +68,7 @@ class AppHeader extends React.Component {
     return(
       <div>
         <ul className="header-list group">
-          <li><a>About</a></li>
-          <li><a onClick={this.navigateToEditUser}>Profile</a></li>
+          <li><a onClick={this.navigateToHome}>Profile</a></li>
           <li><a onClick={() => this.props.logout()}>Log Out</a></li>
         </ul>
       </div>
@@ -90,8 +89,10 @@ class AppHeader extends React.Component {
             <LoginFormContainer />
             <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
-        <img src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png" onClick={ this.navigateToHome } className="logo" />
+        <img className="logo" src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png" onClick={ this.navigateToHome } />
+        <SearchBar></SearchBar>
         { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
+        <h2 className="app-name">Registry Care</h2>
       </header>
     );
   }

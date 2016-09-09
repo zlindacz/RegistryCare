@@ -18,21 +18,17 @@ class UserIndex extends React.Component {
   }
 
   render(){
-    const { users, currentUser } = this.props;
-    const miniProfiles = users.map(user => {
-      if (currentUser && (user.id === currentUser.id)) {
-        return;
-      } else {
-        return <MiniProfile key={user.id} user={user} />;
-      }
+    const miniProfiles = this.props.users.map(user => {
+      return <MiniProfile key={user.id} user={user} />
     });
+
 
     return(
       <Masonry className="masonry"
                style={style}
                onClick={this.handleClick}
                >
-        <h1 className="index-tagline">{this.props.currentUser.organization_name}</h1>       
+        <h1 className="tagline">{this.props.currentUser.organization_name}</h1>
         <div>
           <h1 className="index-title">All Organizations</h1>
           <div className="organizations">
@@ -40,9 +36,8 @@ class UserIndex extends React.Component {
           </div>
         </div>
       </Masonry>
-    )
+    );
   }
 };
 
 export default withRouter(UserIndex);
-// still need router here if it's MiniProfile's role to redirect?
