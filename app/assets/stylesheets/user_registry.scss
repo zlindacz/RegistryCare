@@ -11,7 +11,9 @@
 
 .logo-photo {
   // border: 5px solid black;
-  height: 500px;
+  width: 450px;
+  height: auto;
+  align-self: flex-start;
   margin: 100px 30px;
 }
 
@@ -90,8 +92,6 @@
 .registry-contact {
 
 }
-
-
 
 .registry-title {
   // border: 5px solid gray;

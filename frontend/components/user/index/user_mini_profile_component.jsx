@@ -34,19 +34,3 @@ class MiniProfile extends React.Component {
 }
 
 export default withRouter(MiniProfile);
-
-// <div className="mini-category-block">
-//   <h4 className="mini-subheading">Category</h4>
-//   <section className="mini-categories-tags">{categories}</section>
-// </div>
-
-//<section className="mini-items-list">
-//  <h4 className="mini-subheading">Items</h4>
-//  <ul className="items-box">
-//    {items}
-//  </ul>
-//</section>
-
-//<div className="mini-words">
-//  <h3 className="mini-heading">{user.organization_name}</h3>
-//</div>
