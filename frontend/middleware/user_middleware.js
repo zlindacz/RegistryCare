@@ -17,7 +17,7 @@ export default ({getState, dispatch}) => next => action => {
 
   switch(action.type) {
     case UserConstants.REQUEST_USERS:
-      fetchAllUsers(receiveUsersSuccessCallback, errorCallback);
+      fetchAllUsers(receiveUsersSuccessCallback, errorCallback, action.query);
       return next(action);
     case UserConstants.REQUEST_SINGLE_USER:
       fetchSingleUser(action.id, receiveSingleUserSuccessCallback, errorCallback);

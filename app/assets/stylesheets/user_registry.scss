@@ -1,22 +1,78 @@
 .registry-show {
-  // position: relative;
+  position: relative;
   display: flex;
   flex-direction: column;
 }
 
-.registry-logo-title {
-  // border: 5px solid white;
-  position: relative;
-
+.registry-flex-parent {
+  display: flex;
+  justify-content: center;
 }
 
 .logo-photo {
   // border: 5px solid black;
-  height: 300px;
+  height: 500px;
+  margin: 100px 30px;
+}
+
+.registry-body {
+  margin: 20px;
+  width: 400px;
+}
+
+.registry-subtitle {
+  font-size: 24px;
+  margin: 15px 0 15px 0;
+}
+
+.registry-body {
+  margin-top: 80px;
+}
+
+.registry-body p {
+  width: 200px;
+}
+
+.registry-body-right {
+    margin: 50px 0 0 50px;
+  position: absolute;
+  top: 30px;
+  right: 100px;
+}
+
+.pledge-button {
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  font-size: 25px;
+  font-family: 'Patua One', cursive;
+
+}
+
+.green {
+  background-color: rgb(56, 204, 89);
+}
+
+.red {
+  background-color: rgb(231, 39, 56);
+}
+
+.pledge-count {
+  font-family: 'Oxygen', sans-serif;
+}
+
+.paragraph {
+
+}
+
+.registry-contact.ul {
+  list-style: square outside none !important;
 }
 
 .registry-body {
   // border: 5px solid fuchsia;
+  display: flex;
+  // flex-direction: column;
 }
 
 .registry-body-left {
@@ -57,15 +113,6 @@
   display: none;
 }
 
-.pledge-button {
-  width: 150px;
-  height: 50px;
-  border-radius: 5px;
-}
-
-.pledge-count {
-  font-family: 'Oxygen', sans-serif;
-}
 
 .contact-info {
   // border: 5px solid maroon;

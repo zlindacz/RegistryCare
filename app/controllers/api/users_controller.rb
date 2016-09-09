@@ -2,7 +2,11 @@ class Api::UsersController < ApplicationController
   before_action :require_logged_in, except: :create
 
   def index
-    @users = User.all
+    if params[:query]
+      @users = User.search(params[:query])
+    else
+      @users = User.all
+    end
   end
 
   def show

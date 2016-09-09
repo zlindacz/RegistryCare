@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  def self.search(query)
+    User.joins(:user_categories, :categories, :user_items, :items).where("categories.name ILIKE ? OR organization_name ILIKE ? OR items.name ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%").distinct
+  end
+
   def password= password
     @password = password
     self.password_digest = BCrypt::Password.create(@password)

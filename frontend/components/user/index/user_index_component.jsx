@@ -18,14 +18,10 @@ class UserIndex extends React.Component {
   }
 
   render(){
-    const { users, currentUser } = this.props;
-    const miniProfiles = users.map(user => {
-      if (currentUser && (user.id === currentUser.id)) {
-        return;
-      } else {
-        return <MiniProfile key={user.id} user={user} />;
-      }
+    const miniProfiles = this.props.users.map(user => {
+      return <MiniProfile key={user.id} user={user} />
     });
+
 
     return(
       <Masonry className="masonry"
@@ -45,4 +41,3 @@ class UserIndex extends React.Component {
 };
 
 export default withRouter(UserIndex);
-// still need router here if it's MiniProfile's role to redirect?

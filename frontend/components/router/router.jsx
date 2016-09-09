@@ -10,7 +10,6 @@ import HomeContainer from '../home/home_container';
 class AppRouter extends React.Component{
   constructor(props) {
     super(props);
-
     this._redirectIfLoggedIn = this._redirectIfLoggedIn.bind(this);
     this._ensureLoggedIn = this._ensureLoggedIn.bind(this);
   }
