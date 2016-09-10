@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AppHeader from './app_header';
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 import { editUser } from '../../actions/user_actions';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,11 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logout()),
+  guestLogin: () => dispatch(login({
+    username: "treehouse",
+    password: "password"
+  }))
 //  updateUser: (user) => dispatch(updateUser(user)),
 });
 

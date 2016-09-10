@@ -27,6 +27,7 @@ class MiniProfile extends React.Component {
       <div className="mini-organization" onClick={this.navigateToRegistry}>
         <figure className="mini-photo-container">
           <img className="mini-photo" src={user.photo} />
+          <h3>{user.organization_name}</h3>
         </figure>
       </div>
     );

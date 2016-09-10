@@ -15,11 +15,9 @@ class LoginForm extends React.Component {
 
   showErrors() {
     let loginErrors = this.props.errors;
-    // console.log(loginErrors);
     if (loginErrors.length >= 1) {
       return loginErrors.map((error,i) => {
         return(<li key={i}>{error}</li>);
-        // console.log(error);
       });
     };
   }

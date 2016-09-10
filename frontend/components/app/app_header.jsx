@@ -17,6 +17,7 @@ class AppHeader extends React.Component {
     this.navigateToHome = this.navigateToHome.bind(this);
     this.navigateToSignup = this.navigateToSignup.bind(this);
     this.navigateToEditUser = this.navigateToEditUser.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,15 +54,21 @@ class AppHeader extends React.Component {
     ModalStyle.content.opacity = 20;
   }
 
+  guestLogin(e) {
+    e.preventDefault();
+    this.props.guestLogin();
+  }
+
   notLoggedIn() {
-   return(
-     <div>
-       <ul className="header-list group">
-           <li><a onClick={this.navigateToSignup}>Sign Up</a></li>
-           <li><a onClick={() => this.openModal()}>Log In</a></li>
-         </ul>
-       </div>
-     );
+    return(
+      <div>
+        <ul className="header-list group">
+          <li><a onClick={this.guestLogin}>Guest Login</a></li>
+          <li><a onClick={this.navigateToSignup}>Sign Up</a></li>
+          <li><a onClick={() => this.openModal()}>Log In</a></li>
+        </ul>
+      </div>
+      );
    }
 
   loggedIn() {

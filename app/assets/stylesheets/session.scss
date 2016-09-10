@@ -7,10 +7,10 @@
   width: 300px;
   min-width: calc(100%-22px);
   margin: 0 auto;
-  box-sizing: border-box;
+  // box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  // flex-grow: 1;
 }
 
 .login-error-messages {
@@ -32,7 +32,7 @@
   font-family: 'Palanquin Dark', sans-serif;
   font-size: 40px;
   text-align: center;
-  margin: 20px 0 30px 10px;
+  margin: 20px 0 20px 0;
   color: rgb(48, 8, 62);
 }
 
@@ -43,7 +43,7 @@
   border-radius: 7px;
   border: 1px solid #cccccc;
   display: inline-block;
-  margin: 4px auto;
+  margin: 5px auto;
   width: calc(100% - 60px);
   float: right;
 }
@@ -69,9 +69,9 @@
   color: #ffffff;
   font-size: 18px;
   padding: 10px;
-  margin: 20px 0 20px 35px;
+  margin: 30px auto;
   display: block;
-  width: 88%;
+  width: 300px;
 }
 
 .login-submit-button:hover {

@@ -26,14 +26,13 @@ export default ({
     boxShadow                  : '0 0 1em rgb(130, 120, 131)',
     transform                  : 'translateX(-50%)',
     position                   : 'fixed',
-    left                       : '50%',
-    width                      : '350px',
+    // left                       : '50%',
     maxWidth                   : '500px',
     width                      : '350px',
     minWidth                   : '300px',
-    height                     : '380px',
+    height                     : '400px',
     zIndex                     : '2000',
-    display                    : 'flex',
-    boxSizing                  : 'border-box'
+    display                    : 'flex'
+    // boxSizing                  : 'border-box'
   }
 });
