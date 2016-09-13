@@ -8,28 +8,6 @@ class SearchBar extends React.Component {
     this.handleChange = this.handleChange.bind(this)
   }
 
-  searchResults(e) {
-    let results = [];
-
-    this.props.users.forEach(user => {
-      if (user.id !== this.props.currentUser.id) {
-        if (user.categories.includes(e.currentTarget.value)) {
-          results.push(user);
-        } else if (user.items.includes(e.currentTarget.value)) {
-          results.push(user);
-        } else if (user.organization_name.includes(e.currentTarget.value)) {
-          results.push(user);
-        }
-      }
-    });
-
-    if (results.length === 0) {
-      return ["Your search returned no results. Try a different keyword."];
-    } else {
-      return results;
-    }
-  }
-
   handleChange(e) {
     e.preventDefault();
     this.props.router.push(`/index/?query=${ e.currentTarget.value }`)
