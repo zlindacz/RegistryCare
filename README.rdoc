@@ -32,9 +32,11 @@ Once the user is logged in, they can do several things. By clicking on the heart
 
 The index is also accessed when search terms are entered. The search bar responds on change of the input field, which dispatches an ajax call to fetch the relevant organizations and re-renders the index page, displaying the search results. The search function called by the UsersController#index lives in the User model:
 
-```def self.search(query)
+```
+def self.search(query)
  User.joins(:user_categories, :categories, :user_items, :items).where("categories.name ILIKE ? OR organization_name ILIKE ? OR items.name ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%").distinct
-end```
+end
+```
 
 #### Search
 In the center of the header there is a search bar which fades in upon cursor hovering and responds to user typing to search for organizations by organization name, category, or items needed.
@@ -43,13 +45,16 @@ In the center of the header there is a search bar which fades in upon cursor hov
 
 The backend view utilize Jbuilder to generate the appropriate JSON data feeds. The index view uses this syntax:
 
-```json.array! @users do |user|
+```
+json.array! @users do |user|
   json.partial! "api/users/user", user: user
-end```
+end
+```
 
 which in turn uses a partial to extract all the necessary information from a user:
 
-```json.extract! user, :id, :username, :organization_name, :email, :address1, :address2, :city, :state, :zipcode, :photo, :description
+```
+json.extract! user, :id, :username, :organization_name, :email, :address1, :address2, :city, :state, :zipcode, :photo, :description
 
 json.items do
   json.array! user.items
@@ -61,7 +66,8 @@ end
 
 json.pledges do
   json.array! user.pledges
-end```
+end
+```
 
 #### Registry and Pledges
 The registry shows the organization's purpose, category, and gives a list of items that they need. There is also a "Pledge" button on the top right corner, for the logged in user to commit to making a donation to them. Beneath there is also a count of pledges that the organization currently has.
