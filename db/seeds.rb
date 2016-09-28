@@ -5,7 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+# rake db:reset
+# heroku db:push
 # Seeds for categories table
 ['AIDS', 'Animals', 'Arts & Culture', 'Breast Cancer',
  'Bullying', 'Cancer', 'Childhood Obesity', 'Children & Youth',
@@ -78,7 +79,7 @@ User.create!(organization_name: "Raphael House",
              city: "San Francisco",
              state: "California",
              zipcode: "94109",
-             photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287591/ekr4z5lldvsz3glmfkmg.jpg",
+             photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086447/raphaelhouse_zfqkq3.jpg",
              description: "Raphael House is the first homeless shelter for families in Northern California. Through a variety of supportive and nurturing programs that provide shelter, academic enrichment, career building, children’s services, and more, it hopes to reach an additional 200 families over the next three years."
              )
 
@@ -91,7 +92,7 @@ User.create!(organization_name: "Mickaboo Companion Bird Rescue",
             city: "San Jose",
             state: "California",
             zipcode: "95106",
-            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287479/am8tmy6qef8pohpmewqb.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086415/mickaboo_bnlwa5.jpg",
             description: "Mickaboo was founded in 1996. Our mission is very simple: To provide protection for those who, by no fault or choice of their own cannot help themselves, and depend on humans for their care. To educate the bird owning public on the most current diet, health and general care information."
             )
 
@@ -104,7 +105,7 @@ User.create!(organization_name: "Cars Emancipating Moms with Children",
             city: "Huntington Beach",
             state: "California",
             zipcode: "92648",
-            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287859/nd2dtivaalciio3444qh.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475090095/cars_rymotk.jpg",
             description: "The CEMFA- Cars Emancipating Mothers From Abuse program is designed for Domestic Abused Women and Children, To provide safety and opportunities for healing, growth and self-determination."
             )
 
@@ -118,7 +119,7 @@ User.create!(organization_name: "Wounded Warrior Support Network",
             city: "San Diego",
             state: "California",
             zipcode: "92129",
-            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473288075/tgvsxbtphgqwpsbfr9ba.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086466/wounded_warriors_ns0ddz.jpg",
             description: "Our mission is to help our wounded, ill and injured r through the long journey back to new lives. Each of our programs are designed to get to develop a connection so they can get to know people who can help them transition to wellness."
             )
 
@@ -157,7 +158,7 @@ User.create!(organization_name: "Project Homeless Connect",
             city: "San Francisco",
             state: "California",
             zipcode: "94102",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086374/homeless_connect_wz5b5c.jpg",
             description: "The mission of Project Homeless Connect (PHC) is to connect San Franciscan's experiencing homelessness with the resources they need to move forward. Project Homeless Connect (PHC), a national best practice model, originated in San Francisco under Mayor Gavin Newsom in October 2004. Today, PHC is emulated in 170 cities across the United States as well as Canada, Puerto Rico and Australia."
             )
 
@@ -171,7 +172,7 @@ User.create!(organization_name: "Foundation For Students Rising Above",
             city: "San Francisco",
             state: "California",
             zipcode: "94129",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086468/students_rising_xsmovn.jpg",
             description: "Students Rising Above helps exceptional low-income Bay Area high school students who are overcoming tremendous odds of poverty, homelessness, and neglect, to fulfill their dream of a college education. We provide the mentoring, financial assistance, and employment skills to be successful in school and in life."
             )
 
@@ -185,10 +186,10 @@ User.create!(organization_name: "Endangered Species International",
             city: "San Francisco",
             state: "California",
             zipcode: "94117",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086378/endangered_species_gtgzgm.jpg",
             description: "Endangered Species International is strongly committed to reversing the trend of human-induced species extinction, saving endangered animals, and preserving wild places!"
             )
-User.create!(organization_name: "W.O.M.A.N."
+User.create!(organization_name: "W.O.M.A.N.",
             username: "woman",
             password: "password",
             email: "contact@woman.org",
@@ -209,7 +210,7 @@ User.create!(organization_name: "Room To Read",
             city: "San Francisco",
             state: "California",
             zipcode: "94104",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086385/room_read_aobu2q.jpg",
             description: "Room to Read seeks to transform the lives of millions of children in low-income countries by focusing on literacy and gender equality in education. Working in collaboration with local communities, partner organizations and governments, we develop literacy skills and a habit of reading among primary school children, and support girls to complete secondary school with the relevant life skills to succeed in school and beyond."
             )
 User.create!(organization_name: "Support For Families",
@@ -221,7 +222,7 @@ User.create!(organization_name: "Support For Families",
             city: "San Francisco",
             state: "California",
             zipcode: "94103",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086372/family_support.jpg",
             description: " The purpose of Support for Families of Children With Disabilities is to ensure that families of children with any kind of disability or special health care need have the knowledge and support to make informed choices that enhance their children's development and well being. Through fostering partnership among families, professionals and the community our children can flourish. Mostof our staff members, volunteers, and board members are, themselves,family members of children with disabilities."
             )
 User.create!(organization_name: "La Casa De Las Madres",
@@ -233,21 +234,21 @@ User.create!(organization_name: "La Casa De Las Madres",
             city: "San Francisco",
             state: "California",
             zipcode: "94103",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086383/la_casa_efenjq.jpg",
             description: "The mission of La Casa de las Madres is to respond to calls for help from domestic violence victims, of all ages, 24 hours a day, 365 days a year. We give survivors the tools to transform their lives. We seek to prevent future violence by educating the community and by redefining public perceptions about domestic violence."
             )
 User.create!(organization_name: "California State Parks Foundation",
-  username: "caparks",
-  password: "password",
-  email: "contact@parks.ca.gov",
-  address1: "50 Francisco Street",
-  address2: "Suite 110",
-  city: "San Francisco",
-  state: "California",
-  zipcode: "94133",
-  photo: "",
-  description: "California State Parks Foundation is a member-supported nonprofit dedicated to protecting, improving and advocating for all of California’s state parks. With our community of supporters, we deliver innovative solutions for an excellent parks system by facilitating park improvements, inspiring stewardship, supporting partners, advocating for sound policies, and connecting people to parks. Together we ensure that the natural beauty, rich culture and history, and recreational and educational opportunities of our 280 state parks are available for all to enjoy now and for generations to come."
-  )
+              username: "caparks",
+              password: "password",
+              email: "contact@parks.ca.gov",
+              address1: "50 Francisco Street",
+              address2: "Suite 110",
+              city: "San Francisco",
+              state: "California",
+              zipcode: "94133",
+              photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086472/state_parks_zhyuc6.jpg",
+              description: "California State Parks Foundation is a member-supported nonprofit dedicated to protecting, improving and advocating for all of California’s state parks. With our community of supporters, we deliver innovative solutions for an excellent parks system by facilitating park improvements, inspiring stewardship, supporting partners, advocating for sound policies, and connecting people to parks. Together we ensure that the natural beauty, rich culture and history, and recreational and educational opportunities of our 280 state parks are available for all to enjoy now and for generations to come."
+              )
 
 User.create!(organization_name: "Soi Dog Foundation",
             username: "soidog",
@@ -258,7 +259,7 @@ User.create!(organization_name: "Soi Dog Foundation",
             city: "San Francisco",
             state: "California",
             zipcode: "94114",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086401/soi_dog_erixvz.jpg",
             description: " Soi Dog Foundation supports the public education, animal protection and animal welfare efforts of the soi dog foundation a recognized charitable organization based in thailand. The purpose of Soi Dog foundation usa is to provide information and education to the american public on the plight of animals in and around Thailand and the efforts of Soi Dog foundation to prevent and eliminate animal cruelty, provide medical care, sterilization (spay and neuter), end the dog meat trade and support the foundation's other animal care projects."
             )
 
@@ -271,7 +272,7 @@ User.create!(organization_name: "The Coming Home Project",
             city: "San Francisco",
             state: "California",
             zipcode: "94121",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086393/coming_home_gclldy.jpg",
             description: "The Coming Home Project is a non-profit organization devoted to providing compassionate expert care, support, education, and stress management tools for Iraq and Afghanistan veterans, service members, their families, and their service providers. We are a multidisciplinary, experienced team of psychotherapists, veterans and interfaith leaders committed to helping transform the wounds of war. Our programs address the psychological, emotional, spiritual and relationship challenges experienced during all stages of deployment, especially reintegration. We help rebuild the connectivity of mind, body, heart and spirit that combat trauma can unravel, renew relationships with loved ones, and create new support networks."
             )
 User.create!(organization_name: "Shanti Project",
@@ -283,7 +284,7 @@ User.create!(organization_name: "Shanti Project",
             city: "San Francisco",
             state: "California",
             zipcode: "94109",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086456/shanti_esqiqu.jpg",
             description: "Shanti is dedicated to closing the gap between people who receive comprehensive medical care and those who do not, and provides the information, skills and support clients need to make informed decisions about their treatment, improve their health and wellness, and enjoy good health outcomes and a high quality of life."
             )
 User.create!(organization_name: "Upwardly Global",
@@ -295,7 +296,7 @@ User.create!(organization_name: "Upwardly Global",
             city: "San Francisco",
             state: "California",
             zipcode: "94104",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086474/upwardly_global.jpg",
             description: "To eliminate employment barriers for skilled immigrants and refugees and integrate this population into the professional U.S. workforce."
             )
 User.create!(organization_name: "READ (Rural Education and Development) Global",
@@ -307,7 +308,7 @@ User.create!(organization_name: "READ (Rural Education and Development) Global",
             city: "San Francisco",
             state: "California",
             zipcode: "94129",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086443/rural_accojv.jpg",
             description: "READ Global believes empowering rural communities is critical to alleviating global poverty. We envision a world where individuals, families and entire communities have access to the knowledge, resources and opportunities necessary to build more prosperous futures. READ partners with communities in rural Asia to create vibrant places to live and thrive."
             )
 User.create!(organization_name: "Project Night Night",
@@ -319,7 +320,7 @@ User.create!(organization_name: "Project Night Night",
             city: "San Francisco",
             state: "California",
             zipcode: "94117",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086393/nightnight_rcxjfi.jpg",
             description: "Project Night Night provides individual tote bags containing a security blanket, age-appropriate books, and stuffed animals to homeless children in an effort to help homeless children have sweeter dreams. Homelessness affects every facet of a child's development, increasing the risk for developmental delays, learning disabilities, emotional and behavioral disorders, heath concerns, and deficient social skills."
             )
 User.create!(organization_name: "Swords to Plowshares",
@@ -331,7 +332,7 @@ User.create!(organization_name: "Swords to Plowshares",
             city: "San Francisco",
             state: "California",
             zipcode: "94103",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086478/swords_plowshares_pcslkg.jpg",
             description: "War causes wounds and suffering that last beyond the battlefield. Our mission is to heal the wounds, to restore dignity, hope and self-sufficiency to all veterans in need, and to prevent and end homelessness and poverty among veterans."
             )
 User.create!(organization_name: "Experience Corps Bay Area",
@@ -343,7 +344,7 @@ User.create!(organization_name: "Experience Corps Bay Area",
             city: "San Francisco",
             state: "California",
             zipcode: "94115",
-            photo: "",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475086376/experience_corps_ifzab1.jpg",
             description: "Experience Corps is a community based nonprofit organization that has two primary missions. First we focus on helping K-3rd grade students in public schools reach grade-level reading proficiency by 3rd grade. Secondly, we focus on providing people 50+ years of age with the opportunity to utilize their knowledge, experience and understanding to help the next generation of readers."
             )
 
@@ -418,7 +419,7 @@ UserItem.create!(user_id:11, item_id: 11)
 UserItem.create!(user_id:11, item_id: 18)
 
 UserItem.create!(user_id:12, item_id: 17)
-UserItem.create!(user_id:12, item_id: 17)
+UserItem.create!(user_id:12, item_id: 19)
 
 UserItem.create!(user_id:13, item_id: 14)
 UserItem.create!(user_id:13, item_id: 15)
