@@ -39,16 +39,13 @@ ul, li {
 
 .background-image-top {
   position: relative;
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/e_sepia:80,o_68/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/e_brightness:-18,o_57/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
   background: url("http://res.cloudinary.com/zlindacz/image/upload/e_art:red_rock,o_74/v1473195184/hands_euokot.jpg") no-repeat center center fixed;
   background-size: cover;
   -webkit-background-size: cover;
-  -moz-background-size: cassignover;
+  -moz-background-size: cover;
   -o-background-size: cover;
   width: 100vw;
-  height: 80vh;
+  height: 50vh;
 }
 
 body {
@@ -101,9 +98,7 @@ body {
 .background-image-foot {
   position: relative;
   background: url("http://res.cloudinary.com/zlindacz/image/upload/v1473363957/dog-shelter_bmzdyk.jpg") no-repeat fixed;
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/v1473364015/more_dog_shelter_uczjob.jpg") no-repeat fixed;*/
   background-position: 0 150px;
-  /*background-position: 0 230px;*/
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
