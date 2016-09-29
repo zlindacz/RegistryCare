@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-# rake db:reset
-# heroku db:push
+# heroku pg:reset DATABASE --confirm registry-care
+# heroku rake db:migrate
 # Seeds for categories table
 ['AIDS', 'Animals', 'Arts & Culture', 'Breast Cancer',
  'Bullying', 'Cancer', 'Childhood Obesity', 'Children & Youth',
