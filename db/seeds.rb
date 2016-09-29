@@ -132,7 +132,7 @@ User.create!(organization_name: "American Red Cross Silicon Valley Chapter",
             city: "San Jose",
             state: "California",
             zipcode: "95134",
-            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473290783/exmswhnosu3apnaobfxi.jpg",
+            photo: "http://res.cloudinary.com/zlindacz/image/upload/v1475161271/red_cross_s8xbpd.png",
             description: "The American Red Cross Silicon Valley Chapter helps the citizens of Santa Clara County prevent, prepare for and respond to emergencies through educational health, safety and preparedness classes, youth education programs, and trained volunteer forces that are prepared to respond to any size emergency within minutes."
             )
 

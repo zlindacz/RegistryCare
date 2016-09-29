@@ -2,91 +2,44 @@
   position: relative;
 }
 
+.home-quote-block {
+  width: 100vw;
+  // opacity: 0;
+}
+
 .home-tagline {
   display: inline;
-  font-family: 'Merriweather Sans', sans-serif;
-  font-size: 90px;
+  width: 60%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 70px;
   position: absolute;
-  top: -290px;
-  left: 150px;
-  color: rgb(210, 242, 50);
+  top: -30%;
+  left: 200px;
+  margin: 0 auto;
+  color: rgba(240, 228, 193, 0.9);
+  border-bottom: 1px solid rgba(240, 228, 193, 0.9);
+  opacity: 1;
+  transition-duration: 0.4;
 }
-  /*animation-name: slideRight;
-	-webkit-animation-name: slideRight;
-
-	animation-duration: 1s;
-	-webkit-animation-duration: 1s;
-
-	visibility: visible !important;
-  }
-
-  @keyframes slideRight {
-  	0% {
-  		transform: translateX(-100%);
-  	}
-  	100% {
-  		transform: translateX(0%);
-  	}
-  }
-
-  @-webkit-keyframes slideRight {
-  	0% {
-  		-webkit-transform: translateX(-100%);
-  	}
-  	100% {
-  		-webkit-transform: translateX(0%);
-  	}
-  }
-}*/
 
 .home-tagline2 {
   display: inline;
   padding: 10px 5px;
   text-align: center;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
   font-size: 70px;
   position: absolute;
-  min-width: 760px;
-  top: -300px;
+  top: -240px;
   left: 480px;
-  color: rgb(255, 184, 0);
-  background-color: rgba(46, 26, 16, 0.73);
+  color: rgba(240, 228, 193, 0.9);
+  opacity: 1;
+  transition-duration: 0.4;
 }
-
-  /*-webkit-animation-delay: 2s;
-    animation-delay: 2s;
-	animation-name: slideLeft;
-	-webkit-animation-name: slideLeft;
-
-	animation-duration: 1s;
-	-webkit-animation-duration: 1s;
-	visibility: visible !important;
-}
-
-@keyframes slideLeft {
-	0% {
-		transform: translateX(100%);
-	}
-	100% {
-		transform: translateX(0%);
-	}
-}
-
-@-webkit-keyframes slideLeft {
-	0% {
-		-webkit-transform: translateX(100%);
-	}
-	100% {
-		-webkit-transform: translateX(0%);
-	}
-}
-
-}*/
 
 .home-quote {
   font-size: 20px;
   position: absolute;
-  top: -180px;
+  top: -160px;
   right: 120px;
   color: rgba(65, 13, 13, 0.76);
   font-family: 'Libre Franklin', sans-serif;
@@ -97,7 +50,7 @@
 .home-quote-source {
   font-size: 16px;
   position: absolute;
-  top: -150px;
+  top: -120px;
   right: 120px;
   color: rgba(65, 13, 13, 0.76);
   font-family: 'Libre Franklin', sans-serif;
@@ -168,7 +121,7 @@
   margin: 50px auto;
   width: 150px;
   background-color: rgb(144, 13, 52);
-  cargin: 50px auto;
+  margin: 50px auto;
   width: 150px;
   background-color: rgb(144, 13, 52);
   color: rgb(238, 200, 230);

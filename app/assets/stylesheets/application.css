@@ -39,16 +39,15 @@ ul, li {
 
 .background-image-top {
   position: relative;
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/e_sepia:80,o_68/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/e_brightness:-18,o_57/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
-  background: url("http://res.cloudinary.com/zlindacz/image/upload/e_art:red_rock,o_74/v1473195184/hands_euokot.jpg") no-repeat center center fixed;
+  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/e_art:red_rock,o_74/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
+  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/o_55/b_rgb:2b1f17/v1473195184/hands_euokot.jpg") no-repeat center center fixed;*/
+  background: url("http://res.cloudinary.com/zlindacz/image/upload/o_55/b_rgb:5e230e/v1473195184/hands_euokot.jpg") no-repeat center center fixed;
   background-size: cover;
   -webkit-background-size: cover;
-  -moz-background-size: cassignover;
+  -moz-background-size: cover;
   -o-background-size: cover;
-  width: 100vw;
-  height: 80vh;
+  max-width: 200%;
+  height: 60vh;
 }
 
 body {
@@ -65,15 +64,39 @@ body {
   padding: 5px 35px;
 }
 
+.header-img-logo {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+}
+
 .logo {
   height: 35px;
   width: 35px;
-  margin: 5px 0 15px 5px;
+  margin: 5px 5px 15px 5px;
   padding: 5px;
 }
 
 .logo:hover {
   cursor: pointer;
+}
+
+.app-name {
+  text-align: center;
+  margin: 10px 10px 10px 0;
+  font-size: 45px;
+  font-family: 'Josefin Sans', sans-serif;
+  color: rgba(240, 238, 228, 0.88);
+}
+
+.app-name:hover {
+  cursor: pointer;
+}
+
+.welcome-message {
+  color: rgba(210, 205, 177, 0.88);
+  font-size: 18px;
+  margin: 7px;
 }
 
 .header-list {
@@ -101,9 +124,7 @@ body {
 .background-image-foot {
   position: relative;
   background: url("http://res.cloudinary.com/zlindacz/image/upload/v1473363957/dog-shelter_bmzdyk.jpg") no-repeat fixed;
-  /*background: url("http://res.cloudinary.com/zlindacz/image/upload/v1473364015/more_dog_shelter_uczjob.jpg") no-repeat fixed;*/
   background-position: 0 150px;
-  /*background-position: 0 230px;*/
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -132,20 +153,11 @@ body {
 .search-bar-input {
   padding: 10px;
   font-size: 25px;
-  width: 850px;
+  width: 800px;
   border-radius: 3px;
 }
 
 .footer-nav {
-}
-
-.app-name {
-  position: absolute;
-  font-size: 100px;
-  top: 80px;
-  left: 48px;
-  font-family: 'Crete Round', serif;
-  color: rgb(235, 219, 86);
 }
 
 .footer-cap {
