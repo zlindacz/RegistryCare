@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router';
-// import UserHeader from './user_header_component';
 
 class UserRegistry extends React.Component {
   constructor(props){
@@ -77,7 +76,7 @@ class UserRegistry extends React.Component {
     showAddress2 = (user.address2 === "" ? "no-show" : "contact-info");
     return(
       <div className="registry-show">
-        <h1 className="tagline">{user.organization_name}</h1>
+        <h1 className="registry-tagline">{user.organization_name}</h1>
 
         <div className="registry-flex-parent">
           <img className="logo-photo" src={user.photo} />

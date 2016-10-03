@@ -4,6 +4,13 @@
   flex-direction: column;
 }
 
+.registry-tagline {
+  font-family: 'Lora', serif;
+  font-size: 60px;
+  margin: 25px 0 0 120px;
+  color: rgba(98, 67, 35, 0.92);
+}
+
 .registry-flex-parent {
   display: flex;
   justify-content: center;
@@ -15,6 +22,7 @@
   height: auto;
   align-self: flex-start;
   margin: 100px 30px;
+
 }
 
 .registry-body {
@@ -48,7 +56,6 @@
   border-radius: 5px;
   font-size: 25px;
   font-family: 'Patua One', cursive;
-
 }
 
 .green {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
 import MiniProfile from './user_mini_profile_component';
-// import UserHeader from './user_header_component';
 import Masonry from 'react-masonry-component';
 
 const masonryOptions = {

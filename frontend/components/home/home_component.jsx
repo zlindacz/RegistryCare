@@ -18,10 +18,8 @@ class Home extends React.Component {
     return (
       <div className="home">
         <section className="home-quote-block">
-          <h1 className="home-tagline">GIVING</h1>
-          <h1 className="home-tagline2">JUST GOT A LITTLE EASIER</h1>
-          <h2 className="home-quote">No act of kindness, no matter how small, is ever wasted</h2>
-          <h3 className="home-quote-source">- Aesop</h3>
+          <h1 className="home-tagline">giving</h1>
+          <h1 className="home-tagline2">just got easier</h1>
           <button className="home-tour-button" onClick={this.guestLogin}>Take a tour</button>
         </section>
 
@@ -44,7 +42,15 @@ class Home extends React.Component {
               </div>
             </div>
 
-            <button className="home-tour-button2" onClick={this.guestLogin}>Try us out</button>
+            <div className="why-quotes">
+              <h2 className="home-quote">No act of kindness, no matter how small, is ever wasted</h2>
+              <h3 className="home-quote-source">- Aesop</h3>
+            </div>
+
+            <div className="last-bid">
+              <h2 className="give-today">Start giving.</h2>
+              <button className="home-tour-button2" onClick={this.guestLogin}>Try us out</button>
+            </div>
           </div>
 
         </section>
