@@ -13,11 +13,9 @@ export default (state = defaultState, action) => {
       user = action.user;
       return merge({}, state, {inProgressUser: user});
     case UserConstants.RECEIVE_USERS:
-    console.log(action.users)
       let newState =  merge({}, state)
       newState.users = action.users
       return newState
-      return action.users;
     default:
       return state;
   }

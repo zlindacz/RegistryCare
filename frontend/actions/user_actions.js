@@ -7,7 +7,6 @@ export const UserConstants = {
   EDIT_USER: "EDIT_USER",
   UPDATE_USER: "UPDATE_USER",
   RECEIVE_USER_ERRORS: "RECEIVE_USER_ERRORS"
-  // SUBMIT_QUERY: "SUBMIT_QUERY"
 }
 
 export const receiveInProgressUser = user => ({

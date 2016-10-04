@@ -16,7 +16,7 @@ class AppHeader extends React.Component {
     this.closeModal = this.closeModal.bind(this);
     this.navigateToHome = this.navigateToHome.bind(this);
     this.navigateToSignup = this.navigateToSignup.bind(this);
-    this.navigateToEditUser = this.navigateToEditUser.bind(this);
+    this.editUser = this.editUser.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
   }
 
@@ -37,8 +37,9 @@ class AppHeader extends React.Component {
     this.props.router.push('signup')
   }
 
-  navigateToEditUser() {
+  editUser(user) {
     this.props.router.push('profile')
+    this.props.editUser(user)
   }
 
   openModal() {
@@ -78,7 +79,7 @@ class AppHeader extends React.Component {
           <p className="welcome-message">
             Welcome back, {this.props.currentUser.username}!
           </p>
-          <li><a onClick={this.navigateToHome}>Profile</a></li>
+          <li><a onClick={() => this.editUser(this.props.currentUser)}>Profile</a></li>
           <li><a onClick={() => this.props.logout()}>Log Out</a></li>
         </ul>
       </div>

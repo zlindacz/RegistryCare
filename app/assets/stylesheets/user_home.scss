@@ -14,8 +14,43 @@
   margin: 0;
   padding: 0;
   text-transform: uppercase;
-  // transition: opacity 0.4s ease;
-  // opacity: 0;
+  animation: fadein 2s;
+      -moz-animation: fadein 2s; /* Firefox */
+      -webkit-animation: fadein 2s; /* Safari and Chrome */
+      -o-animation: fadein 2s; /* Opera */
+}
+
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity:0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .home-tagline {
@@ -26,9 +61,6 @@
   margin: 0 auto;
   color: rgba(240, 228, 193, 0.9);
   border-bottom: 1px solid rgba(240, 228, 193, 0.9);
-  opacity: 1;
-  // transition-property: opacity;
-  // transition-duration: 0.4s;
 }
 
 .home-tagline2 {
@@ -39,8 +71,6 @@
   font-size: 60px;
   color: rgba(240, 228, 193, 0.9);
   opacity: 1;
-  // transition-property: opacity;
-  // transition-duration: 0.4s;
 }
 
 .home-tour-button {

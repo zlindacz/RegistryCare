@@ -12,8 +12,8 @@ const mapDispatchToProps = dispatch => ({
   guestLogin: () => dispatch(login({
     username: "treehouse",
     password: "password"
-  }))
-//  updateUser: (user) => dispatch(updateUser(user)),
+  })),
+ editUser: (user) => dispatch(editUser(user))
 });
 
 export default connect(

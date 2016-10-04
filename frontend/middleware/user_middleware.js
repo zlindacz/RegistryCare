@@ -1,7 +1,6 @@
-import { receiveUsers, receiveSingleUser, receiveErrors, UserConstants } from '../actions/user_actions';
+import { receiveUsers, receiveSingleUser, receiveErrors, updateUser, UserConstants } from '../actions/user_actions';
 import { fetchAllUsers, fetchSingleUser, patchUser } from '../util/user_api_util.js';
-import { PledgeConstants } from '../actions/pledge_actions';
-import { pledge, unpledge } from '../util/pledge_api_util';
+
 
 export default ({getState, dispatch}) => next => action => {
   const errorCallback = xhr => {
@@ -24,12 +23,6 @@ export default ({getState, dispatch}) => next => action => {
       return next(action);
     case UserConstants.UPDATE_USER:
       updateUser(updateUserSuccessCallback, errorCallback);
-      return next(action);
-    case PledgeConstants.CREATE_PLEDGE:
-      pledge(action.other_user_id, receiveSingleUserSuccessCallback, errorCallback);
-      return next(action);
-    case PledgeConstants.REMOVE_PLEDGE:
-      unpledge(action.other_user_id, receiveSingleUserSuccessCallback, errorCallback);
       return next(action);
     default:
       return next(action);
