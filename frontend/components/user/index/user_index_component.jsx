@@ -26,9 +26,9 @@ class UserIndex extends React.Component {
       <div className="index-parent">
         <h1 className="tagline">All Organizations</h1>
         <div className="organizations">
-        <Masonry className="masonry">
-          {miniProfiles}
-        </Masonry>
+          <Masonry className="masonry">
+            {miniProfiles}
+          </Masonry>
         </div>
       </div>
     );

@@ -65,50 +65,123 @@ class UserRegistry extends React.Component {
     if (!user) {return (<div>loading</div>);};
 
     let categories = user.categories.map(category => {
-      return (<span className="paragraph" key={category.id}>{category.name}</span>);
+      return (<p className="paragraph" key={category.id}>{category.name}</p>);
     });
 
     let items = user.items.map(item => {
-      return (<li className="paragraph" key={item.id}>{item.name}</li>);
+      return (<li className="paragraph-end" key={item.id}>{item.name}</li>);
     });
 
     let showAddress2;
     showAddress2 = (user.address2 === "" ? "no-show" : "contact-info");
     return(
-      <div className="registry-show">
+      <div className="registry-parent">
         <h1 className="registry-tagline">{user.organization_name}</h1>
 
-        <div className="registry-flex-parent">
+        <div className="registry-show">
           <img className="logo-photo" src={user.photo} />
 
-          <div className="registry-body">
-            <section className="registry-body-left">
-              <div>
-                <h3 className="registry-subtitle">Category:</h3>
-                <p className="paragraph">{categories}</p>
-              </div>
-              <div className="registry-description">
-                <h3 className="registry-subtitle">Description:</h3>
-                <p className="paragraph">{user.description}</p>
-              </div>
+          <div className="registry-block">
+            <h3 className="registry-subtitle">Category:</h3>
+            <div className="category-text">{categories}</div>
+          </div>
 
-              <div className="registry-contact">
-                <h3 className="registry-subtitle">Contact:</h3>
-                <p className="paragraph">{user.address1}</p>
-                <p className={showAddress2}>{user.address2}</p>
-                <p className="paragraph">{user.city}, {user.state} {user.zipcode}</p>
-                <h3 className="registry-subtitle">Items needed:</h3>
-                <ul>{items}</ul>
-              </div>
-            </section>
+          <div className="registry-block">
+            <h3 className="registry-subtitle">Contact:</h3>
+            <div className="address-block">
+              <p className="paragraph-end">{user.address1}</p>
+              <p className={showAddress2}>{user.address2}</p>
+              <p className="paragraph-end">{user.city}, {user.state} {user.zipcode}</p>
+            </div>
+          </div>
 
-            <section className="registry-body-right">
-              <button className={this.togglePledgeButtonColor()} onClick={this.togglePledgeButton}>{this.pledgeText()}</button>
-              <p className="pledge-count">{user.pledges.length} {this.pluralizePledge()}</p>
-            </section>
+          <div className="registry-block">
+            <h3 className="registry-subtitle">Description:</h3>
+            <p className="paragraph-end">{user.description}</p>
+          </div>
+
+          <div className="registry-block">
+            <h3 className="registry-subtitle">Items needed:</h3>
+            <ul className="address-block">{items}</ul>
           </div>
         </div>
       </div>
+      // <div className="registry-parent">
+      //   <h1 className="registry-tagline">{user.organization_name}</h1>
+      //
+      //   <div className="registry-show">
+      //     <img className="logo-photo" src={user.photo} />
+      //
+      //     <div className="registry-left-right">
+      //       <div className="registry-body-top">
+      //         <div className="label-and-text">
+      //           <h3 className="registry-subtitle">Category:</h3>
+      //           <div className="category-text">{categories}</div>
+      //         </div>
+      //
+      //         <div className="registry-contact">
+      //           <h3 className="registry-subtitle">Contact:</h3>
+      //           <p className="paragraph">{user.address1}</p>
+      //           <p className={showAddress2}>{user.address2}</p>
+      //           <p className="paragraph">{user.city}, {user.state} {user.zipcode}</p>
+      //         </div>
+      //
+      //       </div>
+      //
+      //     </div>
+      //
+      //     <div className="registry-top-bottom">
+      //       <section className="registry-body-bottom">
+      //         <div className="registry-description">
+      //           <h3 className="registry-subtitle">Description:</h3>
+      //           <p className="paragraph">{user.description}</p>
+      //         </div>
+      //
+      //         <div className="items-needed">
+      //           <h3 className="registry-subtitle">Items needed:</h3>
+      //           <ul>{items}</ul>
+      //         </div>
+      //       </section>
+      //     </div>
+      //   </div>
+      // </div>
+
+
+      // <div className="registry-show">
+      //   <h1 className="registry-tagline">{user.organization_name}</h1>
+      //
+      //   <div className="registry-flex-parent">
+      //     <img className="logo-photo" src={user.photo} />
+      //
+      //     <div className="registry-body">
+      //       <section className="registry-body-top">
+      //         <div>
+      //           <h3 className="registry-subtitle">Category:</h3>
+      //           <p className="paragraph">{categories}</p>
+      //         </div>
+      //
+      //         <div className="registry-contact">
+      //           <h3 className="registry-subtitle">Contact:</h3>
+      //           <p className="paragraph">{user.address1}</p>
+      //           <p className={showAddress2}>{user.address2}</p>
+      //           <p className="paragraph">{user.city}, {user.state} {user.zipcode}</p>
+      //         </div>
+      //       </section>
+      //
+      //       <section className="registry-body-bottom">
+      //         <div className="registry-description">
+      //           <h3 className="registry-subtitle">Description:</h3>
+      //           <p className="paragraph">{user.description}</p>
+      //         </div>
+      //
+      //         <div className="items-needed">
+      //           <h3 className="registry-subtitle">Items needed:</h3>
+      //           <ul>{items}</ul>
+      //         </div>
+      //       </section>
+      //     </div>
+      //   </div>
+      // </div>
     );
   }
 };
