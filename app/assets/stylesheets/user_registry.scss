@@ -4,7 +4,7 @@
 
 .registry-tagline {
   font-family: 'Lora', serif;
-  font-size: 60px;
+  font-size: 50px;
   margin: 25px 0 0 120px;
   color: rgba(98, 67, 35, 0.92);
 }
@@ -17,7 +17,7 @@
 }
 
 .logo-photo {
-  width: 800px;
+  width: 600px;
   align-self: flex-start;
   margin: 60px auto 20px auto;
 }
@@ -63,6 +63,8 @@
 }
 
 .contact-info {
-  // border: 5px solid maroon;
   text-align: right;
+  font-size: 18px;
+  margin: 15px 0 0 20px;
+  padding: 5px;
 }

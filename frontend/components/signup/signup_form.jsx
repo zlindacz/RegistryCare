@@ -28,31 +28,51 @@ class SignupForm extends React.Component {
   render() {
     let nextForm;
       if (this.state.step === 1) {
-        return(<SignupBasic
+        return(
+          <div>
+            <h1 className="signup-tagline">Create Account - Basic Information</h1>
+            <SignupBasic
                 next={() => this.nextStep(this.state.step)}
                 errors={this.props.errors}
                 user={this.props.user}
-                receiveInProgressUser={this.props.receiveInProgressUser} />);
+                receiveInProgressUser={this.props.receiveInProgressUser} />
+          </div>);
       } else if (this.state.step === 2) {
-        return(<CloudinaryImage
-          user={this.props.user}
-          next={() => this.nextStep(this.state.step)}
-          receiveInProgressUser={this.props.receiveInProgressUser}/>);
+        return(
+          <div>
+            <h1 className="signup-tagline">Create Account - Profile Picture</h1>
+            <CloudinaryImage
+                user={this.props.user}
+                next={() => this.nextStep(this.state.step)}
+                receiveInProgressUser={this.props.receiveInProgressUser} />
+          </div>);
       } else if (this.state.step === 3) {
-        return(<SignupDescription
-          user={this.props.user}
-          next={() => this.nextStep(this.state.step)}
-          receiveInProgressUser={this.props.receiveInProgressUser}/>);
+        return(
+          <div>
+            <h1 className="signup-tagline">Create Account - Description</h1>
+            <SignupDescription
+                user={this.props.user}
+                next={() => this.nextStep(this.state.step)}
+                receiveInProgressUser={this.props.receiveInProgressUser} />
+          </div>);
       } else if (this.state.step === 4) {
-        return(<SignupCategory
+        return(
+          <div>
+            <h1 className="signup-tagline">Create Account - Select Category</h1>
+            <SignupCategory
                 user={this.props.user}
                 next={() => this.nextStep(this.state.step)}
-                receiveInProgressUser={this.props.receiveInProgressUser}/>);
+                receiveInProgressUser={this.props.receiveInProgressUser} />
+          </div>);
       } else if (this.state.step === 5) {
-        return(<SignupItems
+        return(
+          <div>
+            <h1 className="signup-tagline">Create Account - Items Needed</h1>
+            <SignupItems
                 next={() => this.nextStep(this.state.step)}
                 user={this.props.user}
-                submit={this.props.signup}/>);
+                submit={this.props.signup} />
+          </div>);
       }
   }
 

@@ -10,6 +10,7 @@ class LoginForm extends React.Component {
     };
     this.update = this.update.bind(this);
     this.showErrors = this.showErrors.bind(this);
+    this.navigateToSignup = this.navigateToSignup.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -24,6 +25,11 @@ class LoginForm extends React.Component {
 
   update(field) {
     return e => { this.setState({[field]: e.currentTarget.value}); };
+  }
+
+  navigateToSignup() {
+    this.props.router.push('signup');
+    this.props.closeModal();
   }
 
   handleSubmit(e) {
@@ -55,6 +61,9 @@ class LoginForm extends React.Component {
           </span>
 
           <input type="submit" value="Login" className="login-submit-button"/>
+          <div>
+            Don't have an account? <a className="signup-link" onClick={this.navigateToSignup}>Sign Up</a>
+          </div>
         </form>
       </div>
     )

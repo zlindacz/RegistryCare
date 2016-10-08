@@ -1,15 +1,10 @@
 export default ({
   overlay : {
-    position          : 'fixed',
-    top               : 0,
-    left              : 0,
-    right             : 0,
-    bottom            : 0,
     backgroundColor   : 'rgba(161, 159, 168, 0.47)'
   },
   content : {
-    top                        : '140px',
-    left                       : '440px',
+    top                        : '100px',
+    left                       : 'calc(100vw/2)',
     border                     : '1px solid #ccc',
     backgroundImage           : '-webkit-linear-gradient(top, #6a6598, #e39b99)',
     backgroundImage           : '-moz-linear-gradient(top, #6a6598, #e39b99)',

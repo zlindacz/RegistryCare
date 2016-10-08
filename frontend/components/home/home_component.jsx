@@ -48,7 +48,7 @@ class Home extends React.Component {
             </div>
 
             <div className="last-bid">
-              <h2 className="give-today">Start giving.</h2>
+              <h2 className="give-today">Start giving today.</h2>
               <button className="home-tour-button2" onClick={this.guestLogin}>Try us out</button>
             </div>
           </div>

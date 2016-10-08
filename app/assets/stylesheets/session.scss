@@ -1,5 +1,5 @@
 .login-form-container {
-  margin: 20px;
+  margin: 0 auto;
   display: flex;
 }
 
@@ -7,10 +7,8 @@
   width: 300px;
   min-width: calc(100%-22px);
   margin: 0 auto;
-  // box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  // flex-grow: 1;
 }
 
 .login-error-messages {
@@ -84,7 +82,20 @@
   background-image: linear-gradient(to bottom, #83d468, #415f3c);
 }
 
-/*Sign up button*/
+.signup-link:hover {
+  cursor: pointer;
+  padding-bottom: 5px;
+  border-bottom: 2px solid rgb(57, 11, 49);
+}
+
+/*Sign up*/
+
+.signup-tagline {
+  font-family: 'Lora', serif;
+  font-size: 50px;
+  margin: 25px 0 0 120px;
+  color: rgba(98, 67, 35, 0.92);
+}
 
 .btn {
   background: #ffec15;

@@ -19,8 +19,10 @@ class SearchBar extends React.Component {
       <div className="search-bar">
         <i className="fa fa-search fa-2x" aria-hidden="true"></i>
         <form className="search-form" >
-          <input type="text" onChange={ this.handleChange } className="search-bar-input" placeholder="Search by organization name, item, or category" />
-
+          <input type="text"
+                 onChange={ this.handleChange }
+                 className="search-bar-input"
+                 placeholder="Search by organization name, item, or category" />
         </form>
       </div>
     );
