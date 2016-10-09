@@ -21,10 +21,10 @@ class SignupItems extends React.Component {
                                 {name: 'Toys', id: 14},
                                 {name: 'Books', id: 15},
                                 {name: 'Miscellaneous', id: 16}],
-                    VOLUNTEER: [{name: 'No Preferences', id: 17},
-                                {name: 'Events', id: 18},
-                                {name: 'Mentor', id: 19},
-                                {name: 'Tutor', id: 20}]
+                    VOLUNTEER: [{name: 'Volunteer: No Preferences', id: 17},
+                                {name: 'Volunteer: Events', id: 18},
+                                {name: 'Volunteer: Mentor', id: 19},
+                                {name: 'Volunteer: Tutor', id: 20}]
                               };
     this.state = {item_ids: []};
 
@@ -66,7 +66,7 @@ class SignupItems extends React.Component {
 
         <label htmlFor={`cbox${item["id"]}`}
                className="signup-checkbox-label">
-                <span>{item["name"]}</span>
+                <span className="item-label-text">{item["name"]}</span>
         </label>
       </div>
     );
@@ -93,13 +93,10 @@ class SignupItems extends React.Component {
   render(){
     const checkboxes = this.makeCheckboxes();
     return(
-      <div className="show-form4">
-        <h1 className="signup-title">Select Items to Donate</h1>
-        <form onSubmit={this.submit}>
-          <div className="box">{checkboxes}</div>
-          <input type="submit" value="Create Account" className="signup-button" />
-        </form>
-      </div>
+      <form onSubmit={this.submit} className="form-and-button">
+        <div className="box">{checkboxes}</div>
+        <input type="submit" value="Create Account" className="signup-button" />
+      </form>
     );
   }
 

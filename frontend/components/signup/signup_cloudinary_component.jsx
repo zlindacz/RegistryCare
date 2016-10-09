@@ -27,10 +27,12 @@ class CloudinaryImage extends React.Component {
 
   render() {
     return(
-      <form onSubmit={this.handleClick} className="upload-image-form" >
-        <button onClick={this.upload} className="upload-button">Upload Profile Image</button>
-        <div className="image-container" ><img className="image" src={this.state.image} /></div>
-        <input type="submit" value="Next" className="upload-next-button" />
+      <form onSubmit={this.handleClick} className="form-and-button" >
+        <div className="upload-image-form">
+          <div className="image-container"><img className="image" src={this.state.image} /></div>
+          <button onClick={this.upload} className="choose-button">Choose Photo</button>
+        </div>
+        <input type="submit" value="Next" className="signup-next-button" />
       </form>
     )
   }

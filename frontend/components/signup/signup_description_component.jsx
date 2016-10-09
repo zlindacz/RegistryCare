@@ -21,17 +21,14 @@ class SignupDescription extends React.Component {
 
   render(){
     return(
-      <div className="show-form2">
-        <h1 className="signup-title">Tell Us About Your Mission</h1>
-        <form onSubmit={this.handleClick} className="form2-container">
-          <textarea style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                  className="signup-description-field"
-                  placeholder="Description"
-                  onChange={this.update}>
-          </textarea>
-          <input type="submit" value="Next" className="signup-description-next-button" />
-        </form>
-      </div>
+      <form onSubmit={this.handleClick} className="form-and-button">
+        <textarea
+            className="signup-description-field"
+            placeholder="Description"
+            onChange={this.update}>
+        </textarea>
+        <input type="submit" value="Next" className="signup-next-button" />
+      </form>
     );
   }
 }

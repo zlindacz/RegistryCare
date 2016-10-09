@@ -100,8 +100,8 @@ class AppHeader extends React.Component {
         <div className="header-img-logo" onClick={ this.navigateToHome }>
           <img className="logo" src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png"/>
           <p className="app-name">Care</p>
+          <a className="browse-link">Browse</a>
         </div>
-        <a className="browse-link">Browse</a>
         <SearchBar></SearchBar>
         { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
       </header>

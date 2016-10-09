@@ -29,7 +29,7 @@ class SignupForm extends React.Component {
     let nextForm;
       if (this.state.step === 1) {
         return(
-          <div>
+          <div className="signup-container">
             <h1 className="signup-tagline">Create Account - Basic Information</h1>
             <SignupBasic
                 next={() => this.nextStep(this.state.step)}
@@ -39,7 +39,7 @@ class SignupForm extends React.Component {
           </div>);
       } else if (this.state.step === 2) {
         return(
-          <div>
+          <div className="signup-container">
             <h1 className="signup-tagline">Create Account - Profile Picture</h1>
             <CloudinaryImage
                 user={this.props.user}
@@ -48,8 +48,8 @@ class SignupForm extends React.Component {
           </div>);
       } else if (this.state.step === 3) {
         return(
-          <div>
-            <h1 className="signup-tagline">Create Account - Description</h1>
+          <div className="signup-container">
+            <h1 className="signup-tagline">Create Account - Mission Statement</h1>
             <SignupDescription
                 user={this.props.user}
                 next={() => this.nextStep(this.state.step)}
@@ -57,7 +57,7 @@ class SignupForm extends React.Component {
           </div>);
       } else if (this.state.step === 4) {
         return(
-          <div>
+          <div className="signup-container">
             <h1 className="signup-tagline">Create Account - Select Category</h1>
             <SignupCategory
                 user={this.props.user}
@@ -66,7 +66,7 @@ class SignupForm extends React.Component {
           </div>);
       } else if (this.state.step === 5) {
         return(
-          <div>
+          <div className="signup-container">
             <h1 className="signup-tagline">Create Account - Items Needed</h1>
             <SignupItems
                 next={() => this.nextStep(this.state.step)}
