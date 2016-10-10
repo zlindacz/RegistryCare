@@ -10,7 +10,8 @@ class AppHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false
+      modalOpen: false,
+      freshErrors: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -43,7 +44,7 @@ class AppHeader extends React.Component {
   }
 
   openModal() {
-    this.setState({modalOpen: true});
+    this.setState({modalOpen: true, freshErrors: true});
   }
 
   closeModal() {
@@ -94,7 +95,9 @@ class AppHeader extends React.Component {
           onRequestClose={ this.closeModal }
           style={ ModalStyle }
           onAfterOpen={this.onModalOpen}>
-            <LoginFormContainer closeModal={ this.closeModal }/>
+            <LoginFormContainer
+              closeModal={ this.closeModal }
+              errorStatus={ this.state.freshErrors }/>
             <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
         <div className="header-img-logo" onClick={ this.navigateToHome }>

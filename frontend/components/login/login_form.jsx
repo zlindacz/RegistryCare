@@ -15,12 +15,14 @@ class LoginForm extends React.Component {
   }
 
   showErrors() {
-    let loginErrors = this.props.errors;
-    if (loginErrors.length >= 1) {
-      return loginErrors.map((error,i) => {
-        return(<li key={i}>{error}</li>);
-      });
-    };
+    if (this.props.freshErrors) {
+      let loginErrors = this.props.errors;
+      if (loginErrors.length >= 1) {
+        return loginErrors.map((error,i) => {
+          return(<li key={i}>{error}</li>);
+        });
+      };
+    }
   }
 
   update(field) {

@@ -30,19 +30,29 @@ class SignupBasic extends React.Component {
     this.props.next();
   }
 
-  renderErrors(){
-    return(this.props.errors.map(error => (
-      <div>
-        <h3 className="error-subheading">Please fill in the following information before proceeding:</h3>
-        <li>{error}</li>
-      </div>
-    )));
-  }
+  renderErrors() {
+    let errors;
+    if (this.props.errors.length > 0) {
+      errors = Array.prototype.slice.call(this.props.errors);
+      return errors.map((error) => {
+        if (error.match(/digest/)) {
+          return <li key={error}>{error.replace(/digest/, '')}</li>
+        } else {
+          return <li key={error}>{error}</li>
+        }
+      });
+    }
+  };
 
   render(){
     return(
       <div>
-        <ul>{this.renderErrors()}</ul>
+        <section className="errors">
+          <h3 className="error-title">
+            {this.props.errors.length === 0 ? "" : "Please fix the following issues:"}
+          </h3>
+          <ul className="error-list">{this.renderErrors()}</ul>
+        </section>
         <form onSubmit={this.handleClick} className="form-and-button">
           <div className="form1-container">
             <input type="text" value={this.state.organization_name} onChange={this.update("organization_name")} className="signup-input-field" placeholder="Organization Name" />

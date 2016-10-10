@@ -157,8 +157,18 @@
   border: 1px solid #ccc;
 }
 
-.error-subheading {
+.errors {
   background-color: white;
+  padding: 10px;
+}
+
+.errors li {
+  color: rgb(219, 26, 56);
+}
+
+.error-title {
+  font-size: 20px;
+  margin: 5px;
 }
 
 .form-and-button {
@@ -243,8 +253,8 @@
 
 .signup-description-field {
   width: 500px;
-  min-height: 230px;
-  margin: 20px 0 40px 60px;
+  min-height: 280px;
+  margin: 20px 0 80px 60px;
   resize: none;
   padding: 10px;
   color: #555;
@@ -309,7 +319,7 @@
 	width: 20px;
 	height: 20px;
 	left: 4px;
-	top: 4px;
+	top: 3px;
 
 	-webkit-box-shadow: inset 0px 1px 1px rgba(186, 8, 67, 0.63), 0px 1px 0px rgba(255,255,255,1);
 	-moz-box-shadow: inset 0px 1px 1px rgba(186, 8, 67, 0.63), 0px 1px 0px rgba(255,255,255,1);
