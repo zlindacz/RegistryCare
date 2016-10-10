@@ -10,14 +10,13 @@ class AppHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false,
-      freshErrors: false
+      modalOpen: false
     };
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.navigateToHome = this.navigateToHome.bind(this);
     this.navigateToSignup = this.navigateToSignup.bind(this);
-    this.editUser = this.editUser.bind(this);
+    this.navigateToProfile = this.navigateToProfile.bind(this);
     this.guestLogin = this.guestLogin.bind(this);
   }
 
@@ -38,13 +37,14 @@ class AppHeader extends React.Component {
     this.props.router.push('signup')
   }
 
-  editUser(user) {
+  navigateToProfile(user) {
     this.props.router.push('profile')
-    this.props.editUser(user)
   }
 
   openModal() {
-    this.setState({modalOpen: true, freshErrors: true});
+    this.setState({modalOpen: true});
+    this.props.clearErrors();
+    console.log('opened modal');
   }
 
   closeModal() {
@@ -80,7 +80,7 @@ class AppHeader extends React.Component {
           <p className="welcome-message">
             Welcome back, {this.props.currentUser.username}!
           </p>
-          <li><a onClick={() => this.editUser(this.props.currentUser)}>Profile</a></li>
+          <li><a onClick={() => this.navigateToProfile}>Profile</a></li>
           <li><a onClick={() => this.props.logout()}>Log Out</a></li>
         </ul>
       </div>
@@ -97,7 +97,7 @@ class AppHeader extends React.Component {
           onAfterOpen={this.onModalOpen}>
             <LoginFormContainer
               closeModal={ this.closeModal }
-              errorStatus={ this.state.freshErrors }/>
+              errorStatus={ this.state.freshErrors } />
             <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
         <div className="header-img-logo" onClick={ this.navigateToHome }>

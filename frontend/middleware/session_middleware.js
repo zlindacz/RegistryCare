@@ -9,16 +9,14 @@ export default ({getState, dispatch}) => next => action => {
   const errorCallback = xhr => {
     const errors = xhr.responseJSON;
     dispatch(receiveErrors(errors));
-    console.log(errors);
   };
 
   switch(action.type) {
     case SessionConstants.LOGIN:
       login(action.user, successCallback, errorCallback);
       return next(action);
-      logger
+      // logger
     case SessionConstants.SIGNUP:
-      console.log(action);
       signup(action.user, successCallback, errorCallback);
       return next(action);
     case SessionConstants.LOGOUT:
