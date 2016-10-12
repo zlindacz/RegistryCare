@@ -4,8 +4,9 @@ export const UserConstants = {
   RECEIVE_USERS: "RECEIVE_USERS",
   REQUEST_SINGLE_USER: "REQUEST_SINGLE_USER",
   RECEIVE_SINGLE_USER: "RECEIVE_SINGLE_USER",
-  EDIT_USER: "EDIT_USER",
+  // EDIT_USER: "EDIT_USER",
   UPDATE_USER: "UPDATE_USER",
+  CLEAR_USER_INFO: "CLEAR_USER_INFO",
   RECEIVE_USER_ERRORS: "RECEIVE_USER_ERRORS"
 }
 
@@ -34,14 +35,18 @@ export const receiveSingleUser = user => ({
   user
 });
 
-export const editUser = user => ({
-  type: UserConstants.EDIT_USER,
-  user
-});
+// export const editUser = user => ({
+//   type: UserConstants.EDIT_USER,
+//   user
+// });
 
 export const updateUser = user => ({
   type: UserConstants.UPDATE_USER,
   user
+});
+
+export const clearUserInfo = () => ({
+  type: UserConstants.CLEAR_USER_INFO
 });
 
 export const receiveErrors = errors => ({

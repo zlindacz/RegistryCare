@@ -5,6 +5,7 @@ import SignupFormContainer from '../signup/signup_form_container';
 import UserIndexContainer from '../user/index/user_index_container';
 import UserRegistryContainer from '../user/registry/user_registry_container';
 import HomeContainer from '../home/home_container';
+import ProfileContainer from '../user/profile/user_profile_container';
 
 class AppRouter extends React.Component{
   constructor(props) {
@@ -35,6 +36,7 @@ class AppRouter extends React.Component{
           <Route path="/index" component={ UserIndexContainer } onEnter={ this._ensureLoggedIn } />
           <Route path="/signup" component={ SignupFormContainer } onEnter={ this._redirectIfLoggedIn }/>
           <Route path="/registry/:userId" component={ UserRegistryContainer } onEnter={ this._ensureLoggedIn } />
+          <Route path="/profile" component={ ProfileContainer} />
         </Route>
       </Router>
     );

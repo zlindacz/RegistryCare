@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AppHeader from './app_header';
 import { logout, login } from '../../actions/session_actions';
-import { editUser } from '../../actions/user_actions';
+import { clearUserInfo } from '../../actions/user_actions';
 import { clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = state => ({
@@ -14,6 +14,7 @@ const mapDispatchToProps = dispatch => ({
     username: "treehouse",
     password: "password"
   })),
+  clearUserInfo: () => dispatch(clearUserInfo()),
   clearErrors: () => dispatch(clearErrors())
 });
 

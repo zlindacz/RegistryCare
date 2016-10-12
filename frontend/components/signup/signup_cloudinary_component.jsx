@@ -3,7 +3,7 @@ import React from 'react';
 class CloudinaryImage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {image: ""}
+    this.state = {photo: ""}
 
     this.upload = this.upload.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -13,9 +13,8 @@ class CloudinaryImage extends React.Component {
     e.preventDefault();
     cloudinary.openUploadWidget(cloudinary_options, function(error, results) {
       if (!error){
-        this.setState({image: results[0].url});
+        this.setState({photo: results[0].url});
       }
-
     }.bind(this));
   }
 
@@ -29,7 +28,7 @@ class CloudinaryImage extends React.Component {
     return(
       <form onSubmit={this.handleClick} className="form-and-button" >
         <div className="upload-image-form">
-          <div className="image-container"><img className="image" src={this.state.image} /></div>
+          <div className="image-container"><img className="image" src={this.state.photo} /></div>
           <button onClick={this.upload} className="choose-button">Choose Photo</button>
         </div>
         <input type="submit" value="Next" className="signup-next-button" />

@@ -86,6 +86,7 @@ class SignupItems extends React.Component {
 
   submit(e){
     e.preventDefault();
+    debugger
     let user = merge({}, this.state, this.props.user.inProgressUser);
     this.props.submit(user);
   }

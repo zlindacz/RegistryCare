@@ -16,6 +16,11 @@ export default (state = defaultState, action) => {
       let newState =  merge({}, state)
       newState.users = action.users
       return newState
+    case UserConstants.RECEIVE_USER_ERRORS:
+      const errors = action.errors;
+      return merge({}, state, {errors})
+    case UserConstants.CLEAR_USER_INFO:
+      return defaultState; 
     default:
       return state;
   }
