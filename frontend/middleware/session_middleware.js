@@ -1,6 +1,6 @@
 import { receiveCurrentUser, receiveErrors, SessionConstants } from '../actions/session_actions';
+import { clearUserInfo } from '../actions/user_actions.js';
 import { login, logout, signup } from '../util/session_api_util';
-// import logger from 'redux-logger';
 
 export default ({getState, dispatch}) => next => action => {
   const successCallback = user => dispatch(receiveCurrentUser(user));
@@ -18,8 +18,8 @@ export default ({getState, dispatch}) => next => action => {
       signup(action.user, successCallback, errorCallback);
       return next(action);
     case SessionConstants.LOGOUT:
-      logout(() => dispatch(next(action)));
-      break;
+      logout(dispatch(clearUserInfo()), errorCallback);
+      return next(action);
     default:
       return next(action);
   }

@@ -12,6 +12,7 @@ class UserProfile extends React.Component {
     this.update = this.update.bind(this);
     this.upload = this.upload.bind(this);
     this.addCategory = this.addCategory.bind(this);
+    this.submit = this.submit.bind(this);
 
     this.categories = [ {name: 'AIDS', id: 1},
                         {name: 'Animals', id: 2},
@@ -67,13 +68,20 @@ class UserProfile extends React.Component {
     this.setState({category_ids: [e.currentTarget.value.id]});
   }
 
+  submit(e) {
+    e.preventDefault();
+    let user = merge({}, this.state, this.props.currentUser);
+    this.props.updateUser(user);
+  }
+
   render() {
+    const selectedValue = this.state.categories[0].name;
     return(
       <div>
-        <h1>Profile</h1>
-        <form>
-          <div>
-            <h2>Your Info</h2>
+        <h1 className="profile-title">Profile</h1>
+        <form onSubmit={ this.submit }>
+          <div className="profile-basic-info">
+            <h2 className="profile-subtitle">Your Info</h2>
             <input type="text" value={this.state.organization_name} onChange={this.update("organization_name")} className="signup-input-field" placeholder="Organization Name" />
             <input type="text" value={this.state.username} onChange={this.update("username")} className="signup-input-field" placeholder="Username" />
             <input type="text" value={this.state.email} onChange={this.update("email")} className="signup-input-field" placeholder="Email" />
@@ -83,33 +91,39 @@ class UserProfile extends React.Component {
             <input type="text" value={this.state.state} onChange={this.update("state")} className="signup-input-field" placeholder="State" />
             <input type="text" value={this.state.zipcode} onChange={this.update("zipcode")} className="signup-input-field" placeholder="Zip Code" />
           </div>
-          <div>
-            <h2>Your Photo</h2>
+          <div className="profile-photo">
+            <h2 className="profile-subtitle">Your Photo</h2>
               <div className=""><img className="image" src={this.state.image} /></div>
-              <button onClick={this.upload} className="">Change Photo</button>
+              <button onClick={this.upload} className="profile-photo-change-button">Change Photo</button>
           </div>
-          <div>
-            <h2>Mission Statement</h2>
+          <div className="profile-mission">
+            <h2 className="profile-subtitle">Mission Statement</h2>
             <textarea
-            className="signup-description-field"
+            className="profile-description-field"
+            defaultValue={ this.state.description }
             placeholder="Description"
             onChange={this.update("description")}>
             </textarea>
           </div>
-          <div>
+          <div className="profile-category">
+            <h2 className="profile-subtitle">Category</h2>
             <select onChange={this.addCategory}
-                    className="signup-select-category-container"
-                    value={ this.state.categories[0] }>
+                    className="profile-select-category-container"
+                    value={selectedValue}>
                 {this.categories.map((category) => {
                 return(
-                  <option value={category}
-                          className="signup-select-box"
+                  <option value={category.name}
+                          className="profile-select-box"
                           key={category.id}>
                     {category.name}
                   </option>
                 );
               })};
             </select>
+          </div>
+          <div className="profile-items">
+            <h2 className="profile-subtitle">Items Needed</h2>
+
           </div>
 
           <input type="submit" value="Update" />

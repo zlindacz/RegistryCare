@@ -62,7 +62,6 @@ class AppHeader extends React.Component {
   }
 
   handleLogout() {
-    this.props.clearUserInfo();
     this.props.logout();
   }
 

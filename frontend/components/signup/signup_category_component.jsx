@@ -56,10 +56,11 @@ class SignupCategory extends React.Component {
   render(){
     return(
       <form onSubmit={this.handleClick} className="form-and-button">
-        <select onChange={this.addCategory} className="signup-select-category-container">
+        <select onChange={this.addCategory}
+          className="signup-select-category-container">
             {this.categories.map((category) => {
             return(
-              <option value={category}
+              <option value={category.name}
                       className="signup-select-box"
                       key={category.id}>
                 {category.name}
