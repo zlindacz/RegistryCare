@@ -50,7 +50,7 @@ class SignupItems extends React.Component {
                onChange={() => this.updateItems(item)}
                id={item.name}
                value={item.name}
-              //  defaultChecked={(savedItems && savedItems.includes(item)) ? "item" : ""}
+               defaultChecked={(savedItems && savedItems.includes(item)) ? "item" : ""}
                />
 
         <label htmlFor={item.name}

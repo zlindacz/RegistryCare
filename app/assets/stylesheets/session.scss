@@ -334,6 +334,7 @@
 
 .signup-checkbox label:after {
 	opacity: 0;
+  content: '';
 	position: absolute;
 	width: 9px;
 	height: 5px;
@@ -351,7 +352,7 @@
 	transform: rotate(-45deg);
 }
 
-.signup-checkbox label:hover::after {
+.signup-checkbox label:hover:after {
 	opacity: 0.3;
 }
 
@@ -381,7 +382,6 @@
   display: flex;
   flex-direction: column;
   width: 60%;
-  background: blue;
 }
 
 .checkbox-category-container {
