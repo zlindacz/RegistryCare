@@ -5,27 +5,27 @@ import { withRouter } from 'react-router';
 class SignupItems extends React.Component {
   constructor(props) {
     super(props);
-    this.allItems = {CLOTHES: [{name: 'Tops', id: 1},
-                               {name: 'Bottoms', id: 2},
-                               {name: 'Dresses', id: 3},
-                               {name: 'Outerwear', id: 4},
-                               {name: 'Sleepwear', id: 5},
-                               {name: 'Swim', id: 6},
-                               {name: 'Shoes', id: 7},
-                               {name: 'Accessories', id: 8}],
-                    HOUSEHOLD: [{name: 'Electrical', id: 9},
-                                {name: 'Furniture', id: 10},
-                                {name: 'Computer', id: 11},
-                                {name: 'Kitchen', id: 12},
-                                {name:  'Vehicle', id: 13},
-                                {name: 'Toys', id: 14},
-                                {name: 'Books', id: 15},
-                                {name: 'Miscellaneous', id: 16}],
-                    VOLUNTEER: [{name: 'Volunteer: No Preferences', id: 17},
-                                {name: 'Volunteer: Events', id: 18},
-                                {name: 'Volunteer: Mentor', id: 19},
-                                {name: 'Volunteer: Tutor', id: 20}]
-                              };
+    this.items = [{name: 'Tops', id: 1, category: 'clothes'},
+                  {name: 'Bottoms', id: 2, category: 'clothes'},
+                  {name: 'Dresses', id: 3, category: 'clothes'},
+                  {name: 'Outerwear', id: 4, category: 'clothes'},
+                  {name: 'Sleepwear', id: 5, category: 'clothes'},
+                  {name: 'Swim', id: 6, category: 'clothes'},
+                  {name: 'Shoes', id: 7, category: 'clothes'},
+                  {name: 'Accessories', id: 8, category: 'clothes'},
+                  {name: 'Electrical', id: 9, category: 'household'},
+                  {name: 'Furniture', id: 10, category: 'household'},
+                  {name: 'Computer', id: 11, category: 'household'},
+                  {name: 'Kitchen', id: 12, category: 'household'},
+                  {name: 'Vehicle', id: 13, category: 'household'},
+                  {name: 'Toys', id: 14, category: 'household'},
+                  {name: 'Books', id: 15, category: 'household'},
+                  {name: 'Miscellaneous', id: 16, category: 'household'},
+                  {name: 'Volunteer: No Preferences', id: 17, category: 'volunteer'},
+                  {name: 'Volunteer: Events', id: 18, category: 'volunteer'},
+                  {name: 'Volunteer: Mentor', id: 19, category: 'volunteer'},
+                  {name: 'Volunteer: Tutor', id: 20, category: 'volunteer'}];
+
     this.state = {item_ids: []};
 
     this.updateItems = this.updateItems.bind(this);
@@ -35,71 +35,72 @@ class SignupItems extends React.Component {
   }
 
   updateItems(item) {
-    const itemTypes = Object.keys(this.allItems); //["CLOTHES", "HOUSEHOLD", "VOLUNTEER"]
-    const itemsArray = this.allItems[itemTypes[0]].concat(
-                       this.allItems[itemTypes[1]]).concat(
-                       this.allItems[itemTypes[2]])
-    return e => { this.setState({item_ids: this.state.item_ids.concat([item["id"]])}); };
+    // debugger
+    this.setState({item_ids: this.state.item_ids.concat([item.id])});
   }
 
   turnItemIntoCheckbox(item) {
-    let keys = Object.keys(this.allItems)
-    let itemKey;
-    let i=0;
-    while (i < keys.length) {
-      let key = keys[i];
-      if (this.allItems[key].includes(item)){
-        itemKey = key;
-        break;
-      }
-      i++;
-    }
-
+    // debugger
+    const savedItems = this.props.user.inProgressUser.items;
     return(
-      <div key={`cbox${item["id"]}`}
-           className="signup-checkbox">
+      <div className="signup-checkbox"
+        key={item.id}>
         <input type="checkbox"
-               onChange={this.updateItems(item)}
-               className={`${itemKey}`}
-               id={`cbox${item["id"]}`}
-               value={item["name"]}/>
+               className="checkbox"
+               onChange={() => this.updateItems(item)}
+               id={item.name}
+               value={item.name}
+              //  defaultChecked={(savedItems && savedItems.includes(item)) ? "item" : ""}
+               />
 
-        <label htmlFor={`cbox${item["id"]}`}
+        <label htmlFor={item.name}
                className="signup-checkbox-label">
-                <span className="item-label-text">{item["name"]}</span>
+                <span className="item-label-text">{item.name}</span>
         </label>
       </div>
     );
   }
 
-  makeCheckboxes() {
+  makeCheckboxes(category) {
     let allBoxes = [];
     let scope = this;
-    const itemType = Object.keys(this.allItems);
-    itemType.forEach((type) => {
-      this.allItems[type].map((item) => {
+    this.items.map(item => {
+      if (item.category === category) {
         allBoxes.push(scope.turnItemIntoCheckbox(item));
-      })
-    })
+      }
+    });
     return allBoxes;
   }
 
   submit(e){
+    // debugger
     e.preventDefault();
     let user = merge({}, this.state, this.props.user.inProgressUser);
+    console.log(user);
     this.props.submit(user);
   }
 
   render(){
-    const checkboxes = this.makeCheckboxes();
     return(
-      <form onSubmit={this.submit} className="form-and-button">
-        <div className="box">{checkboxes}</div>
+      <form onSubmit={this.submit} className="items-form-and-button">
+        <div className="boxes-container">
+          <div className="checkbox-category-container">
+            <h3 className="checkbox-category-title">CLOTHES</h3>
+            <div className="box">{this.makeCheckboxes('clothes')}</div>
+          </div>
+          <div className="checkbox-category-container">
+            <h3 className="checkbox-category-title">HOUSEHOLD</h3>
+            <div className="box">{this.makeCheckboxes('household')}</div>
+          </div>
+          <div className="checkbox-category-container">
+            <h3 className="checkbox-category-title">VOLUNTEER</h3>
+            <div className="box-volunteer">{this.makeCheckboxes('volunteer')}</div>
+          </div>
+        </div>
         <input type="submit" value="Create Account" className="signup-button" />
       </form>
     );
   }
-
 }
 
 export default withRouter(SignupItems);

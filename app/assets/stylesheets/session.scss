@@ -254,7 +254,7 @@
 .signup-description-field {
   width: 500px;
   min-height: 280px;
-  margin: 20px 0 80px 60px;
+  margin: 40px 0 80px 60px;
   resize: none;
   padding: 10px;
   color: #555;
@@ -269,7 +269,7 @@
   appearance: none;
   font-size: 18px;
   height: 50px;
-  margin: 20px 0 300px 60px;
+  margin: 40px 0 300px 60px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 3px;
@@ -292,7 +292,7 @@
 }
 
 .signup-checkbox {
-  margin: 4px;
+  margin: 10px 80px;
   width: 28px;
 	height: 28px;
 	background: #fcfff4;
@@ -303,7 +303,6 @@
 	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
 	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
-	margin: 20px auto;
 
 	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(186, 8, 67, 0.63);
 	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(186, 8, 67, 0.63);
@@ -334,10 +333,7 @@
 }
 
 .signup-checkbox label:after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-	filter: alpha(opacity=0);
 	opacity: 0;
-	content: '';
 	position: absolute;
 	width: 9px;
 	height: 5px;
@@ -356,14 +352,10 @@
 }
 
 .signup-checkbox label:hover::after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
-	filter: alpha(opacity=30);
 	opacity: 0.3;
 }
 
 .signup-checkbox input[type=checkbox]:checked + label:after {
-	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
@@ -376,13 +368,46 @@
   width: 220px;
 }
 
-.box {
+.boxes-container {
+  width: 200px;
+  height: 800px;
+  margin: 30px 0 50px 30px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  height: 400px;
+}
+
+.items-form-and-button {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  background: blue;
+}
+
+.checkbox-category-container {
+  height: 250px;
+}
+
+.checkbox-category-title {
+  padding: 10px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+.box {
+  display: flex;
+  flex-wrap: wrap;
+  height: 150px;
   width: 800px;
-  margin: 35px 0 40px -20px;
+  margin: 15px 0 0 20px;
+}
+
+.box-volunteer {
+  display: flex;
+  flex-wrap: wrap;
+  height: 250px;
+  width: 200px;
+  margin: 15px 0 0 20px;
 }
 
 .signup-button {

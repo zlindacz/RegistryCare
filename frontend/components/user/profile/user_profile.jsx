@@ -8,11 +8,6 @@ import { withRouter } from 'react-router';
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
-    this.state = merge({}, this.props.currentUser);
-    this.update = this.update.bind(this);
-    this.upload = this.upload.bind(this);
-    this.addCategory = this.addCategory.bind(this);
-    this.submit = this.submit.bind(this);
 
     this.categories = [ {name: 'AIDS', id: 1},
                         {name: 'Animals', id: 2},
@@ -46,7 +41,36 @@ class UserProfile extends React.Component {
                         {name: 'Veterans', id: 30},
                         {name: 'Voting Rights', id: 31},
                         {name: 'Water', id: 32},
-                        {name: 'Women', id: 33}]
+                        {name: 'Women', id: 33}];
+
+  this.items = {CLOTHES: [{name: 'Tops', id: 1},
+                             {name: 'Bottoms', id: 2},
+                             {name: 'Dresses', id: 3},
+                             {name: 'Outerwear', id: 4},
+                             {name: 'Sleepwear', id: 5},
+                             {name: 'Swim', id: 6},
+                             {name: 'Shoes', id: 7},
+                             {name: 'Accessories', id: 8}],
+                  HOUSEHOLD: [{name: 'Electrical', id: 9},
+                              {name: 'Furniture', id: 10},
+                              {name: 'Computer', id: 11},
+                              {name: 'Kitchen', id: 12},
+                              {name:  'Vehicle', id: 13},
+                              {name: 'Toys', id: 14},
+                              {name: 'Books', id: 15},
+                              {name: 'Miscellaneous', id: 16}],
+                  VOLUNTEER: [{name: 'Volunteer: No Preferences', id: 17},
+                              {name: 'Volunteer: Events', id: 18},
+                              {name: 'Volunteer: Mentor', id: 19},
+                              {name: 'Volunteer: Tutor', id: 20}]
+                            };
+
+    this.state = merge({}, this.props.currentUser);
+    this.update = this.update.bind(this);
+    this.upload = this.upload.bind(this);
+    this.addCategory = this.addCategory.bind(this);
+    this.submit = this.submit.bind(this);
+
   }
 
   update(field) {
