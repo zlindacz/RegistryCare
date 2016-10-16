@@ -20,7 +20,7 @@ export default (state = defaultState, action) => {
       const errors = action.errors;
       return merge({}, state, {errors})
     case UserConstants.CLEAR_USER_INFO:
-      return defaultState; 
+      return defaultState;
     default:
       return state;
   }

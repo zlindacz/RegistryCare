@@ -26,7 +26,7 @@ class SignupItems extends React.Component {
                   {name: 'Volunteer: Mentor', id: 19, category: 'volunteer'},
                   {name: 'Volunteer: Tutor', id: 20, category: 'volunteer'}];
 
-    this.state = {item_ids: []};
+    this.state = {item_ids: this.props.user.inProgressUser.item_ids || []};
 
     this.updateItems = this.updateItems.bind(this);
     this.turnItemIntoCheckbox = this.turnItemIntoCheckbox.bind(this);
@@ -35,22 +35,26 @@ class SignupItems extends React.Component {
   }
 
   updateItems(item) {
-    // debugger
-    this.setState({item_ids: this.state.item_ids.concat([item.id])});
+    if (this.state.item_ids.includes(item.id)) {
+      const itemIdx = this.state.item_ids.indexOf(item.id);
+      let itemIdsDup = this.state.item_ids;
+      itemIdsDup.splice(itemIdx, 1);
+      this.setState({item_ids: itemIdsDup});
+    } else {
+      this.setState({item_ids: this.state.item_ids.concat([item.id])});
+    }
   }
 
   turnItemIntoCheckbox(item) {
-    // debugger
-    const savedItems = this.props.user.inProgressUser.items;
     return(
       <div className="signup-checkbox"
-        key={item.id}>
+           key={item.id}>
         <input type="checkbox"
                className="checkbox"
                onChange={() => this.updateItems(item)}
                id={item.name}
                value={item.name}
-               defaultChecked={(savedItems && savedItems.includes(item)) ? "item" : ""}
+               checked={(this.state.item_ids.includes(item.id)) ? item.name : ""}
                />
 
         <label htmlFor={item.name}
@@ -73,10 +77,13 @@ class SignupItems extends React.Component {
   }
 
   submit(e){
-    // debugger
     e.preventDefault();
+    if (this.state.item_ids.length === 0) {
+      this.props.receiveInProgressUser(this.props.user.inProgressUser)
+    } else {
+      this.props.receiveInProgressUser(this.state);
+    }
     let user = merge({}, this.state, this.props.user.inProgressUser);
-    console.log(user);
     this.props.submit(user);
   }
 

@@ -117,7 +117,7 @@ class UserProfile extends React.Component {
           </div>
           <div className="profile-photo">
             <h2 className="profile-subtitle">Your Photo</h2>
-              <div className=""><img className="image" src={this.state.image} /></div>
+              <div className=""><img className="image" src={this.state.photo} /></div>
               <button onClick={this.upload} className="profile-photo-change-button">Change Photo</button>
           </div>
           <div className="profile-mission">

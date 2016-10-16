@@ -37,27 +37,43 @@ class SignupCategory extends React.Component {
                         {name: 'Water', id: 32},
                         {name: 'Women', id: 33}]
 
-    this.state = {category_ids: [1]}
+    this.state = {category_ids: []}
 
     this.addCategory = this.addCategory.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   addCategory(e) {
-    this.setState({category_ids: [e.currentTarget.value.id]});
+    const matchedItem = this.categories.find(item => {
+      return item.name === e.currentTarget.value
+    });
+    this.setState({category_ids: [matchedItem.id]});
   }
 
   handleClick(e) {
     e.preventDefault();
-    this.props.receiveInProgressUser(this.state);
+    if (this.state.category_ids.length === 0) {
+      this.props.receiveInProgressUser(this.props.user.inProgressUser)
+    } else {
+      this.props.receiveInProgressUser(this.state);
+    }
     this.props.next();
   }
 
   render(){
+    const savedItem = this.categories.find(item => {
+      if (this.props.user.inProgressUser.category_ids) {
+        return (item.id === this.props.user.inProgressUser.category_ids[0])
+      } else {
+        return this.categories[0]
+      }
+    });
+
     return(
       <form onSubmit={this.handleClick} className="form-and-button">
         <select onChange={this.addCategory}
-          className="signup-select-category-container">
+                className="signup-select-category-container"
+                defaultValue={savedItem.name}>
             {this.categories.map((category) => {
             return(
               <option value={category.name}

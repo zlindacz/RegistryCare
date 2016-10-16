@@ -71,6 +71,7 @@ class SignupForm extends React.Component {
             <SignupItems
                 next={() => this.nextStep(this.state.step)}
                 user={this.props.user}
+                receiveInProgressUser={this.props.receiveInProgressUser}
                 submit={this.props.signup} />
           </div>);
       }

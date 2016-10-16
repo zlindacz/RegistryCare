@@ -7,15 +7,28 @@ class SignupDescription extends React.Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.update = this.update.bind(this);
+    this.value = this.value.bind(this);
   }
 
   update(e) {
     this.setState({description: e.currentTarget.value});
   }
 
+  value() {
+    if (this.state.description.length === 0) {
+      return this.props.user.inProgressUser.description;
+    } else {
+      return this.state.description;
+    }
+  }
+
   handleClick(e) {
     e.preventDefault();
-    this.props.receiveInProgressUser(this.state);
+    if (this.state.description === "") {
+      this.props.receiveInProgressUser(this.props.user.inProgressUser);
+    } else {
+      this.props.receiveInProgressUser(this.state)
+    };
     this.props.next();
   }
 
@@ -25,6 +38,7 @@ class SignupDescription extends React.Component {
         <textarea
             className="signup-description-field"
             placeholder="Description"
+            value={this.value()}
             onChange={this.update}>
         </textarea>
         <input type="submit" value="Next" className="signup-next-button" />

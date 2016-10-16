@@ -251,7 +251,7 @@
   box-sizing: border-box;
 }
 
-.signup-description-field {
+.signup-description-field, textarea:focus {
   width: 500px;
   min-height: 280px;
   margin: 40px 0 80px 60px;

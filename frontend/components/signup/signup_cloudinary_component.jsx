@@ -3,7 +3,7 @@ import React from 'react';
 class CloudinaryImage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {photo: ""}
+    this.state = {photo: this.props.user.inProgressUser.photo || ""}
 
     this.upload = this.upload.bind(this);
     this.handleClick = this.handleClick.bind(this);
