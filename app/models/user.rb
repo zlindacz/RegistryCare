@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   validates :zipcode, length: { is: 5 }
   validates :password, length: { minimum: 6, allow_nil: true }
 
-  has_many :user_categories, dependent: :destroy, inverse_of: :user
-  has_many :categories, through: :user_categories
+  has_one :user_category, dependent: :destroy, inverse_of: :user
+  has_one :category, through: :user_category
   has_many :user_items, dependent: :destroy, inverse_of: :user
   has_many :items, through: :user_items
   has_many :pledges, dependent: :destroy, inverse_of: :user

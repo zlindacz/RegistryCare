@@ -14,10 +14,6 @@ class UserRegistry extends React.Component {
     const user = this.props.user;
     if (!user) {return (<div>loading</div>);};
 
-    let categories = user.categories.map(category => {
-      return (<p className="paragraph" key={category.id}>{category.name}</p>);
-    });
-
     let items = user.items.map(item => {
       return (<li className="paragraph-end" key={item.id}>{item.name}</li>);
     });
@@ -33,7 +29,9 @@ class UserRegistry extends React.Component {
 
           <div className="registry-block">
             <h3 className="registry-subtitle">Category:</h3>
-            <div className="category-text">{categories}</div>
+            <div className="category-text">
+              <p className="paragraph" key={user.category.id}>{user.category.name}</p>
+            </div>
           </div>
 
           <div className="registry-block">

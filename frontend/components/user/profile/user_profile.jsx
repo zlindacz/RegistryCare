@@ -61,16 +61,16 @@ class UserProfile extends React.Component {
                           {name: 'Volunteer: Mentor', id: 19},
                           {name: 'Volunteer: Tutor', id: 20}]
                         };
-    this.category_ids = this.props.currentUser.categories.map(category => {
-      return category.id;
-    });
+
+    this.category_id = this.props.currentUser.category.id;
     this.item_ids = this.props.currentUser.items.map(item => {
       return item.id;
     });
-    this.state = merge({}, this.props.currentUser, this.category_ids, this.item_ids);
+    this.state = merge({}, this.props.currentUser, {category_id: this.category_id}, {item_ids: this.item_ids});
     this.update = this.update.bind(this);
     this.upload = this.upload.bind(this);
-    this.addCategory = this.addCategory.bind(this);
+    this.changeCategory = this.changeCategory.bind(this);
+    this.selected = this.selected.bind(this);
     this.turnItemIntoCheckbox = this.turnItemIntoCheckbox.bind(this);
     this.makeCheckboxes = this.makeCheckboxes.bind(this);
     this.submit = this.submit.bind(this);
@@ -89,28 +89,20 @@ class UserProfile extends React.Component {
     }.bind(this));
   }
 
-  addCategory(e) {
+changeCategory(e) {
     let categoryName = e.currentTarget.value;
     const matchedCategory = this.categories.find(category => {
       return category.name === categoryName
     });
-    this.setState({category_ids: [matchedCategory.id]});
+    this.setState({category_id: matchedCategory.id});
   }
 
-  // categoryNames() {
-  //   this.categories.find(category => {
-  //     if (this.state.category_ids.includes(category.id)) {
-  //       return category.name;
-  //     }
-  //   });
-  // }
-  //
-  // const selectedId = this.state.category_ids[0];
-  // const selected = this.categories.find(category => {
-  //   debugger
-  //   return category.id === selected
-  // });
-
+  selected() {
+    const matchedCategory = this.categories.find(category => {
+      return category.id === this.state.category_id
+    });
+    return matchedCategory.name;
+  }
 
   updateItems(item) {
 
@@ -196,9 +188,9 @@ class UserProfile extends React.Component {
             <div className="profile-category">
               <h2 className="profile-title">Category</h2>
               <div className="border">
-                <select onChange={this.addCategory}
+                <select onChange={this.changeCategory}
                         className="profile-select-category-container"
-                        value={selected.name}>
+                        value={this.selected()}>
                     {this.categories.map((category) => {
                     return(
                       <option value={category.name}
