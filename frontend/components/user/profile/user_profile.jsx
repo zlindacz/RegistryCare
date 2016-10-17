@@ -66,7 +66,7 @@ class UserProfile extends React.Component {
     this.item_ids = this.props.currentUser.items.map(item => {
       return item.id;
     });
-    this.state = merge({}, this.props.currentUser, {category_id: this.category_id}, {item_ids: this.item_ids});
+    this.state = merge({}, this.props.currentUser, {category: this.category_id}, {item: this.item_ids});
     this.update = this.update.bind(this);
     this.upload = this.upload.bind(this);
     this.changeCategory = this.changeCategory.bind(this);
@@ -94,12 +94,12 @@ changeCategory(e) {
     const matchedCategory = this.categories.find(category => {
       return category.name === categoryName
     });
-    this.setState({category_id: matchedCategory.id});
+    this.setState({category: matchedCategory.id});
   }
 
   selected() {
     const matchedCategory = this.categories.find(category => {
-      return category.id === this.state.category_id
+      return category.id === this.state.category
     });
     return matchedCategory.name;
   }
