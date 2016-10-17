@@ -10,6 +10,7 @@ export default (state = _nullUser, action) => {
   switch(action.type) {
     case SessionConstants.RECEIVE_CURRENT_USER:
       const currentUser = action.currentUser;
+      // debugger
       return merge({}, _nullUser, {currentUser});
     case SessionConstants.RECEIVE_ERRORS:
       const errors = action.errors;

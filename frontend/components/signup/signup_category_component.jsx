@@ -61,9 +61,9 @@ class SignupCategory extends React.Component {
   }
 
   render(){
-    const savedItem = this.categories.find(item => {
+    const savedCategory = this.categories.find(category => {
       if (this.props.user.inProgressUser.category_ids) {
-        return (item.id === this.props.user.inProgressUser.category_ids[0])
+        return (category.id === this.props.user.inProgressUser.category_ids[0])
       } else {
         return this.categories[0]
       }
@@ -73,7 +73,7 @@ class SignupCategory extends React.Component {
       <form onSubmit={this.handleClick} className="form-and-button">
         <select onChange={this.addCategory}
                 className="signup-select-category-container"
-                defaultValue={savedItem.name}>
+                defaultValue={savedCategory.name}>
             {this.categories.map((category) => {
             return(
               <option value={category.name}

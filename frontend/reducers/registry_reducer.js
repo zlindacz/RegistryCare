@@ -11,8 +11,6 @@ export default (state = {}, action) => {
   switch(action.type) {
     case UserConstants.RECEIVE_SINGLE_USER:
       return Object.assign({}, state, {user});
-    case UserConstants.UPDATE_USER:
-      return merge({}, state, {user});
     case UserConstants.RECEIVE_ERRORS:
       const errors = action.errors;
       return merge({}, _nullUser, {errors})

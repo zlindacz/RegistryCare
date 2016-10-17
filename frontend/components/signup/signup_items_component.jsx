@@ -83,7 +83,7 @@ class SignupItems extends React.Component {
     } else {
       this.props.receiveInProgressUser(this.state);
     }
-    let user = merge({}, this.state, this.props.user.inProgressUser);
+    let user = merge({}, this.props.user.inProgressUser, this.state);
     this.props.submit(user);
   }
 

@@ -1,6 +1,6 @@
-import { receiveUsers, receiveSingleUser, receiveErrors, updateUser, UserConstants } from '../actions/user_actions';
+import { receiveUsers, receiveSingleUser, receiveErrors, UserConstants } from '../actions/user_actions';
 import { fetchAllUsers, fetchSingleUser, patchUser } from '../util/user_api_util.js';
-
+import { receiveCurrentUser } from '../actions/session_actions';
 
 export default ({getState, dispatch}) => next => action => {
   const errorCallback = xhr => {
@@ -11,7 +11,7 @@ export default ({getState, dispatch}) => next => action => {
 
   const receiveUsersSuccessCallback = users => dispatch(receiveUsers(users));
   const receiveSingleUserSuccessCallback = user => dispatch(receiveSingleUser(user));
-  const updateUserSuccessCallback = user => dispatch(updateUser(user));
+  const updateUserSuccessCallback = user => dispatch(receiveCurrentUser(user));
 
 
   switch(action.type) {
@@ -22,7 +22,7 @@ export default ({getState, dispatch}) => next => action => {
       fetchSingleUser(action.id, receiveSingleUserSuccessCallback, errorCallback);
       return next(action);
     case UserConstants.UPDATE_USER:
-      updateUser(updateUserSuccessCallback, errorCallback);
+      patchUser(action.user, updateUserSuccessCallback, errorCallback);
       return next(action);
     default:
       return next(action);

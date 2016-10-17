@@ -2,9 +2,6 @@ import React from 'react';
 import merge from 'lodash/merge';
 import { withRouter } from 'react-router';
 
-// class UserProfile extends React.Component {
-//   constructor({currentUser, errors, updateUser}) {
-//     super({currentUser, errors, updateUser});
 class UserProfile extends React.Component {
   constructor(props) {
     super(props);
@@ -44,33 +41,39 @@ class UserProfile extends React.Component {
                         {name: 'Women', id: 33}];
 
   this.items = {CLOTHES: [{name: 'Tops', id: 1},
-                             {name: 'Bottoms', id: 2},
-                             {name: 'Dresses', id: 3},
-                             {name: 'Outerwear', id: 4},
-                             {name: 'Sleepwear', id: 5},
-                             {name: 'Swim', id: 6},
-                             {name: 'Shoes', id: 7},
-                             {name: 'Accessories', id: 8}],
-                  HOUSEHOLD: [{name: 'Electrical', id: 9},
-                              {name: 'Furniture', id: 10},
-                              {name: 'Computer', id: 11},
-                              {name: 'Kitchen', id: 12},
-                              {name:  'Vehicle', id: 13},
-                              {name: 'Toys', id: 14},
-                              {name: 'Books', id: 15},
-                              {name: 'Miscellaneous', id: 16}],
-                  VOLUNTEER: [{name: 'Volunteer: No Preferences', id: 17},
-                              {name: 'Volunteer: Events', id: 18},
-                              {name: 'Volunteer: Mentor', id: 19},
-                              {name: 'Volunteer: Tutor', id: 20}]
-                            };
-
-    this.state = merge({}, this.props.currentUser);
+                         {name: 'Bottoms', id: 2},
+                         {name: 'Dresses', id: 3},
+                         {name: 'Outerwear', id: 4},
+                         {name: 'Sleepwear', id: 5},
+                         {name: 'Swim', id: 6},
+                         {name: 'Shoes', id: 7},
+                         {name: 'Accessories', id: 8}],
+              HOUSEHOLD: [{name: 'Electrical', id: 9},
+                          {name: 'Furniture', id: 10},
+                          {name: 'Computer', id: 11},
+                          {name: 'Kitchen', id: 12},
+                          {name:  'Vehicle', id: 13},
+                          {name: 'Toys', id: 14},
+                          {name: 'Books', id: 15},
+                          {name: 'Miscellaneous', id: 16}],
+              VOLUNTEER: [{name: 'Volunteer: No Preferences', id: 17},
+                          {name: 'Volunteer: Events', id: 18},
+                          {name: 'Volunteer: Mentor', id: 19},
+                          {name: 'Volunteer: Tutor', id: 20}]
+                        };
+    this.category_ids = this.props.currentUser.categories.map(category => {
+      return category.id;
+    });
+    this.item_ids = this.props.currentUser.items.map(item => {
+      return item.id;
+    });
+    this.state = merge({}, this.props.currentUser, this.category_ids, this.item_ids);
     this.update = this.update.bind(this);
     this.upload = this.upload.bind(this);
     this.addCategory = this.addCategory.bind(this);
+    this.turnItemIntoCheckbox = this.turnItemIntoCheckbox.bind(this);
+    this.makeCheckboxes = this.makeCheckboxes.bind(this);
     this.submit = this.submit.bind(this);
-
   }
 
   update(field) {
@@ -81,76 +84,153 @@ class UserProfile extends React.Component {
     e.preventDefault();
     cloudinary.openUploadWidget(cloudinary_options, function(error, results) {
       if (!error){
-        this.setState({image: results[0].url});
+        this.setState({photo: results[0].url});
       }
-
     }.bind(this));
   }
 
   addCategory(e) {
-    debugger
-    this.setState({category_ids: [e.currentTarget.value.id]});
+    let categoryName = e.currentTarget.value;
+    const matchedCategory = this.categories.find(category => {
+      return category.name === categoryName
+    });
+    this.setState({category_ids: [matchedCategory.id]});
+  }
+
+  updateItems(item) {
+
+  }
+
+  turnItemIntoCheckbox(item) {
+    return(
+      <div className="signup-checkbox"
+           key={item.id}>
+        <input type="checkbox"
+               className="checkbox"
+              //  onChange={() => this.updateItems(item)}
+               id={item.name}
+               value={item.name}
+               checked={(this.state.items.includes(item.name)) ? item.name : ""}
+               />
+
+        <label htmlFor={item.name}
+               className="signup-checkbox-label">
+                <span className="item-label-text">{item.name}</span>
+        </label>
+      </div>
+    );
+  }
+
+  makeCheckboxes(category) {
+    let allBoxes = [];
+    let scope = this;
+    this.state.items.map(item => {
+      if (item.category === category) {
+        allBoxes.push(scope.turnItemIntoCheckbox(item));
+      }
+    });
+    return allBoxes;
   }
 
   submit(e) {
     e.preventDefault();
-    let user = merge({}, this.state, this.props.currentUser);
+    let user = merge({}, this.props.currentUser, this.state);
     this.props.updateUser(user);
+    this.props.router.push(`registry/${this.props.currentUser.id}`)
   }
 
   render() {
-    const selectedValue = this.state.categories[0].name;
+
+    const savedCategory = this.categories.find(category => {
+      if (this.props.user.inProgressUser.category_ids) {
+        return (category.id === this.props.user.inProgressUser.category_ids[0])
+      } else {
+        return this.categories[0]
+      }
+    });
+
+
+    const selectedId = this.state.category_ids[0];
+    const selected = this.categories.find(category => {
+      debugger
+      return category.id === selected
+    });
     return(
       <div>
-        <h1 className="profile-title">Profile</h1>
-        <form onSubmit={ this.submit }>
-          <div className="profile-basic-info">
-            <h2 className="profile-subtitle">Your Info</h2>
-            <input type="text" value={this.state.organization_name} onChange={this.update("organization_name")} className="signup-input-field" placeholder="Organization Name" />
-            <input type="text" value={this.state.username} onChange={this.update("username")} className="signup-input-field" placeholder="Username" />
-            <input type="text" value={this.state.email} onChange={this.update("email")} className="signup-input-field" placeholder="Email" />
-            <input type="text" value={this.state.address1} onChange={this.update("address1")} className="signup-input-field" placeholder="Address 1" />
-            <input type="text" value={this.state.address2} onChange={this.update("address2")} className="signup-input-field" placeholder="Address 2" />
-            <input type="text" value={this.state.city} onChange={this.update("city")} className="signup-input-field" placeholder="City" />
-            <input type="text" value={this.state.state} onChange={this.update("state")} className="signup-input-field" placeholder="State" />
-            <input type="text" value={this.state.zipcode} onChange={this.update("zipcode")} className="signup-input-field" placeholder="Zip Code" />
-          </div>
-          <div className="profile-photo">
-            <h2 className="profile-subtitle">Your Photo</h2>
-              <div className=""><img className="image" src={this.state.photo} /></div>
-              <button onClick={this.upload} className="profile-photo-change-button">Change Photo</button>
-          </div>
-          <div className="profile-mission">
-            <h2 className="profile-subtitle">Mission Statement</h2>
-            <textarea
-            className="profile-description-field"
-            defaultValue={ this.state.description }
-            placeholder="Description"
-            onChange={this.update("description")}>
-            </textarea>
-          </div>
-          <div className="profile-category">
-            <h2 className="profile-subtitle">Category</h2>
-            <select onChange={this.addCategory}
-                    className="profile-select-category-container"
-                    value={selectedValue}>
-                {this.categories.map((category) => {
-                return(
-                  <option value={category.name}
-                          className="profile-select-box"
-                          key={category.id}>
-                    {category.name}
-                  </option>
-                );
-              })};
-            </select>
-          </div>
-          <div className="profile-items">
-            <h2 className="profile-subtitle">Items Needed</h2>
+        <form className="update-form" onSubmit={ this.submit }>
+          <div className="update-container">
+            <h1 className="profile-title">Profile Info</h1>
+            <div className="border">
+              <div className="profile-basic-info">
+                <input type="text" value={this.state.organization_name} onChange={this.update("organization_name")} className="signup-input-field" placeholder="Organization Name" />
+                <input type="text" value={this.state.username} onChange={this.update("username")} className="signup-input-field" placeholder="Username" />
+                <input type="text" value={this.state.email} onChange={this.update("email")} className="signup-input-field" placeholder="Email" />
+                <input type="text" value={this.state.address1} onChange={this.update("address1")} className="signup-input-field" placeholder="Address 1" />
+                <input type="text" value={this.state.address2} onChange={this.update("address2")} className="signup-input-field" placeholder="Address 2" />
+                <input type="text" value={this.state.city} onChange={this.update("city")} className="signup-input-field" placeholder="City" />
+                <input type="text" value={this.state.state} onChange={this.update("state")} className="signup-input-field" placeholder="State" />
+                <input type="text" value={this.state.zipcode} onChange={this.update("zipcode")} className="signup-input-field" placeholder="Zip Code" />
+              </div>
+            </div>
 
-          </div>
+            <div className="profile-photo">
+              <h2 className="profile-title">Your Photo</h2>
+              <div className="border">
+                <div className=""><img className="image" src={this.state.photo} /></div>
+                <button onClick={this.upload} className="profile-photo-change-button">Change Photo</button>
+              </div>
+            </div>
 
-          <input type="submit" value="Update" />
+            <div className="profile-mission">
+              <h2 className="profile-title">Mission Statement</h2>
+              <div className="border">
+                <textarea
+                className="signup-description-field"
+                defaultValue={ this.state.description }
+                placeholder="Description"
+                onChange={this.update("description")}>
+                </textarea>
+              </div>
+            </div>
+
+            <div className="profile-category">
+              <h2 className="profile-title">Category</h2>
+              <div className="border">
+                <select onChange={this.addCategory}
+                        className="profile-select-category-container"
+                        value={selected.name}>
+                    {this.categories.map((category) => {
+                    return(
+                      <option value={category.name}
+                              className="profile-select-box"
+                              key={category.id}>
+                        {category.name}
+                      </option>
+                    );
+                  })};
+                </select>
+              </div>
+            </div>
+
+            <div className="profile-items">
+              <h2 className="profile-title">Items Needed</h2>
+                <div className="boxes-container">
+                  <div className="checkbox-category-container">
+                    <h3 className="checkbox-category-title">CLOTHES</h3>
+                    <div className="box">{this.makeCheckboxes('clothes')}</div>
+                  </div>
+                  <div className="checkbox-category-container">
+                    <h3 className="checkbox-category-title">HOUSEHOLD</h3>
+                    <div className="box">{this.makeCheckboxes('household')}</div>
+                  </div>
+                  <div className="checkbox-category-container">
+                    <h3 className="checkbox-category-title">VOLUNTEER</h3>
+                    <div className="box-volunteer">{this.makeCheckboxes('volunteer')}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <input type="submit" value="Update" className="update-button"/>
         </form>
       </div>
     )
@@ -158,4 +238,4 @@ class UserProfile extends React.Component {
 
 }
 
-export default UserProfile;
+export default withRouter(UserProfile);

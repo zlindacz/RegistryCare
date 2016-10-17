@@ -17,10 +17,10 @@ export const fetchSingleUser = (id, success, error) => {
   });
 };
 
-export const patchUser = (id, success, error) => {
+export const patchUser = (user, success, error) => {
   $.ajax({
     method: 'PATCH',
-    url: `api/users/${id}`,
+    url: `api/users/${user.id}`,
     data: {user},
     success,
     error
