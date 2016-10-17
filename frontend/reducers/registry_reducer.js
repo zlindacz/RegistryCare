@@ -10,7 +10,7 @@ export default (state = {}, action) => {
   let user = action.user;
   switch(action.type) {
     case UserConstants.RECEIVE_SINGLE_USER:
-      debugger
+      // debugger
       console.log(merge({}, state, {user}));
       // return Object.assign({}, state, {user});
       return merge({}, state, {user});
