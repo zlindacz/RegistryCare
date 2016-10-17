@@ -97,6 +97,21 @@ class UserProfile extends React.Component {
     this.setState({category_ids: [matchedCategory.id]});
   }
 
+  // categoryNames() {
+  //   this.categories.find(category => {
+  //     if (this.state.category_ids.includes(category.id)) {
+  //       return category.name;
+  //     }
+  //   });
+  // }
+  //
+  // const selectedId = this.state.category_ids[0];
+  // const selected = this.categories.find(category => {
+  //   debugger
+  //   return category.id === selected
+  // });
+
+
   updateItems(item) {
 
   }
@@ -140,21 +155,6 @@ class UserProfile extends React.Component {
   }
 
   render() {
-
-    const savedCategory = this.categories.find(category => {
-      if (this.props.user.inProgressUser.category_ids) {
-        return (category.id === this.props.user.inProgressUser.category_ids[0])
-      } else {
-        return this.categories[0]
-      }
-    });
-
-
-    const selectedId = this.state.category_ids[0];
-    const selected = this.categories.find(category => {
-      debugger
-      return category.id === selected
-    });
     return(
       <div>
         <form className="update-form" onSubmit={ this.submit }>

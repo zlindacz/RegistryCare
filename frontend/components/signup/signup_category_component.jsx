@@ -44,10 +44,10 @@ class SignupCategory extends React.Component {
   }
 
   addCategory(e) {
-    const matchedItem = this.categories.find(item => {
-      return item.name === e.currentTarget.value
+    const matchedCategory = this.categories.find(category => {
+      return category.name === e.currentTarget.value
     });
-    this.setState({category_ids: [matchedItem.id]});
+    this.setState({category_ids: [matchedCategory.id]});
   }
 
   handleClick(e) {
