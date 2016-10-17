@@ -198,7 +198,8 @@ class UserProfile extends React.Component {
               <div className="border">
                 <select onChange={this.addCategory}
                         className="profile-select-category-container"
-                        value={selected.name}>
+                        // value={selected.name}
+                        >
                     {this.categories.map((category) => {
                     return(
                       <option value={category.name}
