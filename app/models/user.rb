@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
 
   attr_reader :password
 
+  def category
+    self.categories.first
+  end
+
   def self.search(query)
     User.joins(:user_categories, :categories, :user_items, :items).where("categories.name ILIKE ? OR organization_name ILIKE ? OR items.name ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%").distinct
   end

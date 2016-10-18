@@ -6,9 +6,7 @@ json.items do
   json.array! user.items
 end
 
-json.categories do
-  json.array! user.categories
-end
+json.category user.category
 
 json.pledges do
   json.array! user.pledges

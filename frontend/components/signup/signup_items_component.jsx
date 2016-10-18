@@ -59,7 +59,7 @@ class SignupItems extends React.Component {
 
         <label htmlFor={item.name}
                className="signup-checkbox-label">
-                <span className="item-label-text">{item.name}</span>
+          <span className="item-label-text">{item.name}</span>
         </label>
       </div>
     );

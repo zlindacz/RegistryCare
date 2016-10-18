@@ -71,9 +71,13 @@
   background-repeat: no-repeat;
 }
 
+.profile-items {
+  margin-bottom: 80px;
+}
+
 .update-button {
   padding: 6px 12px;
-  margin: 10px;
+  margin: 0 0 40px 120px;
   height: 40px;
   background: #3cb0fd;
   background-image: -webkit-linear-gradient(top, #16c431, #048e37);
@@ -85,7 +89,4 @@
   color: #ffffff;
   font-size: 20px;
   font-family: 'Libre Franklin', sans-serif;
-  position: absolute;
-  right: 200px;
-  top: 40px;
 }

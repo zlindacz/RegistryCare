@@ -40,37 +40,36 @@ class UserProfile extends React.Component {
                         {name: 'Water', id: 32},
                         {name: 'Women', id: 33}];
 
-  this.items = {CLOTHES: [{name: 'Tops', id: 1},
-                         {name: 'Bottoms', id: 2},
-                         {name: 'Dresses', id: 3},
-                         {name: 'Outerwear', id: 4},
-                         {name: 'Sleepwear', id: 5},
-                         {name: 'Swim', id: 6},
-                         {name: 'Shoes', id: 7},
-                         {name: 'Accessories', id: 8}],
-              HOUSEHOLD: [{name: 'Electrical', id: 9},
-                          {name: 'Furniture', id: 10},
-                          {name: 'Computer', id: 11},
-                          {name: 'Kitchen', id: 12},
-                          {name:  'Vehicle', id: 13},
-                          {name: 'Toys', id: 14},
-                          {name: 'Books', id: 15},
-                          {name: 'Miscellaneous', id: 16}],
-              VOLUNTEER: [{name: 'Volunteer: No Preferences', id: 17},
-                          {name: 'Volunteer: Events', id: 18},
-                          {name: 'Volunteer: Mentor', id: 19},
-                          {name: 'Volunteer: Tutor', id: 20}]
-                        };
-    this.category_ids = this.props.currentUser.categories.map(category => {
-      return category.id;
-    });
+  this.items = [{name: 'Tops', id: 1, category: 'clothes'},
+                {name: 'Bottoms', id: 2, category: 'clothes'},
+                {name: 'Dresses', id: 3, category: 'clothes'},
+                {name: 'Outerwear', id: 4, category: 'clothes'},
+                {name: 'Sleepwear', id: 5, category: 'clothes'},
+                {name: 'Swim', id: 6, category: 'clothes'},
+                {name: 'Shoes', id: 7, category: 'clothes'},
+                {name: 'Accessories', id: 8, category: 'clothes'},
+                {name: 'Electrical', id: 9, category: 'household'},
+                {name: 'Furniture', id: 10, category: 'household'},
+                {name: 'Computer', id: 11, category: 'household'},
+                {name: 'Kitchen', id: 12, category: 'household'},
+                {name: 'Vehicle', id: 13, category: 'household'},
+                {name: 'Toys', id: 14, category: 'household'},
+                {name: 'Books', id: 15, category: 'household'},
+                {name: 'Miscellaneous', id: 16, category: 'household'},
+                {name: 'Volunteer: No Preferences', id: 17, category: 'volunteer'},
+                {name: 'Volunteer: Events', id: 18, category: 'volunteer'},
+                {name: 'Volunteer: Mentor', id: 19, category: 'volunteer'},
+                {name: 'Volunteer: Tutor', id: 20, category: 'volunteer'}];
+
+    this.category_ids = this.props.currentUser.category.id;
     this.item_ids = this.props.currentUser.items.map(item => {
       return item.id;
     });
-    this.state = merge({}, this.props.currentUser, this.category_ids, this.item_ids);
+    this.state = merge({}, this.props.currentUser, {category_ids: this.category_ids}, {item_ids: this.item_ids});
     this.update = this.update.bind(this);
     this.upload = this.upload.bind(this);
-    this.addCategory = this.addCategory.bind(this);
+    this.changeCategory = this.changeCategory.bind(this);
+    this.selected = this.selected.bind(this);
     this.turnItemIntoCheckbox = this.turnItemIntoCheckbox.bind(this);
     this.makeCheckboxes = this.makeCheckboxes.bind(this);
     this.submit = this.submit.bind(this);
@@ -81,7 +80,8 @@ class UserProfile extends React.Component {
   }
 
   upload(e){
-    e.preventDefault();
+    e.preventDefault();               className="checkbox"
+
     cloudinary.openUploadWidget(cloudinary_options, function(error, results) {
       if (!error){
         this.setState({photo: results[0].url});
@@ -89,31 +89,30 @@ class UserProfile extends React.Component {
     }.bind(this));
   }
 
-  addCategory(e) {
+  changeCategory(e) {
     let categoryName = e.currentTarget.value;
     const matchedCategory = this.categories.find(category => {
-      return category.name === categoryName
+      return category.name === categoryName;
     });
-    this.setState({category_ids: [matchedCategory.id]});
+    this.setState({category_ids: matchedCategory.id});
   }
 
-  // categoryNames() {
-  //   this.categories.find(category => {
-  //     if (this.state.category_ids.includes(category.id)) {
-  //       return category.name;
-  //     }
-  //   });
-  // }
-  //
-  // const selectedId = this.state.category_ids[0];
-  // const selected = this.categories.find(category => {
-  //   debugger
-  //   return category.id === selected
-  // });
-
+  selected() {
+    const matchedCategory = this.categories.find(category => {
+      return category.id === this.state.category_ids
+    });
+    return matchedCategory.name;
+  }
 
   updateItems(item) {
-
+    if (this.state.item_ids.includes(item.id)) {
+      const itemIdx = this.state.item_ids.indexOf(item.id);
+      let itemIdsDup = this.state.item_ids;
+      itemIdsDup.splice(itemIdx, 1);
+      this.setState({item_ids: itemIdsDup});
+    } else {
+      this.setState({item_ids: this.state.item_ids.concat([item.id])});
+    }
   }
 
   turnItemIntoCheckbox(item) {
@@ -122,15 +121,15 @@ class UserProfile extends React.Component {
            key={item.id}>
         <input type="checkbox"
                className="checkbox"
-              //  onChange={() => this.updateItems(item)}
+               onChange={() => this.updateItems(item)}
                id={item.name}
                value={item.name}
-               checked={(this.state.items.includes(item.name)) ? item.name : ""}
+               checked={(this.state.item_ids.includes(item.id)) ? item.name : ""}
                />
 
         <label htmlFor={item.name}
                className="signup-checkbox-label">
-                <span className="item-label-text">{item.name}</span>
+          <span className="item-label-text">{item.name}</span>
         </label>
       </div>
     );
@@ -139,7 +138,7 @@ class UserProfile extends React.Component {
   makeCheckboxes(category) {
     let allBoxes = [];
     let scope = this;
-    this.state.items.map(item => {
+    this.items.map(item => {
       if (item.category === category) {
         allBoxes.push(scope.turnItemIntoCheckbox(item));
       }
@@ -196,10 +195,14 @@ class UserProfile extends React.Component {
             <div className="profile-category">
               <h2 className="profile-title">Category</h2>
               <div className="border">
-                <select onChange={this.addCategory}
+                <select onChange={this.changeCategory}
                         className="profile-select-category-container"
+<<<<<<< HEAD
                         // value={selected.name}
                         >
+=======
+                        value={this.selected()}>
+>>>>>>> user_profile_change_category
                     {this.categories.map((category) => {
                     return(
                       <option value={category.name}
@@ -215,6 +218,7 @@ class UserProfile extends React.Component {
 
             <div className="profile-items">
               <h2 className="profile-title">Items Needed</h2>
+              <div className="border">
                 <div className="boxes-container">
                   <div className="checkbox-category-container">
                     <h3 className="checkbox-category-title">CLOTHES</h3>
@@ -231,6 +235,8 @@ class UserProfile extends React.Component {
                 </div>
               </div>
             </div>
+          </div>
+
           <input type="submit" value="Update" className="update-button"/>
         </form>
       </div>

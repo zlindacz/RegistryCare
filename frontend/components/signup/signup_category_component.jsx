@@ -37,7 +37,7 @@ class SignupCategory extends React.Component {
                         {name: 'Water', id: 32},
                         {name: 'Women', id: 33}]
 
-    this.state = {category_ids: []}
+    this.state = {category_ids: null}
 
     this.addCategory = this.addCategory.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -47,15 +47,15 @@ class SignupCategory extends React.Component {
     const matchedCategory = this.categories.find(category => {
       return category.name === e.currentTarget.value
     });
-    this.setState({category_ids: [matchedCategory.id]});
+    this.setState({category_ids: matchedCategory.id});
   }
 
   handleClick(e) {
     e.preventDefault();
-    if (this.state.category_ids.length === 0) {
-      this.props.receiveInProgressUser(this.props.user.inProgressUser)
-    } else {
+    if (this.state.category_ids) {
       this.props.receiveInProgressUser(this.state);
+    } else {
+      this.props.receiveInProgressUser(this.props.user.inProgressUser)
     }
     this.props.next();
   }
@@ -63,7 +63,7 @@ class SignupCategory extends React.Component {
   render(){
     const savedCategory = this.categories.find(category => {
       if (this.props.user.inProgressUser.category_ids) {
-        return (category.id === this.props.user.inProgressUser.category_ids[0])
+        return (category.id === this.props.user.inProgressUser.category_ids)
       } else {
         return this.categories[0]
       }
