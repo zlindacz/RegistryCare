@@ -80,7 +80,7 @@ class UserProfile extends React.Component {
   }
 
   upload(e){
-    e.preventDefault();               className="checkbox"
+    e.preventDefault();
 
     cloudinary.openUploadWidget(cloudinary_options, function(error, results) {
       if (!error){
