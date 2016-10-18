@@ -12,7 +12,6 @@ class UserRegistry extends React.Component {
 
   render(){
     const user = this.props.user;
-    // debugger
     if (!user) {return (<div>loading</div>);};
 
     let items = user.items.map(item => {
