@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router';
+import Map from './map_component';
 
 class UserRegistry extends React.Component {
   constructor(props){
@@ -53,6 +54,8 @@ class UserRegistry extends React.Component {
             <ul className="address-block">{items}</ul>
           </div>
         </div>
+
+        <Map />
       </div>
     );
   }
