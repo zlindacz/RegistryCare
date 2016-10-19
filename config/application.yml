@@ -11,3 +11,5 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 CLOUD_NAME: "zlindacz"
 UPLOAD_PRESET: "iwvg7rsj"
+
+GOOGLE_MAP_KEY: "AIzaSyDiF3rszmimkiSzK-gCy05oebo17Zkrn3k"
