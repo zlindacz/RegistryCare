@@ -21,6 +21,7 @@
 
 .mini-organization {
   margin: 10px 40px;
+  opacity: 1;
 }
 
 .index-parent {
@@ -29,6 +30,10 @@
 
 .mini-organization:hover {
   cursor: pointer;
+  opacity: 0.7;
+  transition: opacity .25s;
+  -moz-transition: opacity .25s;
+  -webkit-transition: opacity .25s;
 }
 
 .mini-photo-container {

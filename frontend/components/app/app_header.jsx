@@ -44,7 +44,6 @@ class AppHeader extends React.Component {
   openModal() {
     this.setState({modalOpen: true});
     this.props.clearErrors();
-    console.log('opened modal');
   }
 
   closeModal() {

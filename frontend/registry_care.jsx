@@ -7,12 +7,14 @@ import {signup} from './util/session_api_util';
 import {login} from './util/session_api_util';
 import {logout} from './util/session_api_util';
 import {receiveCurrentUser} from './actions/session_actions';
+import {requestSingleUser} from './actions/user_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   window.signup = signup;
   window.login = login;
   window.logout = logout;
+  window.requestSingleUser = requestSingleUser;
   window.receiveCurrentUser = receiveCurrentUser;
   if (window.currentUser) {
     const preloadedState = {session: {currentUser: window.currentUser}};
