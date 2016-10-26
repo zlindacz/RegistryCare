@@ -10,19 +10,10 @@ class MiniProfile extends React.Component {
   }
 
   navigateToRegistry() {
-    this.props.router.push(`registry/${this.user.id}`)
+    this.props.router.push(`registry/${this.user.id}`);
   }
 
   render() {
-    //
-    // let categoryName = user.category.map(category => {
-    //   return (<span className="mini-category" key={category.id}>{category.name}</span>);
-    // });
-    //
-    // let items = user.items.map(item => {
-    //   return (<li className="mini-item" key={item.id}>{item.name}</li>);
-    // });
-
     return(
       <div className="mini-organization" onClick={this.navigateToRegistry}>
         <figure className="mini-photo-container">

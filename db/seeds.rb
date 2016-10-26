@@ -46,13 +46,13 @@ User.create!(organization_name: "The Tree House",
              username: "treehouse",
              password: "password",
              email: "contact@treehouse.org",
-             address1: "123 Same St",
+             address1: "6410 Amber Oak",
              address2: "Suite 34",
              city: "San Antonio",
              state: "Texas",
-             zipcode: "78225",
+             zipcode: "78249",
              photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287528/u6g90inzw5toyhgsnamn.jpg",
-             description: "after school program for children in k-9"
+             description: "After school program for children in k-9"
              )
 
 
@@ -482,8 +482,8 @@ UserItem.create!(user_id:24, item_id: 15)
 UserItem.create!(user_id:24, item_id: 19)
 UserItem.create!(user_id:24, item_id: 20)
 
-# Pledge.create!(user_id: 1, other_user_id: 3)
-# Pledge.create!(user_id: 2, other_user_id: 5)
-# Pledge.create!(user_id: 1, other_user_id: 4)
-# Pledge.create!(user_id: 3, other_user_id: 1)
-# Pledge.create!(user_id: 7, other_user_id: 6)
+# # Pledge.create!(user_id: 1, other_user_id: 3)
+# # Pledge.create!(user_id: 2, other_user_id: 5)
+# # Pledge.create!(user_id: 1, other_user_id: 4)
+# # Pledge.create!(user_id: 3, other_user_id: 1)
+# # Pledge.create!(user_id: 7, other_user_id: 6)

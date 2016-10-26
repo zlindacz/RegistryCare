@@ -1,22 +1,34 @@
 import React from 'react';
+import MarkerManager from './marker_manager';
 
 class Map extends React.Component {
   constructor(props) {
     super(props)
+    this.center = {lat: this.props.user.latitude, lng: this.props.user.longitude}
+    this.makeMap = this.makeMap.bind(this);
   }
 
   componentDidMount() {
-    const mapDOMNode = this.refs.map;
-    const mapOptions = {
-      center: {lat: 37.7749, lng: -122.4194},
-      zoom: 13
+    let map = this.makeMap();
+    this.MarkerManager = new MarkerManager(map);
+  }
+
+  componentDidUpdate() {
+    this.MarkerManager.updateMarker(this.props.user);
+  }
+
+  makeMap() {
+    const map = this.refs.map;
+    const _mapOptions = {
+      center: this.center,
+      zoom: 11
     };
-    this.map = new google.maps.Map(mapDOMNode, mapOptions);
+    return new google.maps.Map(map, _mapOptions);
   }
 
   render() {
     return(
-      <div id="map-container" ref="map">Map is here!</div>
+      <div id="map-container" ref="map"></div>
     )
   }
 }

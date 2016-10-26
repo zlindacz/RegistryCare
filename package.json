@@ -35,5 +35,6 @@
     "redux-logger": "^2.6.1",
     "webpack": "^1.13.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+  }
 }
