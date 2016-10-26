@@ -5,12 +5,12 @@ class MiniProfile extends React.Component {
   constructor(props) {
     super(props);
     this.user = this.props.user;
-    
+
     this.navigateToRegistry = this.navigateToRegistry.bind(this);
   }
 
   navigateToRegistry() {
-    this.props.router.push(`registry/${this.user.id}`)
+    this.props.router.push(`registry/${this.user.id}`);
   }
 
   render() {

@@ -1,6 +1,6 @@
 json.extract! user, :id, :username, :organization_name, :email,
                     :address1, :address2, :city, :state, :zipcode,
-                    :photo, :description
+                    :photo, :description, :latitude, :longitude
 
 json.items do
   json.array! user.items

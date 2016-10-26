@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Geocoder::Model::Mongoid
+
   validates :username, :organization_name, :email, :address1, :city, :state, :zipcode, :photo, :description, :password_digest, :session_token, presence: true
   validates :username, :organization_name, :email, :password_digest, :session_token, uniqueness: true
   validates :zipcode, length: { is: 5 }
@@ -11,7 +13,9 @@ class User < ActiveRecord::Base
   has_many :pledges, dependent: :destroy, inverse_of: :user
   has_many :other_users, through: :pledges
 
+  geocoded_by :full_street_address, skip_index: true
   after_initialize :ensure_session_token
+  after_validation :geocode, :set_lat_lng
 
   attr_reader :password
 
@@ -43,9 +47,21 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  def full_street_address
+    self.address1 + ' ' + self.address2 + ' ' + self.city + ' '
+    + self.state + ' ' + self.zipcode
+  end
+
+  def set_lat_lng
+    # MongoDB requires that coordinates be stored in [lon,lat] order as per the GeoJSON spec
+    self.latitude = self.coordinates[1]
+    self.longitude = self.coordinates[0]
+  end
+
   private
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64(32)
   end
+
 end
