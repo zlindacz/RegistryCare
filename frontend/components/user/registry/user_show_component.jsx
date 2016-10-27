@@ -7,31 +7,11 @@ class UserShow extends React.Component {
     super(props);
   };
 
-  // componentDidMount() {
-  //   this.props.requestSingleUser(this.props.params.userId);
-  // }
-  //
-  // componentDidUpdate() {
-  //   if (this.props.user === 'undefined') {
-  //     this.props.requestSingleUser(this.props.params.userId);
-  //   }
-  // };
-
   render(){
     const user = this.props.user;
-    // if (!user) {return(<div>Loading</div>);}
-
-    // if (!user) {
-    //   return (
-    //     <div>
-    //       <div>loading</div>
-    //       <Map />
-    //     </div>
-    //   );
-    // };
 
     let items = user.items.map(item => {
-      return (<li className="paragraph-end" key={item.id}>{item.name}</li>);
+      return (<li className="paragraph-end" key={item.id}>{item.category}: {item.name}</li>);
     });
 
     let showAddress2;
