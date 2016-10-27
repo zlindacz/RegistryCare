@@ -11,7 +11,7 @@ class UserShow extends React.Component {
     const user = this.props.user;
 
     let items = user.items.map(item => {
-      return (<li className="paragraph-end" key={item.id}>{item.category}: {item.name}</li>);
+      return (<li className="paragraph-end" key={item.id}>{item.type}: {item.name}</li>);
     });
 
     let showAddress2;
