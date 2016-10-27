@@ -20,18 +20,22 @@ Signing up involves traversing through several information-gathering forms, incl
 ![signup basic info](app/assets/images/readme/signup_basic.png)
 Fig 3. Signup - basic information
 
+
+![signup upload profile photo](app/assets/images/readme/signup_upload_profile_photo.png)
+Fig 4. Signup - upload profile photo
+
 ![signup category](app/assets/images/readme/signup_category.png)
-Fig 4. Signup - select organization's category
+Fig 5. Signup - select organization's category
 
 ![signup items](app/assets/images/readme/signup_items.png)
-Fig 5. Signup - select needed items and create account
+Fig 6. Signup - select needed items and create account
 
 Sensitive information is kept out of the front end of the app. Custom authentication methods are used to store hashed and salted passwords. The app makes API calls to the SessionController to fetch or create users.
 
 There are also two "tour" buttons on the homepage, as well as "Guest Login" link in the header for guests to log in and experience the site as if they have an account.
 
 ![tour button](app/assets/images/readme/tour.png)
-Fig 6. Log in as guest
+Fig 7. Log in as guest
 
 On the back-end, user information (contact info, photo url, and description) are stored in one table. User is linked to the categories by establishing a user-category join model, and similarly with items via user-items join model.
 
@@ -39,7 +43,7 @@ On the back-end, user information (contact info, photo url, and description) are
 Once the user is logged in, they will be brought to the index page, which displays all the participating organizations. The user can also return to the index page from elsewhere by clicking on the heart logo and "Care"  on the top left corner of the header. From here, the user can click on a picture with the logo of the organization and be directed to that organization's "registry". The index is styled using the React Masonry library which animates the entrance of the organization profiles.
 
 ![Index](app/assets/images/readme/index.png)
-Fig 7. Index
+Fig 8. Index
 
 #### Search
 In the center of the header there is a search bar which brightens when the user interacts with it by hovering with the mouse or clicking in the search field.
@@ -53,10 +57,10 @@ end
 ```
 
 ![search-bar](app/assets/images/readme/search_ignored.png)
-Fig 8. Search bar inactive
+Fig 9. Search bar inactive
 
 ![Index](app/assets/images/readme/search_children.png)
-Fig 9. Search keyword "children"
+Fig 10. Search keyword "children"
 
 
 The backend views utilizes Jbuilder to generate the appropriate JSON data feeds. The index view uses this syntax:
@@ -93,7 +97,7 @@ The registry shows the organization's title, category, address, purpose, and giv
 ![registry info](app/assets/images/readme/registry_2.png)
 
 ![registry location](app/assets/images/readme/registry_3.png)
-Fig 10. Registry shows profile photo, info, and location
+Fig 11. Registry shows profile photo, info, and location
 
 
 API keys are kept out of public access via the use of the figaro gem.
@@ -104,10 +108,10 @@ API keys are kept out of public access via the use of the figaro gem.
 The organization can edit their info any time by accessing their profile via the link on the top-right corner of the header, to the left of the logout link. The user has to be logged in to see this link.
 
 ![profile basic info](app/assets/images/readme/profile_basic.png)
-Fig 13. Change information
+Fig 12. Change information
 
 ![profile photo](app/assets/images/readme/profile_photo.png)
-Fig 14. Change profile photo
+Fig 13. Change profile photo
 
 Category and Items selections are pre-selected based on current information.
 
