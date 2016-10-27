@@ -52,7 +52,7 @@ User.create!(organization_name: "The Tree House",
              state: "Texas",
              zipcode: "78249",
              photo: "http://res.cloudinary.com/zlindacz/image/upload/v1473287528/u6g90inzw5toyhgsnamn.jpg",
-             description: "After school program for children in k-9"
+             description: "We are an after school program for children in k-9, structured to exercise all aspects of childhood development. We offer a range of activities to broaden their view of the world and to improve their community environment."
              )
 
 

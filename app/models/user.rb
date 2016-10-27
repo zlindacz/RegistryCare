@@ -48,8 +48,7 @@ class User < ActiveRecord::Base
   end
 
   def full_street_address
-    self.address1 + ' ' + self.address2 + ' ' + self.city + ' '
-    + self.state + ' ' + self.zipcode
+    self.address1 + ' ' + self.address2 + ' ' + self.city + ' ' + self.state + ' ' + self.zipcode
   end
 
   def set_lat_lng
