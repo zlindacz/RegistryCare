@@ -4,7 +4,7 @@
 
 Registry Care is a web application inspired by Thankful Registry (formerly Registry Love), for not-for-profit organizations to create registries for needed resources. It is built using Ruby on Rails on the backend, a PostgreSQL database, and vanilla JavaScript and React.js with a Redux architectural framework on the front-end.
 
-![splash](docs/readme/splash.png)
+![splash](app/assets/images/readme/splash.png)
 Fig 1. Splash page
 
 ### Features and Implementation
@@ -12,25 +12,25 @@ Fig 1. Splash page
 #### User Authentication
 The App features user authentication in the form of Login and Signup functionalities.
 
-![login modal](docs/readme/signin_modal.png)
+![login modal](app/assets/images/readme/login_modal.png)
 Fig 2. Login modal
 
 Signing up involves traversing through several information-gathering forms, including a form for uploading profile pictures, which are saved and optimized using the Cloudinary CDN.
 
-![signup basic info](docs/readme/signup_basic.png)
+![signup basic info](app/assets/images/readme/signup_basic.png)
 Fig 3. Signup - basic information
 
-![signup category](docs/readme/signup_category.png)
+![signup category](app/assets/images/readme/signup_category.png)
 Fig 4. Signup - select organization's category
 
-![signup items](docs/readme/signup_items.png)
+![signup items](app/assets/images/readme/signup_items.png)
 Fig 5. Signup - select needed items and create account
 
 Sensitive information is kept out of the front end of the app. Custom authentication methods are used to store hashed and salted passwords. The app makes API calls to the SessionController to fetch or create users.
 
 There are also two "tour" buttons on the homepage, as well as "Guest Login" link in the header for guests to log in and experience the site as if they have an account.
 
-![tour button](docs/readme/tour.png)
+![tour button](app/assets/images/readme/tour.png)
 Fig 6. Signup - Login as guest
 
 On the back-end, user information (contact info, photo url, and description) are stored in one table. User is linked to the categories by establishing a user-category join model, and similarly with items via user-items join model.
@@ -38,7 +38,7 @@ On the back-end, user information (contact info, photo url, and description) are
 #### Index
 Once the user is logged in, they will be brought to the index page, which displays all the participating organizations. The user can also return to the index page from elsewhere by clicking on the heart logo and "Care"  on the top left corner of the header. From here, the user can click on a picture with the logo of the organization and be directed to that organization's "registry". The index is styled using the React Masonry library which animates the entrance of the organization profiles.
 
-![Index](docs/readme/index.png)
+![Index](app/assets/images/readme/index.png)
 Fig 7. Index
 
 #### Search
@@ -52,10 +52,10 @@ def self.search(query)
 end
 ```
 
-![search-bar](docs/readme/search_ignored.png)
+![search-bar](app/assets/images/readme/search_ignored.png)
 Fig 8. Search bar inactive
 
-![Index](docs/readme/search_children.png)
+![Index](app/assets/images/readme/search_children.png)
 Fig 9. Search keyword "children"
 
 
@@ -89,15 +89,15 @@ end
 The registry shows the organization's title, category, address, purpose, and gives a list of items that they need. At the bottom Google Maps API is integrated into the app to show the location of the organization.
 
 
-![registry photo](docs/readme/registry_1.png)
+![registry photo](app/assets/images/readme/registry_1.png)
 Fig 10. Registry shows profile photo
 
 
-![registry info](docs/readme/registry_2.png)
+![registry info](app/assets/images/readme/registry_2.png)
 Fig 11. Registry shows profile info
 
 
-![registry location](docs/readme/registry_3.png)
+![registry location](app/assets/images/readme/registry_3.png)
 Fig 12. Registry shows location
 
 
