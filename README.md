@@ -31,7 +31,7 @@ Sensitive information is kept out of the front end of the app. Custom authentica
 There are also two "tour" buttons on the homepage, as well as "Guest Login" link in the header for guests to log in and experience the site as if they have an account.
 
 ![tour button](app/assets/images/readme/tour.png)
-Fig 6. Login as guest
+Fig 6. Log in as guest
 
 On the back-end, user information (contact info, photo url, and description) are stored in one table. User is linked to the categories by establishing a user-category join model, and similarly with items via user-items join model.
 
@@ -90,15 +90,10 @@ The registry shows the organization's title, category, address, purpose, and giv
 
 
 ![registry photo](app/assets/images/readme/registry_1.png)
-Fig 10. Registry shows profile photo
-
-
 ![registry info](app/assets/images/readme/registry_2.png)
-Fig 11. Registry shows profile info
-
 
 ![registry location](app/assets/images/readme/registry_3.png)
-Fig 12. Registry shows location
+Fig 10. Registry shows profile photo, info, and location
 
 
 API keys are kept out of public access via the use of the figaro gem.
