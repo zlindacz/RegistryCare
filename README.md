@@ -103,6 +103,20 @@ Fig 12. Registry shows location
 
 API keys are kept out of public access via the use of the figaro gem.
 
+
+#### Profile
+
+The organization can edit their info any time by accessing their profile via the link on the top-right corner of the header, to the left of the logout link. The user has to be logged in to see this link.
+
+![profile basic info](app/assets/images/readme/profile_basic.png)
+Fig 13. Change information
+
+![profile photo](app/assets/images/readme/profile_photo.png)
+Fig 14. Change profile photo
+
+Category and Items selections are pre-selected based on current information.
+
+
 ### Future Directions for the Project
 
 Future improvements will include:
