@@ -36,10 +36,10 @@ Item.create!([{item_type: 'CLOTHES', name: 'Tops'},
               {item_type: 'HOUSEHOLD', name: 'Books'},
               {item_type: 'HOUSEHOLD', name: 'Misc Items'},
 
-              {item_type: 'VOLUNTEER', name: 'Volunteer: No Preferences'},
-              {item_type: 'VOLUNTEER', name: 'Volunteer: Events'},
-              {item_type: 'VOLUNTEER', name: 'Volunteer: Mentor'},
-              {item_type: 'VOLUNTEER', name: 'Volunteer: Tutor'}])
+              {item_type: 'VOLUNTEER', name: 'No Preferences'},
+              {item_type: 'VOLUNTEER', name: 'Events'},
+              {item_type: 'VOLUNTEER', name: 'Mentor'},
+              {item_type: 'VOLUNTEER', name: 'Tutor'}])
 
 
 User.create!(organization_name: "The Tree House",

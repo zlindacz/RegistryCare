@@ -5,7 +5,7 @@
 Registry Care is a web application inspired by Thankful Registry (formerly Registry Love), for not-for-profit organizations to create registries for needed resources. It is built using Ruby on Rails on the backend, a PostgreSQL database, and vanilla JavaScript and React.js with a Redux architectural framework on the front-end.
 
 ![splash](app/assets/images/readme/splash.png)
-Fig 1. Splash page
+Fig 1. Landing page
 
 ### Features and Implementation
 
@@ -31,7 +31,7 @@ Sensitive information is kept out of the front end of the app. Custom authentica
 There are also two "tour" buttons on the homepage, as well as "Guest Login" link in the header for guests to log in and experience the site as if they have an account.
 
 ![tour button](app/assets/images/readme/tour.png)
-Fig 6. Signup - Login as guest
+Fig 6. Login as guest
 
 On the back-end, user information (contact info, photo url, and description) are stored in one table. User is linked to the categories by establishing a user-category join model, and similarly with items via user-items join model.
 
