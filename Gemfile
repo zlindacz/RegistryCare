@@ -20,7 +20,6 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'gon'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 # Use ActiveModel has_secure_password
