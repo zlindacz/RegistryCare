@@ -15,6 +15,7 @@ node_modules/
 bundle.js
 bundle.js.map
 docs/
+app/assets/images/profile_pictures
 
 # Ignore application configuration
 /config/application.yml
