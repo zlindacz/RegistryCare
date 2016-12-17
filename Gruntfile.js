@@ -53,8 +53,8 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('default', [
-    // 'clean',
-    // 'mkdir',
+    'clean',
+    'mkdir',
     'responsive_images',
     // 'watch',
   ]);
