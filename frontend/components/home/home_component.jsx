@@ -35,7 +35,7 @@ class Home extends React.Component {
             </div>
 
             <div className="home-org">
-              <img className="home-testimonial-photo" src="http://res.cloudinary.com/zlindacz/image/upload/c_scale,h_300,q_100,w_450/v1475086345/cafeteria_bdpl4r.jpg" />
+              <img className="home-testimonial-photo" src="http://res.cloudinary.com/zlindacz/image/upload/c_scale,h_300,q_100,w_450/v1475086345/cafeteria5_dmbfek.jpg" />
               <div className="quote">
                 <h2 className="home-testimonial-quote">Ever since we created our registry, our donation center has seen an increase in supplies every month. We are in the middle of expanding our program, so every bit helps.</h2>
                 <h3 className="home-testimonial-source">- For the Children in Ohio</h3>
@@ -61,3 +61,6 @@ class Home extends React.Component {
 }
 
 export default withRouter(Home);
+
+// IMAGE CREDIT:
+// Furniture & Cafeteria: www.pexels.com
