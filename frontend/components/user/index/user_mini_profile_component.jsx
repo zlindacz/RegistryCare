@@ -31,7 +31,7 @@ class MiniProfile extends React.Component {
                srcSet={firstMatch + quality600w + lastMatch + ' 600w',
                        firstMatch + quality1500w + lastMatch + ' 1500w'}
                alt="profile picture"
-               sizes="(max-width: 250px) 90vw, 40vw"/>
+               sizes="(max-width: 250px) 90vw, 40vw" />
           <h3>{this.user.organization_name}</h3>
         </figure>
       </div>
