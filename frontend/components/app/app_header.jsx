@@ -104,7 +104,9 @@ class AppHeader extends React.Component {
             <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
         <div className="header-img-logo" onClick={ this.navigateToHome }>
-          <img className="logo" src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png"/>
+          <img className="logo"
+               src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png"
+               alt="heart logo" />
           <p className="app-name">Care</p>
         </div>
         <SearchBar></SearchBar>
