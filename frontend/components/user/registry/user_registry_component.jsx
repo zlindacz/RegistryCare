@@ -10,6 +10,15 @@ class UserRegistry extends React.Component {
 
 
   render(){
+    const photoUrl = this.props.user.photo
+    const myRegex = /(^.*upload\/)(.*?$)/g;
+    var matched = myRegex.exec(photoUrl);
+    var firstMatch = matched[1];
+    var lastMatch = matched[2];
+    var quality250w = "f_auto,q_72,w_250/";
+    var quality600w = "f_auto,q_72,w_600/";
+    var quality1500w = "f_auto,q_72,w_1500/";
+
     const user = this.props.user;
     if (!user) {return(<div>Loading</div>);}
 
@@ -24,7 +33,12 @@ class UserRegistry extends React.Component {
         <h1 className="registry-tagline">{user.organization_name}</h1>
 
         <div className="registry-show">
-          <img className="logo-photo" src={user.photo} />
+          <img className="logo-photo"
+               src={firstMatch + quality1500w + lastMatch}
+               srcSet={firstMatch + quality250w + lastMatch + ' 250w',
+                       firstMatch + quality600w + lastMatch + ' 600w'}
+               alt="profile picture"
+               sizes="(max-width: 250px) 90vw, 40vw" />
 
           <div className="registry-block">
             <h3 className="registry-subtitle">Category:</h3>
