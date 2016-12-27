@@ -7,6 +7,9 @@ module.exports = {
     path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
+  node: {
+    fs: 'empty'
+  },
   module: {
     loaders: [
       {
@@ -20,11 +23,15 @@ module.exports = {
       {
         test: /masonry|imagesloaded|fizzy\-ui\-utils|desandro\-|outlayer|get\-size|doc\-ready|eventie|eventemitter/,
         loader: 'imports?define=>false&this=>window'
+      },
+      {
+        test: /\.json?$/,
+        loader: "json"
       }
     ]
   },
   devtool: 'source-maps',
   resolve: {
-    extensions: ["", ".js", ".jsx" ]
+    extensions: ["", ".js", ".jsx", ".json"]
   }
 };

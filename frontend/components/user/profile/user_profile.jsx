@@ -1,6 +1,8 @@
 import React from 'react';
 import merge from 'lodash/merge';
 import { withRouter } from 'react-router';
+import Style from 'react-style-tag';
+import MediaQuery from 'react-responsive';
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -154,6 +156,15 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    const photoUrl = this.state.photo
+    const myRegex = /(^.*upload\/)(.*?$)/g;
+    var matched = myRegex.exec(photoUrl);
+    var firstMatch = matched[1];
+    var lastMatch = matched[2];
+    var quality250w = "f_auto,q_72,w_250/";
+    var quality600w = "f_auto,q_72,w_600/";
+    var quality1500w = "f_auto,q_72,w_1500/";
+
     return(
       <div>
         <form className="update-form" onSubmit={ this.submit }>
@@ -175,7 +186,27 @@ class UserProfile extends React.Component {
             <div className="profile-photo">
               <h2 className="profile-title">Your Photo</h2>
               <div className="border">
-                <div className=""><img className="image" src={this.state.photo} alt="profile picture"/></div>
+                <div className="">
+                  <img className="image"
+                       src={firstMatch + quality600w + lastMatch}
+                       srcSet={firstMatch + quality250w + lastMatch + ' 250w',
+                                 firstMatch + quality600w + lastMatch + ' 600w',
+                                 firstMatch + quality1500w + lastMatch + ' 1500w'}
+                       alt="profile picture"
+                       sizes="(max-width: 250px) 90vw, 40vw"/>
+                    <Style>{`
+                      .image {
+                        width: 40vw;
+                        border: 2px solid blue;
+                      }
+                      @media screen and (max-width: 250px) {
+                        .image {
+                          width: 90vw;
+                          border: 2px solid red;
+                        }
+                      }
+                    `}</Style>
+                </div>
                 <button onClick={this.upload} className="profile-photo-change-button">Change Photo</button>
               </div>
             </div>
