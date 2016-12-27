@@ -193,19 +193,7 @@ class UserProfile extends React.Component {
                                  firstMatch + quality600w + lastMatch + ' 600w',
                                  firstMatch + quality1500w + lastMatch + ' 1500w'}
                        alt="profile picture"
-                       sizes="(max-width: 250px) 90vw, 40vw"/>
-                    <Style>{`
-                      .image {
-                        width: 40vw;
-                        border: 2px solid blue;
-                      }
-                      @media screen and (max-width: 250px) {
-                        .image {
-                          width: 90vw;
-                          border: 2px solid red;
-                        }
-                      }
-                    `}</Style>
+                       sizes="(max-width: 250px) 90vw, 40vw" />
                 </div>
                 <button onClick={this.upload} className="profile-photo-change-button">Change Photo</button>
               </div>
