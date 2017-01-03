@@ -18,8 +18,8 @@ class Home extends React.Component {
     return (
       <div className="home">
         <section className="home-quote-block">
-          <h1 className="home-tagline">giving</h1>
-          <h1 className="home-tagline2">just got easier</h1>
+          <h1 className="home-tagline-top">giving</h1>
+          <h1 className="home-tagline-bottom">just got easier</h1>
           <button className="home-tour-button" onClick={this.guestLogin}>Take a tour</button>
         </section>
 
@@ -31,9 +31,10 @@ class Home extends React.Component {
                 <h2 className="home-testimonial-quote">I move a lot. Using Registry Care, I can find dozens of organizations in my local area that will take my gently using clothes, appliances, and furniture.</h2>
                 <h3 className="home-testimonial-source">- Linda in San Francisco</h3>
               </div>
-              <img className="home-testimonial-photo"
-                   src="http://res.cloudinary.com/zlindacz/image/upload/c_scale,h_300,q_100,w_533/v1475086346/furniture_yb6krb.jpg"
-                   alt="photo of a single seat sofa on a street outside" />
+              <div className="home-testimonial-photo">
+                <img src="http://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_1500/v1475086346/furniture_yb6krb.jpg"
+                     alt="photo of a single seat sofa on a street outside" />
+               </div>
             </div>
 
             <div className="home-org">

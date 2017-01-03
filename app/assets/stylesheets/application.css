@@ -15,7 +15,7 @@
  */
 
 
-html, body, section, figure, article, textarea, h1, h2, h3, h4, p, ul, li {
+html, body, section, figure, article, textarea, h1, h2, h3, h4, p, ul, li, a {
   margin: 0;
   border: 0;
   padding: 0;
@@ -37,15 +37,103 @@ ul, li {
   padding-left: 10px;
 }
 
+.container {
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    width: 300px;
+  }
+}
+@media screen and (min-width: 525px) {
+  .container {
+    width: 500px;
+  }
+}
+@media screen and (min-width: 1030px) {
+  .container {
+    width: 1000px;
+  }
+}
+@media screen and (min-width: 1250px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+.row {
+  width: 100%;
+}
+
+.col-1 {
+  width: 8.8333333%;
+}
+
+.col-2 {
+  width: 17.6666667%;
+}
+
+.col-3 {
+  width: 25%;
+}
+
+.col-4 {
+  width: 33.3333333%;
+}
+
+.col-5 {
+  width: 41.6666667%
+}
+
+.col-6 {
+  width: 50%;
+}
+
+.col-8 {
+  width: 66.6666667%;
+}
+
+.col-9 {
+  width: 75%;
+}
+
+.col-10 {
+  width: 83.3333333%;
+}
+
+.col-11 {
+  width: 91.6666667%;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.center {
+  float: none;
+  margin: 0 auto;
+}
+
+.offset-4 {
+  margin-left: 33.33333%;
+}
+
 .background-image-top {
   position: relative;
-  background: url("http://res.cloudinary.com/zlindacz/image/upload/o_55/b_rgb:5e230e/v1473195184/hands_euokot.jpg") no-repeat center center fixed;
+  background: url("http://res.cloudinary.com/zlindacz/image/upload/b_rgb:a96424,o_55,f_auto,q_72,w_1200/v1473195184/hands_euokot.jpg") no-repeat center center fixed;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   max-width: 100%;
   height: 60vh;
+}
+
+@media screen and (max-width: 300px) {
+  background: url("http://res.cloudinary.com/zlindacz/image/upload/b_rgb:a96424,o_55,f_auto,q_72,w_300/v1473195184/hands_euokot.jpg") no-repeat center center fixed;
+  height: 100vh;
 }
 
 body {
@@ -56,23 +144,28 @@ body {
   position: relative;
   display: flex;
   justify-content: space-between;
-  border-bottom: 3px solid rgba(232, 212, 139, 0.84);
-  border-radius: 35%;
-  margin-bottom: 20px;
-  padding: 5px 35px;
+  /*border-bottom: 3px solid rgba(232, 212, 139, 0.84);*/
+  /*border-radius: 35%;*/
+  padding-bottom: 2vh;
+  /*padding: 5px 35px;*/
+  /*width: 100%;*/
 }
 
 .header-img-logo {
   box-sizing: border-box;
   display: flex;
-  flex-direction: row;
+  /*padding: 1vw;*/
 }
 
 .logo {
-  height: 33px;
-  width: 33px;
-  margin: 5px 5px 15px 5px;
-  padding: 5px;
+  height: 4.1vw;
+  width: 4.1vw;
+  max-width: 50px;
+  max-height: 50px;
+  margin-top: 1.8vh;
+  margin-left: 5vw;
+  /*margin: 5px 5px 15px 5px;*/
+  padding: 1vmax;
 }
 
 .logo:hover {
@@ -80,55 +173,57 @@ body {
 }
 
 .app-name {
-  text-align: center;
-  margin: 10px 5px 10px 0;
-  font-size: 42px;
+  /*text-align: center;*/
+  margin-top: 2.5vh;
+  padding-top: 1vmax;
+  font-size: 3vmax;
   font-family: 'Josefin Sans', sans-serif;
-  color: rgba(240, 238, 228, 0.88);
-}
-
-.browse-link {
-  padding: 10px;
-  margin: 10px 0 0 20px;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  color: white;
+  font-weight: 600;
+  color: rgba(252, 245, 217, 0.9);
 }
 
 .app-name:hover {
   cursor: pointer;
 }
 
-.welcome-message {
-  color: rgba(210, 205, 177, 0.88);
-  font-size: 50px;
-  margin: 7px;
-  position: absolute;
-  top: 140px;
-  left: 70px
+@media screen and (max-width: 500px) {
+  .app-name {
+    display: none;
+  }
 }
 
 .header-list {
   display: flex;
   align-items: flex-end;
+  padding: 1vw;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
 }
 
 .header-list > li {
-  padding: 10px;
-  margin-top: 10px;
+  padding: 1.5vw;
+  /*margin-top: 1.3vh;*/
   text-align: center;
-  font-size: 16px;
+  font-size: 1.5vw;
   cursor: pointer;
-  color: white;
+  color: rgba(252, 245, 217, 0.9);
 }
 
-.header-list > li:hover, .browse-link:hover {
+.header-list > li:hover {
   box-shadow: 0 -2px rgb(244, 21, 21);
 }
 
 .header-list:last-child {
   margin-right: 10px;
+}
+
+.welcome-message {
+  color: rgba(210, 205, 177, 0.88);
+  font-size: 3vmin;
+  margin: 2vmax;
+  position: absolute;
+  top: 140px;
+  left: 70px
 }
 
 .background-image-foot {
@@ -139,8 +234,14 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  width: 100vw;
+  width: 100%;
   height: 40vh;
+}
+
+@media screen and (max-width: 300px) {
+  .background-image-foot {
+    background: url("http://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_300/v1473363957/dog-shelter_bmzdyk.jpg") no-repeat fixed;
+  }
 }
 
 .search-bar {
@@ -156,7 +257,7 @@ body {
 .search-bar-input {
   padding: 10px;
   font-size: 20px;
-  width: 700px;
+  width: 100%;
   border-radius: 3px;
   opacity: 0.7;
   transition: opacity .25s ease-in-out;
@@ -180,10 +281,10 @@ body {
 .footer-cap {
   color: white;
   background-color: black;
-  height: 40px;
+  height: 4vh;
   position: absolute;
   bottom: 0;
-  width: 100vw;
+  width: 100%;
 }
 
 .tagline {

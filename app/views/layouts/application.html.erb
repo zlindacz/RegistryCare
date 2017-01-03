@@ -3,7 +3,7 @@
   <head>
     <title>Registry Care</title>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://use.fontawesome.com/af4e777a95.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Palanquin+Dark" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:200,300,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}" %>
@@ -30,9 +30,8 @@
             user: current_user).html_safe %>
       <% end %>
     </script>
-
   </head>
-<body>
-  <%= yield %>
-</body>
+  <body>
+    <%= yield %>
+  </body>
 </html>
