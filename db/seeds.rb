@@ -5,10 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+# To push the changes to heroku, first commit and push changes to github
 # heroku pg:reset DATABASE --confirm registry-care
-# heroku run rake db:setup
-# heroku run rake db:migrate
-# heroku run rake db:seed
+# heroku run rake db:setup (db:create, db:schema:load, db:seed)
 
 # Seeds for categories table
 ['AIDS', 'Animals', 'Arts & Culture', 'Breast Cancer',
