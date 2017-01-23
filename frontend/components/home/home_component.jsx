@@ -32,15 +32,21 @@ class Home extends React.Component {
                 <h3 className="home-testimonial-source">- Linda in San Francisco</h3>
               </div>
               <div className="home-testimonial-photo">
-                <img src="http://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_1500/v1475086346/furniture_yb6krb.jpg"
-                     alt="photo of a single seat sofa on a street outside" />
+                <img src="https://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_300/v1475086346/furniture_yb6krb.jpg"
+                     alt="photo of a single seat sofa on a street outside"
+                     srcSet="https://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_300/v1475086346/furniture_yb6krb.jpg 650w,
+                             https://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_1500/v1475086346/furniture_yb6krb.jpg 1500w"
+                     sizes="(min-width: 1200px) 1500px, 100vw"/>
                </div>
             </div>
 
             <div className="home-org">
               <img className="home-testimonial-photo"
-                   src="http://res.cloudinary.com/zlindacz/image/upload/c_scale,h_300,q_100,w_450/v1475086345/cafeteria5_dmbfek.jpg"
-                   alt="photo of a green-tiled cafeteria" />
+                   src="https://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_300/v1475086345/cafeteria5_dmbfek.jpg"
+                   alt="photo of a green-tiled cafeteria"
+                   srcSet="https://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_650/v1475086345/cafeteria5_dmbfek.jpg 650w,
+                           https://res.cloudinary.com/zlindacz/image/upload/f_auto,q_72,w_1500/v1475086345/cafeteria5_dmbfek.jpg 1500w"
+                   sizes="(min-width: 1200px) 1500px, 100vw"/>
               <div className="quote">
                 <h2 className="home-testimonial-quote">Ever since we created our registry, our donation center has seen an increase in supplies every month. We are in the middle of expanding our program, so every bit helps.</h2>
                 <h3 className="home-testimonial-source">- For the Children in Ohio</h3>

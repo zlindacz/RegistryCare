@@ -10,13 +10,13 @@ class App extends React.Component {
   render() {
     return(
       <div className="app row">
-        <div class="col-12">
+        <div className="col-12">
           <div className="background-image-top"><AppHeader /></div>
         </div>
-        <div class="col-12">
+        <div className="col-12">
           {this.props.children}
         </div>
-        <div class="col-12">
+        <div className="col-12">
           <div className="background-image-foot"><AppFooter /></div>
         </div>
       </div>

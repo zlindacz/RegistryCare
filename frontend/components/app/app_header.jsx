@@ -66,8 +66,8 @@ class AppHeader extends React.Component {
 
   notLoggedIn() {
     return(
-      <div class="row">
-        <div class="col-12">
+      <div className="row">
+        <div className="col-12">
           <ul className="header-list">
             <li><a onClick={this.guestLogin}>Guest Login</a></li>
             <li><a onClick={this.navigateToSignup}>Sign Up</a></li>
@@ -106,7 +106,7 @@ class AppHeader extends React.Component {
             errorStatus={ this.state.freshErrors } />
           <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
-        <div class="col-2">
+        <div className="col-2">
           <div className="header-img-logo" onClick={ this.navigateToHome }>
             <img className="logo"
               src="http://res.cloudinary.com/zlindacz/image/upload/v1483217370/heart2_icwkjp.png"
@@ -114,7 +114,7 @@ class AppHeader extends React.Component {
             <p className="app-name">Care</p>
           </div>
         </div>
-        <div class="col-10">
+        <div className="col-10">
           { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
         </div>
       </header>
