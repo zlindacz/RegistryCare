@@ -57,18 +57,19 @@
 // }
 .home-tagline-top {
   display: inline;
-  width: 40%;
+  // width: 40%;
   font-family: 'Josefin Sans', sans-serif;
   // font-size: 70px;
   font-size: 10vmin;
   margin: 0 auto;
   color: rgba(240, 228, 193, 0.9);
-  border-bottom: 1px solid rgba(240, 228, 193, 0.9);
 }
 
 .home-tagline-bottom {
+  border-top: 1px solid rgba(240, 228, 193, 0.9);
   display: inline;
-  padding: 10px 5px;
+  padding: 10px 0;
+  margin: 0 auto;
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 8vmin;
