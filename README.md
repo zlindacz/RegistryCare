@@ -1,5 +1,12 @@
 ## Registry Care
 
+[0. order of branches]: # (comment on the order of branches)
+[1. master]: # (always changing with the latest push)
+[2. version2]: # (saved copy of the oldest design)
+[3. google_map_api]: # (incorporated maps in registry)
+[4. responsive-design]: # (included grid system)
+[5. details]: # (branch of master before responsive-design)
+
 [Live link](https://registry-care.herokuapp.com/#/?_k=m0qytc)
 
 Registry Care is a web application inspired by Thankful Registry (formerly Registry Love), for not-for-profit organizations to create registries for needed resources. It is built using Ruby on Rails on the backend, a PostgreSQL database, and vanilla JavaScript and React.js with a Redux architectural framework on the front-end.
