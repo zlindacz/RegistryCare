@@ -66,51 +66,52 @@ class AppHeader extends React.Component {
 
   notLoggedIn() {
     return(
-      <div>
-        <ul className="header-list group">
-          <li><a onClick={this.guestLogin}>Guest Login</a></li>
-          <li><a onClick={this.navigateToSignup}>Sign Up</a></li>
-          <li><a onClick={() => this.openModal()}>Log In</a></li>
-        </ul>
-      </div>
-      );
-   }
+      <ul className="header-list">
+        <li><a onClick={this.guestLogin}>Guest Login</a></li>
+        <li><a onClick={this.navigateToSignup}>Create Registry</a></li>
+        <li><a onClick={() => this.openModal()}>Log In</a></li>
+      </ul>
+    );
+  }
 
   loggedIn() {
     return(
-      <div>
-        <ul className="header-list group">
-          <p className="welcome-message">
-            Welcome back, { this.props.currentUser.username }!
-          </p>
-          <li><a onClick={ this.navigateToProfile }>Profile</a></li>
-          <li><a onClick={ this.handleLogout }>Log Out</a></li>
-        </ul>
-      </div>
+      <ul className="header-list">
+        <h2 className="welcome-message">
+          Welcome back, { this.props.currentUser.username }!
+        </h2>
+        <SearchBar></SearchBar>
+        <li><a onClick={ this.navigateToHome }>Index</a></li>
+        <li><a onClick={ this.navigateToProfile }>Profile</a></li>
+        <li><a onClick={ this.handleLogout }>Log Out</a></li>
+      </ul>
     );
   }
 
   render() {
     return(
-      <header className="header-nav">
+      <header className="row header-nav">
         <Modal
-          isOpen={ this.state.modalOpen }
-          onRequestClose={ this.closeModal }
-          style={ ModalStyle }
-          onAfterOpen={this.onModalOpen}>
-            <LoginFormContainer
-              closeModal={ this.closeModal }
-              errorStatus={ this.state.freshErrors } />
-            <a onClick={this.closeModal} className="modal-close-link">Close</a>
+            isOpen={ this.state.modalOpen }
+            onRequestClose={ this.closeModal }
+            style={ ModalStyle }
+            onAfterOpen={this.onModalOpen}>
+          <LoginFormContainer
+            closeModal={ this.closeModal }
+            errorStatus={ this.state.freshErrors } />
+          <a onClick={this.closeModal} className="modal-close-link">Close</a>
         </Modal>
-        <div className="header-img-logo" onClick={ this.navigateToHome }>
-          <img className="logo"
-               src="http://res.cloudinary.com/zlindacz/image/upload/v1473195164/heart_ljdual.png"
-               alt="heart logo" />
-          <p className="app-name">Care</p>
+        <div className="col-2">
+          <div className="header-img-logo" onClick={ this.navigateToHome }>
+            <img className="logo"
+              src="http://res.cloudinary.com/zlindacz/image/upload/v1483217370/heart2_icwkjp.png"
+              alt="heart logo" />
+            <p className="app-name">Care</p>
+          </div>
         </div>
-        <SearchBar></SearchBar>
-        { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
+        <div className="col-10 right">
+          { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
+        </div>
       </header>
     );
   }

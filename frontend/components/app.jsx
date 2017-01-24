@@ -9,10 +9,22 @@ class App extends React.Component {
 
   render() {
     return(
-      <div className="app">
-        <div className="background-image-top"><AppHeader /></div>
-        {this.props.children}
-        <div className="background-image-foot"><AppFooter /></div>
+      <div>
+        <div className="app row">
+          <div className="col-12">
+            <div className="background-image-top"><AppHeader /></div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            {this.props.children}
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            <div className="background-image-foot"><AppFooter /></div>
+          </div>
+        </div>
       </div>
     );
   }

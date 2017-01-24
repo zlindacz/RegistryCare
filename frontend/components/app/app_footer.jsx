@@ -9,9 +9,8 @@ class AppFooter extends React.Component {
 
   render() {
     return(
-      <footer className="footer-nav">
-
-        <div className="footer-cap">
+      <footer className="row footer-nav">
+        <div className="col-12 footer-cap">
         </div>
       </footer>
     );

@@ -4,7 +4,7 @@
 
 .home-quote-block {
   position: absolute;
-  top: -25%;
+  top: -40vh;
   width: 100%;
   max-width: 100%;
   text-align: center;
@@ -14,9 +14,9 @@
   padding: 0;
   text-transform: uppercase;
   animation: fadein 2s;
-  -moz-animation: fadein 2s; /* Firefox */
-  -webkit-animation: fadein 2s; /* Safari and Chrome */
-  -o-animation: fadein 2s; /* Opera */
+    -webkit-animation: fadein 2s; /* Safari and Chrome */
+       -moz-animation: fadein 2s; /* Firefox */
+         -o-animation: fadein 2s; /* Opera */
 }
 
 @keyframes fadein {
@@ -36,39 +36,39 @@
     to { opacity: 1; }
 }
 
-.home-tagline {
+.home-tagline-top {
   display: inline;
-  width: 40%;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 70px;
+  font-size: 10vmin;
   margin: 0 auto;
   color: rgba(240, 228, 193, 0.9);
-  border-bottom: 1px solid rgba(240, 228, 193, 0.9);
 }
 
-.home-tagline2 {
+.home-tagline-bottom {
+  border-top: 1px solid rgba(240, 228, 193, 0.9);
   display: inline;
-  padding: 10px 5px;
+  padding: 10px 0;
+  margin: 0 auto;
   text-align: center;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 60px;
+  font-size: 8vmin;
   color: rgba(240, 228, 193, 0.9);
   opacity: 1;
 }
 
 .home-tour-button {
   padding: 10px;
-  width: 150px;
   margin: 15px auto;
+  width: 150px;
   background-color: rgb(240, 193, 52);
   color: rgb(34, 28, 28);
-  font-size: 16px;
-  text-transform: uppercase;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
   border-radius: 10px;
 }
 
-.home-tour-button:hover{
+.home-tour-button:hover {
   background-color: rgba(241, 210, 118, 0.89);
   color: rgb(34, 28, 28);
   font-weight: bold;
@@ -80,46 +80,55 @@
 }
 
 .home-testimonials {
-  width: 800px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
 }
 
 .home-user {
+  width: 90vw;
   display: flex;
-  margin: 70px 0 50px 0;
+  flex-wrap: wrap;
+  margin: 7vmax 0 5vmax 0;
 }
 
 .home-org {
+  width: 90vw;
   display: flex;
-  padding: 20px 0 0 0;
+  flex-wrap: wrap;
+  margin: 0 0 4vmax 0;
 }
 
 .home-testimonial-quote {
   font-family: 'Sorts Mill Goudy', serif;
   font-style: italic;
-  font-size: 20px;
-  margin: 50px 30px 20px 30px;
+  font-size: 1.5vmax;
+  // margin: 50px 30px 20px 30px;
+  margin: 4vmax 3vmax 2vmax 3vmax; 
   text-align: center;
 }
 
 .home-testimonial-photo {
-  max-width: 100%;
+  max-width: 80%;
 }
 
 .home-testimonial-source {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: 1vmax;
   text-align: center;
+}
+
+.quote {
+  width: 100%;
 }
 
 .why-quotes {
   display: flex;
-  width: 550px;
-  margin: 40px auto;
+  width: 50vw;
   flex-direction: column;
   align-items: center;
+  padding: 0 0 2vmax 0;
 }
 
 .home-quote {
@@ -135,11 +144,11 @@
   font-size: 12px;
   color: rgba(54, 26, 11, 0.92);
   font-family: 'Open Sans', sans-serif;
-  font-style: italic;
   text-align: center;
 }
 
 .last-bid {
+  width: 50vw;
   display: flex;
   flex-direction: column;
   margin: 20px;
@@ -147,7 +156,7 @@
 }
 
 .give-today {
-  font-family: 'Libre Franklin', sans-serif;
+  font-family: 'Open sans', sans-serif;
   font-size: 22px;
   text-align: center;
   color: rgba(51, 23, 3, 0.89);

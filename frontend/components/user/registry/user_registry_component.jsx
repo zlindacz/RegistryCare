@@ -10,7 +10,7 @@ class UserRegistry extends React.Component {
 
 
   render(){
-    const photoUrl = this.props.user.photo
+    const photoUrl = this.props.user.photo;
     const myRegex = /(^.*upload\/)(.*?$)/g;
     var matched = myRegex.exec(photoUrl);
     var firstMatch = matched[1];
