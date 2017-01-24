@@ -87,33 +87,35 @@
 }
 
 .home-user {
-  width: 50vw;
+  width: 90vw;
   display: flex;
-  margin: 5vmax 0 3vmax 0;
   flex-wrap: wrap;
+  margin: 7vmax 0 5vmax 0;
 }
 
 .home-org {
-  width: 50vw;
+  width: 90vw;
   display: flex;
   flex-wrap: wrap;
+  margin: 0 0 4vmax 0;
 }
 
 .home-testimonial-quote {
   font-family: 'Sorts Mill Goudy', serif;
   font-style: italic;
-  font-size: 20px;
-  margin: 50px 30px 20px 30px;
+  font-size: 1.5vmax;
+  // margin: 50px 30px 20px 30px;
+  margin: 4vmax 3vmax 2vmax 3vmax; 
   text-align: center;
 }
 
 .home-testimonial-photo {
-  max-width: 100%;
+  max-width: 80%;
 }
 
 .home-testimonial-source {
   font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
+  font-size: 1vmax;
   text-align: center;
 }
 
@@ -126,6 +128,7 @@
   width: 50vw;
   flex-direction: column;
   align-items: center;
+  padding: 0 0 2vmax 0;
 }
 
 .home-quote {
