@@ -66,30 +66,25 @@ class AppHeader extends React.Component {
 
   notLoggedIn() {
     return(
-      <div className="row">
-        <div className="col-12">
-          <ul className="header-list">
-            <li><a onClick={this.guestLogin}>Guest Login</a></li>
-            <li><a onClick={this.navigateToSignup}>Sign Up</a></li>
-            <li><a onClick={() => this.openModal()}>Log In</a></li>
-          </ul>
-        </div>
-      </div>
-      );
-   }
+      <ul className="header-list">
+        <li><a onClick={this.guestLogin}>Guest Login</a></li>
+        <li><a onClick={this.navigateToSignup}>Create Registry</a></li>
+        <li><a onClick={() => this.openModal()}>Log In</a></li>
+      </ul>
+    );
+  }
 
   loggedIn() {
     return(
-      <div>
-        <ul className="header-list">
-          <p className="welcome-message">
-            Welcome back, { this.props.currentUser.username }!
-          </p>
-          <SearchBar></SearchBar>
-          <li><a onClick={ this.navigateToProfile }>Profile</a></li>
-          <li><a onClick={ this.handleLogout }>Log Out</a></li>
-        </ul>
-      </div>
+      <ul className="header-list">
+        <h2 className="welcome-message">
+          Welcome back, { this.props.currentUser.username }!
+        </h2>
+        <SearchBar></SearchBar>
+        <li><a onClick={ this.navigateToHome }>Index</a></li>
+        <li><a onClick={ this.navigateToProfile }>Profile</a></li>
+        <li><a onClick={ this.handleLogout }>Log Out</a></li>
+      </ul>
     );
   }
 
@@ -114,7 +109,7 @@ class AppHeader extends React.Component {
             <p className="app-name">Care</p>
           </div>
         </div>
-        <div className="col-10">
+        <div className="col-10 right">
           { this.props.currentUser ? this.loggedIn() : this.notLoggedIn() }
         </div>
       </header>
