@@ -21,13 +21,20 @@ class UserIndex extends React.Component {
       return <MiniProfile key={user.id} user={user} />
     });
 
+    const results = () {
+      if (this.props.users === []) {
+        return "No matches found.";
+      } else {
+        return miniProfiles;
+      }
+    }
 
     return(
       <div className="index-parent">
         <h1 className="tagline">All Organizations</h1>
         <div className="organizations">
           <Masonry className="masonry">
-            {miniProfiles}
+            {results}
           </Masonry>
         </div>
       </div>
