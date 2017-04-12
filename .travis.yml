@@ -1,8 +1,8 @@
 {
-  "language": "ruby",
-  "group": "stable",
-  "dist": "precise",
-  "os": "linux",
-  "rvm":
+  language: "ruby",
+  group: "stable",
+  dist: "precise",
+  os: "linux",
+  rvm:
     - 2.2
 }
