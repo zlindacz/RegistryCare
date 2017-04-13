@@ -21,11 +21,17 @@ class UserIndex extends React.Component {
       return <MiniProfile key={user.id} user={user} />
     });
 
+    const results = (scope) => {
+      if (scope.users.length === 0) {
+        return "No matches found.";
+      }
+    };
 
     return(
       <div className="index-parent">
         <h1 className="tagline">All Organizations</h1>
         <div className="organizations">
+          <h1 className="no-matches">{results(this.props)}</h1>
           <Masonry className="masonry">
             {miniProfiles}
           </Masonry>

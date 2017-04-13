@@ -19,6 +19,16 @@
   margin: 30px 50px;
 }
 
+.no-matches {
+  position: absolute;
+  top: 65px;
+  left: 100px;
+  font-family: 'Libre Franklin', sans-serif;
+  font-size: 30px;
+  margin: 40px 20px 20px 20px;
+  color: rgba(98, 67, 35, 0.92);
+}
+
 .mini-organization {
   margin: 10px 40px;
   opacity: 1;
