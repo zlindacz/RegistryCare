@@ -15,6 +15,7 @@ node_modules/
 npm-debug.log
 docs/
 app/assets/images/
+.byebug_history
 
 # Ignore application configuration
 /config/application.yml
