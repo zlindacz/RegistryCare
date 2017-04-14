@@ -25,7 +25,6 @@ class UserIndex extends React.Component {
       if (scope.users.length === 0) {
         return "No matches found.";
       }
-
     };
 
     return(
