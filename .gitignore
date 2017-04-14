@@ -13,11 +13,8 @@
 /tmp
 node_modules/
 npm-debug.log
-bundle.js
-bundle.js.map
 docs/
-app/assets/images/profile_pictures
-app/assets/images/others
+app/assets/images/
 
 # Ignore application configuration
 /config/application.yml
