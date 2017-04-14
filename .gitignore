@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 node_modules/
+npm-debug.log
 bundle.js
 bundle.js.map
 docs/
